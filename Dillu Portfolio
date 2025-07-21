@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio - [Your Name]</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="#" class="logo">📸 [Your Name]</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section animate-on-scroll">
+        <div class="hero-content">
+            <h1>Capture Moments. Tell Stories.</h1>
+            <p>Passionate photography that speaks to the soul.</p>
+            <a href="#portfolio" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <h2 class="animate-on-scroll">My Portfolio</h2>
+        <div class="gallery">
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://via.placeholder.com/600x400/FF5733/FFFFFF?text=Landscape+1" alt="Landscape Photo 1">
+                <div class="overlay"><h3>Nature's Grandeur</h3><p>Exploring vast horizons.</p></div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://via.placeholder.com/600x400/33FF57/FFFFFF?text=Portrait+1" alt="Portrait Photo 1">
+                <div class="overlay"><h3>Candid Soul</h3><p>Capturing genuine emotions.</p></div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://via.placeholder.com/600x400/3357FF/FFFFFF?text=Street+1" alt="Street Photo 1">
+                <div class="overlay"><h3>Urban Echoes</h3><p>Stories from the asphalt jungle.</p></div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://via.placeholder.com/600x400/FFFF33/333333?text=Wildlife+1" alt="Wildlife Photo 1">
+                <div class="overlay"><h3>Wild Encounters</h3><p>Beauty in the natural habitat.</p></div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://via.placeholder.com/600x400/FF33FF/FFFFFF?text=Food+1" alt="Food Photo 1">
+                <div class="overlay"><h3>Culinary Delights</h3><p>Art of gastronomy.</p></div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="https://via.placeholder.com/600x400/33FFFF/333333?text=Architecture+1" alt="Architecture Photo 1">
+                <div class="overlay"><h3>Structured Beauty</h3><p>Lines and forms of design.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section animate-on-scroll">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="https://via.placeholder.com/300x300/CCCCCC/000000?text=Your+Profile+Pic" alt="Your Profile Picture">
+            <p>Hello! I'm [Your Name], a passionate photographer based in [Your City/Region]. My journey into photography began [Year] when I picked up my first camera and fell in love with capturing the world through my lens. I specialize in [e.g., landscape, portrait, street, wildlife] photography, always seeking to find the unique story in every frame.</p>
+            <p>My goal is to create images that evoke emotion, inspire wonder, and preserve fleeting moments for eternity. Let's create something beautiful together!</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section animate-on-scroll">
+        <h2>Get In Touch</h2>
+        <p>Have a project in mind or just want to say hello? I'd love to hear from you!</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
