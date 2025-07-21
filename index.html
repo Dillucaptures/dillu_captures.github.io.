@@ -142,37 +142,3 @@
     <footer>
         <p>&copy; 2025 [Your Company Name]. All rights reserved.</p>
     </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            once: true, // animations once
-        });
-
-        // Simple smooth scrolling for navigation
-        document.querySelectorAll('nav ul li a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close hamburger menu on item click if open
-                const navLinks = document.querySelector('nav ul');
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    document.querySelector('.hamburger').classList.remove('active');
-                }
-            });
-        });
-
-        // Hamburger menu functionality
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('nav ul');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
-    </script>
-</body>
