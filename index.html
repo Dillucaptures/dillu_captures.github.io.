@@ -2,45 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dillu Capture | Photography Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dillu Capture | Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: 0.3s ease-in-out;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .contact {
+      background: #222;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .contact h2 {
+      margin-bottom: 10px;
+    }
+    .contact p {
+      margin: 5px 0;
+    }
+    .social a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2em;
+      margin: 0 10px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-text">
-      <h1>Dillu Capture</h1>
-      <p>Professional Photography Portfolio</p>
-    </div>
+
+  <header>
+    <h1>Dillu Capture</h1>
+    <p>Capturing moments from today, creating memories for a lifetime.</p>
   </header>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm Dillu, a passionate photographer capturing moments that tell stories. I specialize in nature, portrait, and event photography.</p>
-  </section>
-
   <section class="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="https://source.unsplash.com/400x300/?nature" alt="Nature">
-      <img src="https://source.unsplash.com/400x300/?portrait" alt="Portrait">
-      <img src="https://source.unsplash.com/400x300/?event" alt="Event">
-      <img src="https://source.unsplash.com/400x300/?travel" alt="Travel">
-    </div>
+    <img src="https://source.unsplash.com/600x400/?nature" alt="Photo 1">
+    <img src="https://source.unsplash.com/601x400/?portrait" alt="Photo 2">
+    <img src="https://source.unsplash.com/602x400/?street" alt="Photo 3">
+    <img src="https://source.unsplash.com/603x400/?wedding" alt="Photo 4">
+    <img src="https://source.unsplash.com/604x400/?fashion" alt="Photo 5">
+    <img src="https://source.unsplash.com/605x400/?travel" alt="Photo 6">
   </section>
 
   <section class="contact">
-    <h2>Contact</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <h2>Contact Me</h2>
+    <p>Email: dillucapture@example.com</p>
+    <p>Phone: +91-9876543210</p>
+    <div class="social">
+      <a href="https://www.instagram.com/yourusername" target="_blank">📷 Instagram</a>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Dillu Capture. All rights reserved.</p>
+    &copy; 2025 Dillu Capture. All rights reserved.
   </footer>
+
 </body>
 </html>
