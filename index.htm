@@ -5,16 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dillu Captures</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <!-- Optional: Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     header {
@@ -26,19 +22,9 @@
       animation: fadeIn 1s ease-out forwards;
     }
 
-    .gallery img:nth-child(1) { animation-delay: 0.2s; }
-    .gallery img:nth-child(2) { animation-delay: 0.4s; }
-    .gallery img:nth-child(3) { animation-delay: 0.6s; }
-    .gallery img:nth-child(4) { animation-delay: 0.8s; }
-    .gallery img:nth-child(5) { animation-delay: 1.0s; }
-    .gallery img:nth-child(6) { animation-delay: 1.2s; }
-    .gallery img:nth-child(7) { animation-delay: 1.4s; }
-    .gallery img:nth-child(8) { animation-delay: 1.6s; }
-    .gallery img:nth-child(9) { animation-delay: 1.8s; }
-    .gallery img:nth-child(10) { animation-delay: 2.0s; }
-    .gallery img:nth-child(11) { animation-delay: 2.2s; }
-    .gallery img:nth-child(12) { animation-delay: 2.4s; }
-    .gallery img:nth-child(13) { animation-delay: 2.6s; }
+    .gallery img:nth-child(n) {
+      animation-delay: calc(0.2s * var(--i));
+    }
 
     .logo {
       max-width: 350px;
@@ -71,7 +57,7 @@
 
     header p {
       font-size: 20px;
-      color: #fff;
+      color: #000;
     }
 
     .gallery {
@@ -100,17 +86,52 @@
 
     .contact h2 {
       margin-bottom: 10px;
+      font-size: 24px;
     }
 
     .contact p {
       margin: 5px 0;
+      font-size: 18px;
+    }
+
+    .social {
+      margin-top: 15px;
     }
 
     .social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #E1306C;
       color: #fff;
+      padding: 10px 15px;
+      border-radius: 30px;
       text-decoration: none;
-      font-size: 1.2em;
-      margin: 0 10px;
+      margin: 10px 5px;
+      font-size: 1em;
+    }
+
+    .social a i {
+      margin-right: 8px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px 10px;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 1em;
+    }
+
+    .buttons a.call {
+      background-color: #2196F3;
     }
 
     footer {
@@ -118,9 +139,10 @@
       padding: 15px;
       font-size: 0.9em;
       color: #000;
+      background-color: rgba(255, 255, 255, 0.6);
     }
 
-    /* Responsive adjustments */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
       .logo {
         max-width: 250px;
@@ -136,8 +158,8 @@
         padding: 10px;
       }
 
-      .social a {
-        font-size: 1em;
+      .contact p, .buttons a {
+        font-size: 0.95em;
       }
 
       footer {
@@ -149,32 +171,40 @@
 <body>
 
   <header>
-    <img src="images/logo white.png" alt="Dillu Capture Logo" class="logo">
+    <img src="images/Logo png.png" alt="Dillu Capture Logo" class="logo">
     <p>Capturing moments from today, creating memories for a lifetime.</p>
   </header>
 
   <section class="gallery">
-    <img src="images/Baby on hand.jpeg">
-    <img src="images/Baby touch.jpeg">
-    <img src="images/Gindu sleeping.jpeg">
-    <img src="images/Alka bday 1.jpeg">
-    <img src="images/Kriishna with tree.jpeg">
-    <img src="images/Krishna.jpeg">
-    <img src="images/Manasvi.jpeg">
-    <img src="images/Manasvi 2.jpeg">
-    <img src="images/Srilatha 1.jpeg">
-    <img src="images/Srilatha 2.jpeg">
-    <img src="images/Manasvi 3.jpeg">
-    <img src="images/Haldi.jpeg">
-    <img src="images/Temple.jpeg">
+    <img src="images/Baby on hand.jpeg" style="--i:1;">
+    <img src="images/Baby touch.jpeg" style="--i:2;">
+    <img src="images/Gindu sleeping.jpeg" style="--i:3;">
+    <img src="images/Alka bday 1.jpeg" style="--i:4;">
+    <img src="images/Kriishna with tree.jpeg" style="--i:5;">
+    <img src="images/Krishna.jpeg" style="--i:6;">
+    <img src="images/Manasvi.jpeg" style="--i:7;">
+    <img src="images/Manasvi 2.jpeg" style="--i:8;">
+    <img src="images/Srilatha 1.jpeg" style="--i:9;">
+    <img src="images/Srilatha 2.jpeg" style="--i:10;">
+    <img src="images/Manasvi 3.jpeg" style="--i:11;">
+    <img src="images/Haldi.jpeg" style="--i:12;">
+    <img src="images/Temple.jpeg" style="--i:13;">
   </section>
 
   <section class="contact">
     <h2>Contact Me</h2>
     <p>Email: dillucapture@gmail.com</p>
     <p>Phone: +91-9700034138</p>
+
+    <div class="buttons">
+      <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
+      <a href="tel:+919700034138" class="call">📞 Call Now</a>
+    </div>
+
     <div class="social">
-      <a href="https://www.instagram.com/dillu_captures/" target="_blank">📷 Instagram</a>
+      <a href="https://www.instagram.com/dillu_captures/" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
     </div>
   </section>
 
