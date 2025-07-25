@@ -32,22 +32,15 @@
       margin: 0 auto 10px;
     }
 
-body {
-  background: url('images/pexels-apasaric-2068411.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-}
+    body {
+      background-color: #ffffff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* semi-transparent dark overlay */
-    z-index: -1;
-  }
-
- header {
+    header {
       text-align: center;
       padding: 50px 20px 20px;
     }
@@ -60,7 +53,7 @@ body {
 
     header p {
       font-size: 20px;
-      color: #fff;
+      color: #000;
     }
 
     .gallery {
@@ -80,12 +73,14 @@ body {
       transform: scale(1.05);
     }
 
-   .contact {
-  padding: 30px 20px;
-  text-align: center;
-  font-family: Calibri, sans-serif;
-  background: transparent;
-}
+    .contact {
+      padding: 30px 20px;
+      text-align: center;
+      font-family: Calibri, sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
+
     .contact h2 {
       margin-bottom: 10px;
       font-size: 24px;
@@ -141,7 +136,7 @@ body {
       padding: 15px;
       font-size: 0.9em;
       color: #000;
-      background-color: rgba(255, 255, 255, 0.6);
+      background-color: #f0f0f0;
     }
 
     @media (max-width: 768px) {
@@ -168,9 +163,9 @@ body {
       }
     }
 
-        header h1, header p, .contact h2, .contact p {
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-}
+    header h1, header p, .contact h2, .contact p {
+      text-shadow: none;
+    }
   </style>
 </head>
 <body>
@@ -179,6 +174,7 @@ body {
     <img src="images/logo white.png" alt="Dillu Capture Logo" class="logo">
     <p>Capturing moments from today, creating memories for a lifetime.</p>
   </header>
+
 
   <section class="gallery">
   <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" style="--i:1;"></a>
