@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,40 +7,143 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Crimson+Text&family=Antonio&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    /* CSS variables for themes */
+    :root {
+      --bg-dark: #000000;
+      --text-dark: #ffffff;
+      --bg-light: #ffffff;
+      --text-light: #111111;
+
+      --btn-bg-dark: none;
+      --btn-bg-light: none;
+
+      --btn-color-dark: #fff;
+      --btn-color-light: #222;
+
+      --btn-border-dark: 2px solid #fff;
+      --btn-border-light: 2px solid #222;
+
+      --nav-bg-dark: transparent;
+      --nav-bg-light: transparent;
+    }
+
+    /* Dark theme */
+    [data-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    [data-theme="dark"] .navbar {
+      background: var(--nav-bg-dark);
+      color: var(--text-dark);
+    }
+    [data-theme="dark"] .cta-btn {
+      background: var(--btn-bg-dark);
+      color: var(--btn-color-dark);
+      border: var(--btn-border-dark);
+    }
+    [data-theme="dark"] .cta-btn:hover {
+      background: #0ff;
+      color: #222;
+      border-color: #0ff;
+    }
+    [data-theme="dark"] .about,
+    [data-theme="dark"] .gallery,
+    [data-theme="dark"] .contact,
+    [data-theme="dark"] footer {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    /* Light theme */
+    [data-theme="light"] {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+    [data-theme="light"] .navbar {
+      background: var(--nav-bg-light);
+      color: var(--text-light);
+    }
+    [data-theme="light"] .cta-btn {
+      background: var(--btn-bg-light);
+      color: var(--btn-color-light);
+      border: var(--btn-border-light);
+    }
+    [data-theme="light"] .cta-btn:hover {
+      background: #0ff;
+      color: #222;
+      border-color: #0ff;
+    }
+    [data-theme="light"] .about,
+    [data-theme="light"] .gallery,
+    [data-theme="light"] .contact,
+    [data-theme="light"] footer {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
     body {
       font-family: 'Crimson Text', serif;
-      margin: 0; 
-      background: #000000; /* pure black */
-      color: #fff;
-      min-height: 100vh; 
+      margin: 0;
+      min-height: 100vh;
       opacity: 0;
       animation: fadeIn 1.5s ease-in forwards;
+      transition: background-color 0.3s, color 0.3s;
     }
-    html { scroll-behavior: smooth; }
-    h1, h3 { font-family: 'Cormorant Garamond', serif; }
-    .cta-btn, .social a { font-family: 'Antonio', sans-serif; }
+    html {
+      scroll-behavior: smooth;
+    }
+    h1, h3 {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .cta-btn, .social a {
+      font-family: 'Antonio', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+    }
     .navbar {
-      position: absolute; top: 0; left: 0; right: 0;
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 30px 60px 0;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 60px 0;
       z-index: 2;
+      transition: background-color 0.3s;
     }
     .logo {
-      font-size: 2em; font-weight: 700; letter-spacing: 1.5px;
-      color: #fff; text-decoration: none;
+      font-size: 2em;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: inherit;
+      text-decoration: none;
       font-family: 'Antonio', sans-serif;
     }
     .nav-links {
-      display: flex; gap: 32px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
     }
     .nav-links a {
-      color: #fff; text-decoration: none; font-weight: 500;
-      font-size: 1em; letter-spacing: 0.5px; padding-bottom: 2px;
-      border-bottom: 2px solid transparent; transition: border-color 0.2s;
+      color: inherit;
+      font-weight: 500;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
     }
     .nav-links a.active,
     .nav-links a:hover {
@@ -48,62 +151,84 @@
     }
     .hero {
       background: url('image.jpg') center/cover no-repeat;
-      min-height: 100vh; position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: flex-start;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      transition: background-color 0.3s;
     }
     .hero-overlay {
-      position: absolute; width: 100%; height: 100%;
-      background: rgba(17,17,17,0.7); top: 0; left: 0; z-index: 1;
+      position: absolute;
+      width: 100%; height: 100%;
+      background: rgba(17,17,17,0.7);
+      top: 0; left: 0; z-index: 1;
     }
     .hero-content-wrapper {
-      position: relative; z-index: 2;
-      display: flex; align-items: center; justify-content: flex-start;
-      height: 100vh; padding: 0 40px; max-width: 1200px;
-      width: 100%; margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      padding: 0 40px;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
     }
     .hero-content-wrapper img {
-      max-width: 470px; width: 40vw;
+      max-width: 470px;
+      width: 40vw;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.6);
       margin-right: 56px;
+      transition: box-shadow 0.3s;
     }
     .intro-content {
-      display: flex; flex-direction: column; align-items: flex-start;
-      gap: 20px; min-width: 330px; max-width: 400px; color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      min-width: 330px;
+      max-width: 400px;
     }
-    .intro-content h1 {
-      font-size: 2.5em; margin: 0 0 10px; font-weight: 700;
+    .intro-content h1,
+    .intro-content p {
+      margin: 0;
+      color: inherit;
     }
     .intro-content p {
-      font-size: 1.15em; margin-bottom: 30px;
-    }
-    .cta-btn {
-      background: none; color: #fff; border: 2px solid #fff;
-      padding: 12px 30px; border-radius: 3px; font-weight: 700;
-      text-transform: uppercase; font-size: 1em; letter-spacing: 0.5px;
-      cursor: pointer; transition: background 0.2s, color 0.2s;
-      text-decoration: none; display: inline-block;
-    }
-    .cta-btn:hover {
-      background: #0ff; color: #222; border-color: #0ff;
+      font-size: 1.15em;
+      margin-bottom: 30px;
     }
     .about {
-      padding: 40px 20px; background: #000000; text-align: center;
+      padding: 40px 20px;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
     }
     .about h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5em; margin-bottom: 20px; font-weight: 700;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      font-weight: 700;
     }
     .about p {
-      font-size: 1.25em; max-width: 700px; margin: 0 auto; line-height: 1.6em;
+      font-size: 1.25em;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6em;
     }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px; padding: 40px 20px 20px; background: #000000;
+      gap: 10px;
+      padding: 40px 20px 20px;
+      transition: background-color 0.3s;
     }
     .gallery img {
-      width: 100%; border-radius: 10px; transition: 0.3s ease-in-out;
+      width: 100%;
+      border-radius: 10px;
+      transition: 0.3s ease-in-out, box-shadow 0.3s;
       box-shadow: 0 2px 16px rgba(0,0,0,0.35);
     }
     .gallery img:hover {
@@ -111,40 +236,61 @@
       box-shadow: 0 8px 24px rgba(0,255,255,0.16);
     }
     .contact {
-      padding: 40px 20px 30px; background: #000000; text-align: center; color: #fff;
+      padding: 40px 20px 30px;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
     }
     .contact h2 {
-      margin-bottom: 10px; font-size: 2em;
-      font-weight: 700; font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 10px;
+      font-size: 2em;
+      font-weight: 700;
     }
     .contact p {
-      margin: 5px 0; font-size: 1.15em;
+      margin: 5px 0;
+      font-size: 1.15em;
     }
     .buttons {
       margin-top: 20px;
     }
     .buttons a {
-      display: inline-block; background-color: #4CAF50;
-      color: white; padding: 10px 20px; margin: 5px;
-      text-decoration: none; border-radius: 25px;
-      font-size: 1em; font-weight: 500; transition: background 0.2s;
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 25px;
+      font-size: 1em;
+      font-weight: 500;
+      transition: background 0.2s;
       font-family: 'Antonio', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
     }
     .buttons a.call {
       background-color: #2196F3;
+      color: white;
     }
     .buttons a:hover {
-      opacity: 0.87; background: #00ffd0; color: #111;
+      opacity: 0.87;
+      background: #00ffd0;
+      color: #111;
     }
     .social {
       margin-top: 20px;
     }
     .social a {
-      display: inline-flex; align-items: center; justify-content: center;
-      background: #E1306C; color: #fff; padding: 10px 15px;
-      border-radius: 30px; text-decoration: none; margin: 5px;
-      font-size: 1em; font-weight: 500; transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #E1306C;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 30px;
+      margin: 5px;
+      font-size: 1em;
+      font-weight: 500;
       font-family: 'Antonio', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s;
+      cursor: pointer;
     }
     .social a i {
       margin-right: 8px;
@@ -153,12 +299,37 @@
       background: #25D366 !important;
     }
     .social a:hover {
-      opacity: 0.87; background: #00ffd0 !important; color: #222;
+      opacity: 0.87;
+      background: #00ffd0 !important;
+      color: #222;
     }
     footer {
-      text-align: center; padding: 15px; font-size: 0.9em;
-      color: #fff; background: #000000; letter-spacing: 1px;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      letter-spacing: 1px;
       font-family: 'Crimson Text', serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Theme toggle button styling */
+    #theme-toggle-btn {
+      background: none;
+      border: 2px solid currentColor;
+      border-radius: 25px;
+      color: inherit;
+      font-family: 'Antonio', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 8px 20px;
+      font-size: 1em;
+      margin-left: 20px;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+    #theme-toggle-btn:hover {
+      background: #0ff;
+      color: #222;
+      border-color: #0ff;
     }
 
     @media (max-width: 900px) {
@@ -201,6 +372,10 @@
       .about p {
         font-size: 1em;
       }
+      #theme-toggle-btn {
+        margin-left: 0;
+        margin-top: 15px;
+      }
     }
   </style>
 </head>
@@ -214,6 +389,7 @@
       <a href="#">Black & White</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      <button id="theme-toggle-btn" aria-label="Toggle dark/light theme">Light Mode</button>
     </div>
   </div>
 
@@ -243,6 +419,52 @@
     <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3"></a>
     <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi"></a>
     <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple"></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg"></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg"></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg"></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg"></a>
+    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg"></a>
+    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka bday 1"></a>
+    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg"></a>
+    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg"></a>
+    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg"></a>
+    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg"></a>
+    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg"></a>
+    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg"></a>
+    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg"></a>
+    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg"></a>
+    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg"></a>
+    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg"></a>
+    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg"></a>
+    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg"></a>
+    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg"></a>
+    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg"></a>
+    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg"></a>
+    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg"></a>
+    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg"></a>
+    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg"></a>
+    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg"></a>
+    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg"></a>
+    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg"></a>
+    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg"></a>
+    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg"></a>
+    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg"></a>
+    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg"></a>
+    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg"></a>
+    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg"></a>
+    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg"></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg"></a>
+    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg"></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg"></a>
+    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg"></a>
+    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg"></a>
+    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg"></a>
+    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg"></a>
+    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg"></a>
+    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg"></a>
+    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg"></a>
+    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg"></a>
+    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg"></a>
   </section>
 
   <section class="contact" id="contact">
@@ -262,5 +484,25 @@
   </section>
 
   <footer>&copy; 2018 Dillu Capture. All rights reserved.</footer>
+
+  <script>
+    const btn = document.getElementById('theme-toggle-btn');
+    const root = document.documentElement;
+
+    function setTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      btn.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+
+    // Initialize theme from localStorage
+    let currentTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(currentTheme);
+
+    btn.addEventListener('click', () => {
+      currentTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(currentTheme);
+      localStorage.setItem('theme', currentTheme);
+    });
+  </script>
 </body>
 </html>
