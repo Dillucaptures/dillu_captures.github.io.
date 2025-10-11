@@ -32,13 +32,36 @@
         opacity: 1;
       }
     }
+    /* Gradient animation for background */
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      25% {
+        background-position: 50% 100%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      75% {
+        background-position: 50% 0%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
     body {
-      background-color: #ffffff;
-      color: #000;
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+      color: #000;
+      min-height: 100vh;
+      /* Default background - will be overwritten by JS */
+      background: linear-gradient(-45deg, #f9dae7, #ffeedd, #cbe7ff, #fff3da, #edfaff);
+      background-size: 400% 400%;
+      animation: gradientBG 18s ease-in-out infinite;
+      transition: background 0.6s;
     }
 
     header {
@@ -306,5 +329,27 @@
   <footer>
     &copy; 2018 Dillu Capture. All rights reserved.
   </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var hour = new Date().getHours();
+      var body = document.body;
+      if (hour >= 19 || hour < 6) {
+          // Night
+          body.style.background = "linear-gradient(-45deg, #00172d, #122850, #6247aa, #30536e)";
+      } else if (hour < 10) {
+          // Morning
+          body.style.background = "linear-gradient(-45deg, #f6d365, #fda085, #ffeedd, #fff3da)";
+      } else if (hour < 17) {
+          // Day
+          body.style.background = "linear-gradient(-45deg, #f9dae7, #cbe7ff, #edfaff, #ffeedd)";
+      } else {
+          // Evening
+          body.style.background = "linear-gradient(-45deg, #f8b500, #c02425, #f9dae7, #6247aa)";
+      }
+      body.style.backgroundSize = "400% 400%";
+      body.style.animation = "gradientBG 18s ease-in-out infinite";
+  });
+  </script>
 </body>
 </html>
