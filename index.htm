@@ -22,12 +22,20 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: #000;
+      color: #fff;
       min-height: 100vh;
-      background: rgba(255, 255, 255, 0.15);
+
+      background-image: url('images/pexels-iriser-1090977.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: rgba(0, 0, 0, 0.45);
+      background-blend-mode: overlay;
+
+
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
-      box-shadow: inset 2000px 0 0 0 rgba(255, 255, 255, 0.2);
+
       animation: fadeScaleIn 1.2s ease forwards;
     }
 
@@ -35,6 +43,8 @@
       text-align: center;
       padding: 50px 20px 20px;
       animation: fadeScaleIn 1.5s ease forwards;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
     }
 
     .logo {
@@ -43,21 +53,14 @@
       display: block;
       margin: 0 auto 10px;
       border-radius: 15px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
       animation: fadeScaleIn 1.7s ease forwards;
     }
 
     header p {
       font-size: 20px;
-      color: #000;
       font-family: 'Dancing Script', cursive;
       animation: fadeScaleIn 1.9s ease forwards;
-    }
-
-    header h1 {
-      font-family: 'Forum', serif;
-      font-size: 3em;
-      margin-bottom: 10px;
     }
 
     .gallery {
@@ -75,8 +78,7 @@
       transform: scale(0.95) translateY(20px);
       animation: fadeScaleIn 1s forwards;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      /* Added shadows */
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .gallery a:nth-child(n) img {
@@ -85,21 +87,23 @@
 
     .gallery img:hover {
       transform: scale(1.05);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25), 0 6px 18px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 6px 18px rgba(0, 0, 0, 0.45);
     }
 
     .contact {
       padding: 30px 20px;
       text-align: center;
       font-family: Calibri, sans-serif;
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
       margin: 20px auto;
       max-width: 600px;
       animation: fadeScaleIn 1.3s ease forwards;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.7);
     }
 
     .contact h2 {
@@ -128,23 +132,23 @@
       margin: 5px;
       font-size: 1em;
       transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 4px 12px rgba(225, 48, 108, 0.3);
+      box-shadow: 0 4px 12px rgba(225, 48, 108, 0.6);
     }
 
     .social a:hover {
       background: #B0275C;
       transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(176, 39, 92, 0.45);
+      box-shadow: 0 6px 20px rgba(176, 39, 92, 0.85);
     }
 
     .social a:last-child {
       background: #25D366;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
     }
 
     .social a:last-child:hover {
       background: #1CB954;
-      box-shadow: 0 6px 20px rgba(29, 185, 84, 0.45);
+      box-shadow: 0 6px 20px rgba(29, 185, 84, 0.85);
     }
 
     .social a i {
@@ -165,36 +169,37 @@
       border-radius: 25px;
       font-size: 1em;
       transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+      box-shadow: 0 5px 15px rgba(76, 175, 80, 0.6);
     }
 
     .buttons a:hover {
       background-color: #388E3C;
       transform: scale(1.1);
-      box-shadow: 0 7px 25px rgba(56, 142, 60, 0.5);
+      box-shadow: 0 7px 25px rgba(56, 142, 60, 0.8);
     }
 
     .buttons a.call {
       background-color: #2196F3;
-      box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+      box-shadow: 0 5px 15px rgba(33, 150, 243, 0.6);
     }
 
     .buttons a.call:hover {
       background-color: #1769aa;
-      box-shadow: 0 7px 25px rgba(23, 105, 170, 0.5);
+      box-shadow: 0 7px 25px rgba(23, 105, 170, 0.8);
     }
 
     footer {
       text-align: center;
       padding: 15px;
       font-size: 0.9em;
-      color: #000;
-      background-color: #f0f0f0;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
       border-radius: 15px;
       margin: 20px auto;
       max-width: 960px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
       animation: fadeScaleIn 1.5s ease forwards;
+      text-shadow: 0 0 5px rgba(0,0,0,0.7);
     }
 
     @media (max-width: 768px) {
