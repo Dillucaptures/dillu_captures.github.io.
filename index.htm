@@ -2,322 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dillu Captures</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @keyframes fadeScaleIn {
-      0% {
-        opacity: 0;
-        transform: scale(0.95) translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
+      background: #111;
       color: #fff;
+      font-family: 'Montserrat', Arial, sans-serif;
       min-height: 100vh;
-
-      background-image: url('images/pexels-iriser-1090977.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-color: rgba(0, 0, 0, 0.45);
-      background-blend-mode: overlay;
-
-
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-
-      animation: fadeScaleIn 1.2s ease forwards;
     }
-
-    header {
-      text-align: center;
-      padding: 50px 20px 20px;
-      animation: fadeScaleIn 1.5s ease forwards;
-      color: #fff;
-      text-shadow: 0 0 8px rgba(0,0,0,0.8);
-    }
-
-    .logo {
-      max-width: 350px;
-      height: auto;
-      display: block;
-      margin: 0 auto 10px;
-      border-radius: 15px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
-      animation: fadeScaleIn 1.7s ease forwards;
-    }
-
-    header p {
-      font-size: 20px;
-      font-family: 'Dancing Script', cursive;
-      animation: fadeScaleIn 1.9s ease forwards;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
-      padding: 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 15px;
-      cursor: pointer;
-      opacity: 0;
-      transform: scale(0.95) translateY(20px);
-      animation: fadeScaleIn 1s forwards;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .gallery a:nth-child(n) img {
-      animation-delay: calc(0.15s * var(--i));
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55), 0 6px 18px rgba(0, 0, 0, 0.45);
-    }
-
-    .contact {
-      padding: 30px 20px;
-      text-align: center;
-      font-family: Calibri, sans-serif;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-      margin: 20px auto;
-      max-width: 600px;
-      animation: fadeScaleIn 1.3s ease forwards;
-      color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.7);
-    }
-
-    .contact h2 {
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-
-    .contact p {
-      margin: 5px 0;
-      font-size: 18px;
-    }
-
-    .social {
-      margin-top: 15px;
-    }
-
-    .social a {
-      display: inline-flex;
+    .navbar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      background: #E1306C;
+      padding: 30px 60px 0;
+      z-index: 2;
+    }
+    .logo {
+      font-size: 2em;
+      font-weight: 700;
+      letter-spacing: 1.5px;
       color: #fff;
-      padding: 10px 15px;
-      border-radius: 30px;
       text-decoration: none;
-      margin: 5px;
-      font-size: 1em;
-      transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 4px 12px rgba(225, 48, 108, 0.6);
     }
-
-    .social a:hover {
-      background: #B0275C;
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(176, 39, 92, 0.85);
+    .nav-links {
+      display: flex;
+      gap: 32px;
     }
-
-    .social a:last-child {
-      background: #25D366;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
-    }
-
-    .social a:last-child:hover {
-      background: #1CB954;
-      box-shadow: 0 6px 20px rgba(29, 185, 84, 0.85);
-    }
-
-    .social a i {
-      margin-right: 8px;
-    }
-
-    .buttons {
-      margin-top: 20px;
-    }
-
-    .buttons a {
-      display: inline-block;
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      margin: 5px;
-      text-decoration: none;
-      border-radius: 25px;
-      font-size: 1em;
-      transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 5px 15px rgba(76, 175, 80, 0.6);
-    }
-
-    .buttons a:hover {
-      background-color: #388E3C;
-      transform: scale(1.1);
-      box-shadow: 0 7px 25px rgba(56, 142, 60, 0.8);
-    }
-
-    .buttons a.call {
-      background-color: #2196F3;
-      box-shadow: 0 5px 15px rgba(33, 150, 243, 0.6);
-    }
-
-    .buttons a.call:hover {
-      background-color: #1769aa;
-      box-shadow: 0 7px 25px rgba(23, 105, 170, 0.8);
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
+    .nav-links a {
       color: #fff;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 15px;
-      margin: 20px auto;
-      max-width: 960px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-      animation: fadeScaleIn 1.5s ease forwards;
-      text-shadow: 0 0 5px rgba(0,0,0,0.7);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
     }
-
-    @media (max-width: 768px) {
-      .logo {
-        max-width: 250px;
-      }
-
-      header p {
-        font-size: 16px;
-      }
-
-      .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 8px;
-        padding: 10px;
-      }
-
-      .contact p, .buttons a {
-        font-size: 0.95em;
-      }
-
-      footer {
-        font-size: 0.8em;
-      }
+    .nav-links a.active,
+    .nav-links a:hover {
+      border-bottom: 2px solid #0ff;
     }
-
-    header h1, header p, .contact h2, .contact p {
-      text-shadow: none;
+    .hero {
+      background: url('image.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(17,17,17,0.7);
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .intro-content {
+      z-index: 2;
+      margin-left: 60vw;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+      min-width: 330px;
+    }
+    .intro-content h1 {
+      font-size: 2.5em;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+    .intro-content p {
+      font-size: 1.15em;
+      margin-bottom: 30px;
+      max-width: 400px;
+    }
+    .cta-btn {
+      background: none;
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 12px 30px;
+      border-radius: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1em;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: 
+        background 0.2s, 
+        color 0.2s;
+    }
+    .cta-btn:hover {
+      background: #0ff;
+      color: #222;
+      border-color: #0ff;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        justify-content: center;
+      }
+      .intro-content {
+        margin: 0 0 0 0;
+        align-items: center;
+        text-align: center;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 10px 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="images/Logo png.png" alt="Dillu Capture Logo" class="logo" />
-    <p>Capturing moments from today, creating memories for a lifetime.</p>
-  </header>
-
-  <section class="gallery">
-    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" style="--i:1;" /></a>
-    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" style="--i:2;" /></a>
-    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" style="--i:3;" /></a>
-    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" style="--i:4;" /></a>
-    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" style="--i:5;" /></a>
-    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" style="--i:6;" /></a>
-    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" style="--i:7;" /></a>
-    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" style="--i:8;" /></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" style="--i:9;" /></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" style="--i:10;" /></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" style="--i:11;" /></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" style="--i:12;" /></a>
-    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg" style="--i:13;" /></a>
-    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" style="--i:14;" /></a>
-    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg" style="--i:15;" /></a>
-    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg" style="--i:16;" /></a>
-    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg" style="--i:17;" /></a>
-    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg" style="--i:18;" /></a>
-    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg" style="--i:19;" /></a>
-    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg" style="--i:20;" /></a>
-    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg" style="--i:21;" /></a>
-    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg" style="--i:22;" /></a>
-    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg" style="--i:23;" /></a>
-    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg" style="--i:24;" /></a>
-    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg" style="--i:25;" /></a>
-    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg" style="--i:26;" /></a>
-    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg" style="--i:27;" /></a>
-    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg" style="--i:28;" /></a>
-    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg" style="--i:29;" /></a>
-    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg" style="--i:30;" /></a>
-    <a href="images/US kid with his sister.jpeg" target="_blank"><img src="images/US kid with his sister.jpeg" style="--i:31;" /></a>
-    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg" style="--i:32;" /></a>
-    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg" style="--i:33;" /></a>
-    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg" style="--i:34;" /></a>
-    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg" style="--i:35;" /></a>
-    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg" style="--i:36;" /></a>
-    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg" style="--i:37;" /></a>
-    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg" style="--i:38;" /></a>
-    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg" style="--i:39;" /></a>
-    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg" style="--i:40;" /></a>
-    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg" style="--i:41;" /></a>
-    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg" style="--i:42;" /></a>
-    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg" style="--i:43;" /></a>
-    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg" style="--i:44;" /></a>
-    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" style="--i:45;" /></a>
-    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg" style="--i:46;" /></a>
-    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" style="--i:47;" /></a>
-    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg" style="--i:48;" /></a>
-    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg" style="--i:49;" /></a>
-    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg" style="--i:50;" /></a>
-    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg" style="--i:51;" /></a>
-    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg" style="--i:52;" /></a>
-    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg" style="--i:53;" /></a>
-    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg" style="--i:54;" /></a>
-    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg" style="--i:55;" /></a>
-    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg" style="--i:56;" /></a>
-  </section>
-
-  <section class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: dillucapture@gmail.com</p>
-    <p>Phone: +91-9700034138</p>
-    <div class="buttons">
-      <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
-      <a href="tel:+919700034138" class="call">📞 Call Now</a>
+  <div class="navbar">
+    <a class="logo" href="#">crea;tink</a>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">Advertorial</a>
+      <a href="#">Fashion</a>
+      <a href="#">Black & White</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
     </div>
-    <div class="social">
-      <a href="https://www.instagram.com/dillu_captures/" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="https://wa.me/919700034138?text=Hi%20Dillu!%20I%20saw%20your%20photography%20website%20and%20would%20like%20to%20connect." target="_blank" style="background: #25D366;">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="intro-content">
+      <h1>Dillu Captures Photography</h1>
+      <p>I specialize in candid, portrait, and event photography. Capturing moments from today, creating memories for a lifetime.</p>
+      <a href="#portfolio" class="cta-btn">See My Portfolio</a>
     </div>
   </section>
-
-  <footer>
-    &copy; 2018 Dillu Capture. All rights reserved.
-  </footer>
 
 </body>
 </html>
