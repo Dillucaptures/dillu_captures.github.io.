@@ -7,12 +7,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
     body {
       margin: 0;
       background: #111;
       color: #fff;
       font-family: 'Montserrat', Arial, sans-serif;
       min-height: 100vh;
+
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in forwards;
     }
     .navbar {
       position: absolute;
@@ -245,6 +256,7 @@
 </section>
 
   <section class="gallery" id="gallery">
+    <!-- gallery images as before -->
     <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand"></a>
     <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch"></a>
     <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708"></a>
@@ -324,10 +336,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
-
