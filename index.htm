@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Crimson+Text&family=Antonio&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    /* CSS variables for themes */
     :root {
       --bg-dark: #000000;
       --text-dark: #ffffff;
@@ -27,7 +26,6 @@
       --nav-bg-light: transparent;
     }
 
-    /* Dark theme */
     [data-theme="dark"] {
       background-color: var(--bg-dark);
       color: var(--text-dark);
@@ -54,7 +52,6 @@
       color: var(--text-dark);
     }
 
-    /* Light theme */
     [data-theme="light"] {
       background-color: var(--bg-light);
       color: var(--text-light);
@@ -149,6 +146,54 @@
     .nav-links a:hover {
       border-bottom: 2px solid #0ff;
     }
+    /* Toggle switch styles */
+    .theme-switch-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    .theme-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+    }
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: #ccc;
+      border-radius: 34px;
+      top: 0; left: 0; right: 0; bottom: 0;
+      transition: .4s;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .4s;
+    }
+    .theme-switch input:checked + .slider {
+      background-color: #0ff;
+    }
+    .theme-switch input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+    #theme-status {
+      margin-left: 10px;
+      font-family: 'Antonio', sans-serif;
+      font-weight: 700;
+      color: inherit;
+    }
+
     .hero {
       background: url('image.jpg') center/cover no-repeat;
       min-height: 100vh;
@@ -312,26 +357,6 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Theme toggle button styling */
-    #theme-toggle-btn {
-      background: none;
-      border: 2px solid currentColor;
-      border-radius: 25px;
-      color: inherit;
-      font-family: 'Antonio', sans-serif;
-      font-weight: 700;
-      cursor: pointer;
-      padding: 8px 20px;
-      font-size: 1em;
-      margin-left: 20px;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    }
-    #theme-toggle-btn:hover {
-      background: #0ff;
-      color: #222;
-      border-color: #0ff;
-    }
-
     @media (max-width: 900px) {
       .hero {
         justify-content: center;
@@ -372,10 +397,6 @@
       .about p {
         font-size: 1em;
       }
-      #theme-toggle-btn {
-        margin-left: 0;
-        margin-top: 15px;
-      }
     }
   </style>
 </head>
@@ -389,7 +410,13 @@
       <a href="#">Black & White</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <button id="theme-toggle-btn" aria-label="Toggle dark/light theme">Light Mode</button>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="theme-toggle-checkbox">
+          <input type="checkbox" id="theme-toggle-checkbox" />
+          <span class="slider round"></span>
+        </label>
+        <span id="theme-status">Dark Mode</span>
+      </div>
     </div>
   </div>
 
@@ -411,60 +438,14 @@
   </section>
 
   <section class="gallery" id="gallery">
-    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand"></a>
-    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch"></a>
-    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708"></a>
-    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734"></a>
-    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741"></a>
-    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3"></a>
-    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi"></a>
-    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg"></a>
-    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg"></a>
-    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka bday 1"></a>
-    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg"></a>
-    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg"></a>
-    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg"></a>
-    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg"></a>
-    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg"></a>
-    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg"></a>
-    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg"></a>
-    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg"></a>
-    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg"></a>
-    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg"></a>
-    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg"></a>
-    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg"></a>
-    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg"></a>
-    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg"></a>
-    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg"></a>
-    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg"></a>
-    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg"></a>
-    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg"></a>
-    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg"></a>
-    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg"></a>
-    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg"></a>
-    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg"></a>
-    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg"></a>
-    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg"></a>
-    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg"></a>
-    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg"></a>
-    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg"></a>
-    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg"></a>
-    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg"></a>
-    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg"></a>
-    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg"></a>
-    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg"></a>
-    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg"></a>
-    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg"></a>
-    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg"></a>
-    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg"></a>
-    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg"></a>
-    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg"></a>
-    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg"></a>
-    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg"></a>
+    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" /></a>
+    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch" /></a>
+    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708" /></a>
+    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734" /></a>
+    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741" /></a>
+    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3" /></a>
+    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi" /></a>
+    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple" /></a>
   </section>
 
   <section class="contact" id="contact">
@@ -486,22 +467,33 @@
   <footer>&copy; 2018 Dillu Capture. All rights reserved.</footer>
 
   <script>
-    const btn = document.getElementById('theme-toggle-btn');
+    const toggleCheckbox = document.getElementById('theme-toggle-checkbox');
     const root = document.documentElement;
+    const statusText = document.getElementById('theme-status');
 
     function setTheme(theme) {
       root.setAttribute('data-theme', theme);
-      btn.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+      if (theme === 'dark') {
+        toggleCheckbox.checked = false;
+        statusText.textContent = 'Dark Mode';
+      } else {
+        toggleCheckbox.checked = true;
+        statusText.textContent = 'Light Mode';
+      }
     }
 
-    // Initialize theme from localStorage
-    let currentTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(currentTheme);
+    // Initialize theme from localStorage or default to 'dark'
+    let savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
 
-    btn.addEventListener('click', () => {
-      currentTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      setTheme(currentTheme);
-      localStorage.setItem('theme', currentTheme);
+    toggleCheckbox.addEventListener('change', () => {
+      if (toggleCheckbox.checked) {
+        setTheme('light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        setTheme('dark');
+        localStorage.setItem('theme', 'dark');
+      }
     });
   </script>
 </body>
