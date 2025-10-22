@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>Dillu Captures | Visual Storyteller</title>
 
   <!-- Fonts -->
@@ -42,24 +42,31 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 50px;
+      padding: 18px 20px;
       z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      flex-wrap: wrap;
     }
     .logo {
       font-family: 'Dancing Script', cursive;
       color: #fff;
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       letter-spacing: 2px;
       cursor: pointer;
       text-decoration: none;
       transition: color 0.3s ease;
+      flex: 1 1 auto;
+      min-width: 150px;
     }
     .logo:hover {
       color: #a0f0e8;
     }
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 15px;
+      flex: 2 1 auto;
+      justify-content: flex-end;
+      flex-wrap: wrap;
     }
     .nav-links a {
       color: #ddd;
@@ -70,6 +77,7 @@
       border-bottom: 2px solid transparent;
       transition: color 0.3s, border-bottom-color 0.3s;
       letter-spacing: 1px;
+      white-space: nowrap;
     }
     .nav-links a:hover {
       color: #a0f0e8;
@@ -78,13 +86,14 @@
 
     /* Hero Section */
     #home {
-      height: 100vh;
+      height: auto;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 30px;
+      padding: 60px 20px 80px 20px;
       z-index: 1;
       position: relative;
       user-select: none;
@@ -98,7 +107,7 @@
     #home h1 {
       font-family: 'Dancing Script', cursive;
       font-weight: 400;
-      font-size: 5rem;
+      font-size: 4.2rem;
       margin: 0 0 20px;
       letter-spacing: 2px;
       user-select: text;
@@ -134,9 +143,12 @@
       text-align: center;
       backdrop-filter: blur(15px);
       background: rgba(0,0,0,0.65);
-      margin: 0 30px 60px 30px;
+      margin: 0 20px 60px 20px;
       border-radius: 10px;
       box-shadow: 0 0 40px rgba(160,240,232,0.15);
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
     section h2 {
       font-family: 'Merriweather', serif;
@@ -157,17 +169,18 @@
     /* Gallery */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
       justify-items: center;
       margin-top: 40px;
+      padding-bottom: 20px;
     }
     .gallery a {
       position: relative;
       overflow: hidden;
       border-radius: 15px;
       box-shadow: 0 0 30px rgba(160,240,232,0.15);
-      transition: transform 1s ease, box-shadow 0.5s ease;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
       cursor: pointer;
       display: block;
       width: 100%;
@@ -177,9 +190,9 @@
       width: 100%;
       height: auto;
       object-fit: cover;
-      display: block;
-      transition: transform 1s ease, filter 0.8s ease;
       border-radius: 15px;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      display: block;
     }
     .gallery a::after {
       content: "";
@@ -187,8 +200,8 @@
       inset: 0;
       background: linear-gradient(135deg, rgba(160,240,232,0.25), transparent 70%);
       opacity: 0.4;
-      transition: opacity 0.5s ease;
       border-radius: 15px;
+      transition: opacity 0.5s ease;
     }
     .gallery a:hover {
       transform: scale(1.05);
@@ -206,6 +219,10 @@
     /* Contact Section */
     .contact .buttons {
       margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
     .contact .buttons a {
       background-color: #444c66;
@@ -214,13 +231,13 @@
       padding: 12px 35px;
       border-radius: 30px;
       text-decoration: none;
-      margin: 10px;
       font-size: 1.1rem;
-      letter-spacing: 1.3px;
+      letter-spacing: 1px;
       transition: background-color 0.3s ease, transform 0.3s ease;
       user-select: none;
-      display: inline-block;
       box-shadow: 0 0 15px rgba(160,240,232,0.15);
+      flex: 1 1 140px;
+      text-align: center;
     }
     .contact .buttons a:hover {
       background-color: #76f2e8;
@@ -242,53 +259,46 @@
     }
 
     /* Responsive Adjustments */
-    @media (max-width: 900px) {
+    @media (max-width: 700px) {
+      .nav-links {
+        justify-content: center;
+      }
       #home h1 {
         font-size: 3rem;
       }
       section h2 {
         font-size: 2.3rem;
       }
-      .nav-links {
-        gap: 15px;
-      }
       .gallery {
-        grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       }
       .gallery a {
-        max-width: 220px;
+        max-width: 140px;
+      }
+      .contact .buttons a {
+        flex: 1 1 100%;
+        max-width: 300px;
       }
     }
 
-    @media (max-width: 450px) {
+    @media(max-width: 400px) {
       .navbar {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 20px;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .nav-links a {
-        font-size: 0.9rem;
+        padding: 15px 10px;
       }
       #home {
-        padding: 60px 15px;
-        margin: 110px 10px 50px 10px;
+        margin: 90px 10px 40px 10px;
+        padding: 50px 15px 70px 15px;
       }
       #home h1 {
         font-size: 2.5rem;
+        letter-spacing: 1.2px;
       }
       #home p {
         font-size: 1.1rem;
       }
-      .gallery a {
-        max-width: 180px;
-      }
       section {
         margin: 0 10px 40px 10px;
-        padding: 60px 15px;
+        padding: 60px 10px;
       }
     }
   </style>
@@ -330,8 +340,8 @@
 
   <section id="contact" class="contact">
     <h2>Let's Connect</h2>
-    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#bbb;">dillucapture@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919700034138" style="color:#bbb;">+91 9700034138</a></p>
+    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#ccc;">dillucapture@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919700034138" style="color:#ccc;">+91 9700034138</a></p>
     <div class="buttons">
       <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
       <a href="tel:+919700034138">📞 Call Me</a>
