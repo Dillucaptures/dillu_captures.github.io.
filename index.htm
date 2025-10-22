@@ -3,107 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dillu Captures | Professional Photography</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Crimson+Text&family=Antonio&display=swap" rel="stylesheet" />
+  <title>Dillu Captures | Visual Storyteller</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Crimson Text', serif;
-      background-color: #111;
-      color: #fff;
+      background: #0b0b0b;
+      color: #eee;
+      font-family: 'Work Sans', sans-serif;
     }
 
-    /* NAVBAR */
+    /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(8px);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(10px);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 50px;
       z-index: 1000;
     }
     .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.8em;
       color: #0ff;
-      font-size: 1.6em;
-      font-family: 'Antonio', sans-serif;
+      text-transform: uppercase;
       text-decoration: none;
+      letter-spacing: 2px;
+      transition: color 0.3s;
     }
+    .logo:hover { color: #fff; }
+
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 30px;
     }
     .nav-links a {
-      color: #fff;
+      color: #eee;
       text-decoration: none;
-      font-family: 'Antonio', sans-serif;
-      font-weight: 600;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
       transition: color 0.3s;
     }
     .nav-links a:hover { color: #0ff; }
 
-    /* HERO */
+    /* Hero section */
     .hero {
       height: 100vh;
       background: url('images/hero-bg.jpg') center/cover no-repeat;
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
       position: relative;
     }
-    .hero::after {
-      content: '';
+    .hero::before {
+      content: "";
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.65);
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
     }
     .hero-content {
       position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 600px;
-      padding: 0 20px;
+      z-index: 2;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
     }
+
+    /* Animated title */
     .hero-content h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3em;
-      margin-bottom: 15px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 3.6em;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(45deg, #0ff, #9ef2ff, #0ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: glow 4s ease-in-out infinite alternate;
     }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #00fff0, 0 0 20px #00b3ff; }
+      100% { text-shadow: 0 0 25px #00b3ff, 0 0 50px #00fff0; }
+    }
+
     .hero-content p {
+      max-width: 700px;
+      margin: 0 auto 25px;
       font-size: 1.2em;
-      margin-bottom: 25px;
-      line-height: 1.6;
+      color: #ccc;
     }
     .cta-btn {
       background: #0ff;
       color: #111;
       border: none;
-      padding: 12px 26px;
-      border-radius: 30px;
-      font-family: 'Antonio', sans-serif;
-      font-weight: 700;
+      border-radius: 25px;
+      padding: 12px 28px;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
       text-decoration: none;
       transition: 0.3s;
     }
-    .cta-btn:hover {
-      background: #fff;
-      color: #000;
-    }
+    .cta-btn:hover { background: #fff; color: #000; }
 
-    section { padding: 80px 20px; text-align: center; }
-
-    /* ABOUT */
+    /* About */
     .about {
-      background: #1a1a1a;
+      padding: 90px 20px;
+      background: #111;
+      text-align: center;
     }
     .about h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4em;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.5em;
+      color: #0ff;
       margin-bottom: 20px;
     }
     .about p {
@@ -111,75 +130,75 @@
       margin: auto;
       font-size: 1.1em;
       line-height: 1.7;
+      color: #ccc;
     }
 
-    /* GALLERY */
+    /* Gallery with animation */
     .gallery {
       background: #0d0d0d;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
-      padding: 40px 10px;
+      gap: 15px;
+      padding: 60px 15px;
     }
-    .gallery a img {
-      width: 100%;
-      height: auto;
+    .image-container {
+      position: relative;
+      overflow: hidden;
       border-radius: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
-    .gallery a img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    .image-container img {
+      width: 100%;
+      transition: transform 0.8s ease, filter 0.6s ease;
+    }
+    .image-container:hover img {
+      transform: scale(1.15);
+      filter: brightness(1.2) saturate(1.1);
     }
 
-    /* CONTACT */
+    /* Section: Contact */
     .contact {
-      background: #1a1a1a;
+      background: #111;
+      padding: 80px 20px;
+      text-align: center;
     }
     .contact h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2em;
-      margin-bottom: 10px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.3em;
+      color: #0ff;
+      margin-bottom: 20px;
     }
-    .contact p { font-size: 1.1em; }
+    .contact p { color: #ccc; }
     .buttons a {
       display: inline-block;
-      margin: 8px;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 30px;
       background: #0ff;
       color: #111;
-      font-family: 'Antonio', sans-serif;
-      font-weight: 700;
+      border-radius: 25px;
+      padding: 10px 20px;
+      margin: 8px;
+      text-decoration: none;
+      font-weight: 500;
       transition: 0.3s;
     }
     .buttons a:hover { background: #fff; color: #000; }
-    .social a {
-      margin: 8px;
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 25px;
-      color: #fff;
-      font-family: 'Antonio', sans-serif;
-      text-decoration: none;
-      transition: 0.3s;
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .social a.instagram { background: #E1306C; }
-    .social a.whatsapp { background: #25D366; }
-    .social a:hover { background: #0ff; color: #111; }
 
     footer {
-      background: #111;
-      color: #888;
       text-align: center;
       padding: 15px;
+      color: #888;
+      background: #0b0b0b;
       font-size: 0.9em;
     }
 
-    @media (max-width:800px){
-      .hero-content h1{font-size:2em;}
-      .about h2{font-size:2em;}
+    @media (max-width: 800px) {
+      .hero-content h1 { font-size: 2.5em; }
+      .about h2, .contact h2 { font-size: 2em; }
     }
   </style>
 </head>
@@ -196,85 +215,37 @@
 
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1>Dillu Captures Photography</h1>
-      <p>Capturing moments with heart, vision, and precision. Turning everyday life into art that lasts forever.</p>
-      <a href="#gallery" class="cta-btn">Explore Gallery</a>
+      <h1>Dillu Captures</h1>
+      <p>Crafting visual stories through the lens — each click, a frozen memory brought to life.</p>
+      <a href="#gallery" class="cta-btn">View Portfolio</a>
     </div>
   </section>
 
   <section class="about" id="about">
     <h2>About Me</h2>
-    <p>I'm Dillu, a passionate photographer dedicated to capturing human emotions and timeless moments. Whether it's a portrait, candid, or event, my goal is to tell your story through authentic frames. Every shot reflects emotion, art, and a vision to preserve memories for a lifetime.</p>
+    <p>I'm Dillu, a passionate storyteller behind the camera. My aim is to capture authentic emotions, raw beauty, and moments that linger forever. From candid portraits to creative shoots, every photograph I take is a story waiting to be told.</p>
   </section>
 
-   <section class="gallery" id="gallery">
-    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand"></a>
-    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch"></a>
-    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708"></a>
-    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734"></a>
-    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741"></a>
-    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3"></a>
-    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi"></a>
-    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg"></a>
-    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg"></a>
-    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka bday 1"></a>
-    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg"></a>
-    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg"></a>
-    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg"></a>
-    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg"></a>
-    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg"></a>
-    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg"></a>
-    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg"></a>
-    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg"></a>
-    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg"></a>
-    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg"></a>
-    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg"></a>
-    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg"></a>
-    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg"></a>
-    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg"></a>
-    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg"></a>
-    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg"></a>
-    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg"></a>
-    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg"></a>
-    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg"></a>
-    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg"></a>
-    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg"></a>
-    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg"></a>
-    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg"></a>
-    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg"></a>
-    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg"></a>
-    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg"></a>
-    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg"></a>
-    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg"></a>
-    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg"></a>
-    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg"></a>
-    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg"></a>
-    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg"></a>
-    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg"></a>
-    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg"></a>
-    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg"></a>
-    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg"></a>
-    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg"></a>
-    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg"></a>
-    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg"></a>
-    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg"></a>
+  <section class="gallery" id="gallery">
+    <div class="image-container"><img src="images/Baby on hand.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Manasvi.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Krishna playing with cotton.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Temple.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Haldi.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Me sitting on bike.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Krisha kid sitting.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Krishna Laughing.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Manasvi 3.jpeg" alt=""></div>
+    <div class="image-container"><img src="images/Standing with bike.jpeg" alt=""></div>
   </section>
 
   <section class="contact" id="contact">
-    <h2>Contact Me</h2>
+    <h2>Contact</h2>
     <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#0ff;">dillucapture@gmail.com</a></p>
     <p>Phone: <a href="tel:+919700034138" style="color:#0ff;">+91 9700034138</a></p>
     <div class="buttons">
-      <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
-      <a href="tel:+919700034138">📞 Call Now</a>
-    </div>
-    <div class="social">
-      <a href="https://www.instagram.com/dillu_captures/" target="_blank" class="instagram"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="https://wa.me/919700034138?text=Hi%20Dillu!%20Im%20interested%20in%20your%20photography." target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="mailto:dillucapture@gmail.com">📧 Email</a>
+      <a href="tel:+919700034138">📞 Call</a>
     </div>
   </section>
 
