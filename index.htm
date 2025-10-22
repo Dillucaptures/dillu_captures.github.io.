@@ -6,7 +6,7 @@
   <title>Dillu Captures | Visual Storyteller</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
@@ -89,32 +89,29 @@
       position: relative;
       user-select: none;
     }
+
+    /* Typing effect container */
     #home h1 {
-      font-family: 'Merriweather', serif;
-      font-size: 4rem;
-      line-height: 1.1;
+      font-family: 'Allura', cursive;
+      font-size: 5rem;
       color: #40e0d0;
-      letter-spacing: 4px;
-      text-transform: uppercase;
+      letter-spacing: 3px;
       margin: 0 0 20px;
-      animation: textGlow 4s ease-in-out infinite alternate;
+      border-right: 4px solid #40e0d0;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(15, end) forwards, blink-caret 0.75s step-end infinite;
     }
-    @keyframes textGlow {
-      from {
-        text-shadow:
-          0 0 5px #40e0d0,
-          0 0 15px #40e0d0,
-          0 0 30px #40e0d0,
-          0 0 45px #40e0d0;
-      }
-      to {
-        text-shadow:
-          0 0 10px #76f2e8,
-          0 0 30px #76f2e8,
-          0 0 60px #76f2e8,
-          0 0 90px #76f2e8;
-      }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 15ch; }
     }
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #40e0d0; }
+    }
+
     #home p {
       font-size: 1.3rem;
       max-width: 700px;
@@ -132,13 +129,13 @@
       font-size: 1.1rem;
       letter-spacing: 1.5px;
       transition: background-color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 30px #40e0d0;
+      /* Removed box-shadow for cleaner look */
       user-select: none;
     }
     #home a.cta-btn:hover {
       background-color: #76f2e8;
       transform: scale(1.1);
-      box-shadow: 0 0 50px #76f2e8;
+      /* Removed box-shadow */
     }
 
     /* Sections */
@@ -233,14 +230,14 @@
       font-size: 1.1rem;
       letter-spacing: 1.3px;
       transition: background-color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 20px #40e0d0;
+      /* Removed box-shadow */
       user-select: none;
       display: inline-block;
     }
     .contact .buttons a:hover {
       background-color: #76f2e8;
       transform: scale(1.1);
-      box-shadow: 0 0 50px #76f2e8;
+      /* Removed box-shadow */
     }
 
     /* Footer */
@@ -256,7 +253,7 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      #home h1 { font-size: 2.7rem; }
+      #home h1 { font-size: 2.7rem; border-right: 3px solid #40e0d0; }
       section h2 { font-size: 2.3rem; }
       .nav-links { gap: 15px; }
       .gallery {
