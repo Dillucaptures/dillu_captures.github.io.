@@ -69,43 +69,10 @@
     .logo:hover {
       color: #fff;
     }
-    /* Nav icons + text */
-    .nav-icons {
-      display: flex;
-      gap: 25px;
-      flex: 2 1 auto;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      margin-right: 20px;
-    }
-    .nav-icons a {
-      color: #ddd;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.3s ease, border-bottom-color 0.3s ease;
-      letter-spacing: 1px;
-      white-space: nowrap;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding-bottom: 3px;
-      border-bottom: 2px solid transparent;
-    }
-    .nav-icons a:hover {
-      color: white;
-      border-bottom-color: white;
-      text-shadow: 0 0 6px white;
-    }
-    .nav-icons a i {
-      font-size: 1.3rem;
-      line-height: 1;
-    }
+   
     .nav-links {
       display: flex;
-      gap: 15px;
+      gap: 25px;
       flex: 2 1 auto;
       justify-content: flex-end;
       flex-wrap: wrap;
@@ -120,11 +87,17 @@
       transition: color 0.3s, border-bottom-color 0.3s;
       letter-spacing: 1px;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .nav-links a:hover {
       color: white;
       border-bottom-color: white;
       text-shadow: 0 0 6px white;
+    }
+    .nav-links a i {
+      font-size: 1.3rem;
     }
 
     /* Hero Section */
@@ -153,7 +126,7 @@
       font-size: 4.2rem;
       margin: 0 0 20px;
       letter-spacing: 2px;
-      text-shadow: none; /* no glow */
+      text-shadow: none;
     }
     #home p {
       font-size: 1.3rem;
@@ -173,7 +146,9 @@
       transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 0 25px white;
       user-select: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
     #home a.cta-btn:hover {
       background-color: #f0f0f0;
@@ -297,10 +272,6 @@
 
     /* Responsive Adjustments */
     @media (max-width: 700px) {
-      .nav-icons {
-        justify-content: center;
-        margin-bottom: 8px;
-      }
       .nav-links {
         justify-content: center;
       }
@@ -349,32 +320,25 @@
   <nav class="navbar">
     <a href="#home" class="logo">Dillu Captures</a>
 
-    <div class="nav-icons">
-      <a href="#home" title="Home"><i class="fas fa-home"></i> Home</a>
-      <a href="#gallery" title="Portfolio"><i class="fas fa-images"></i> Portfolio</a>
-      <a href="#about" title="About"><i class="fas fa-user"></i> About</a>
-      <a href="#contact" title="Contact"><i class="fas fa-phone"></i> Contact</a>
-    </div>
-
     <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#gallery">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#home"><i class="fas fa-home"></i> Home</a>
+      <a href="#gallery"><i class="fas fa-images"></i> Portfolio</a>
+      <a href="#about"><i class="fas fa-user"></i> About</a>
+      <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
     </div>
   </nav>
 
   <section id="home">
     <h1>Dillu Captures</h1>
     <p>Bright, emotive, and timeless—capturing life's moments through my lens for stories that last forever.</p>
-    <a href="#gallery" class="cta-btn"><i class="fas fa-envelope"></i> Explore Work</a>
+    <a href="#gallery" class="cta-btn"><i class="fas fa-camera"></i> Explore Work</a>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
     <p>Welcome to Dillu Captures — where every photograph is a blend of passion, precision, and storytelling. From candid smiles to artistic portraits, I capture life in all its authentic beauty.</p>
   </section>
-
+  
   <section id="gallery" class="gallery">
     <!-- All your images inserted here with loading="lazy" -->
     <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" loading="lazy" /></a>
