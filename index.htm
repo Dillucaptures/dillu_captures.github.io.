@@ -16,6 +16,9 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body, html {
     margin: 0; padding: 0;
     height: 100%;
@@ -24,7 +27,8 @@
     overflow-x: hidden;
     transition: background-color 0.5s ease;
     background: linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
-                url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center/cover fixed;
+                url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85')
+                no-repeat center/cover fixed;
     animation: bgZoom 60s ease-in-out infinite alternate;
   }
   @keyframes bgZoom {
@@ -218,10 +222,12 @@
   <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" loading="lazy" /></a>
   <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch" loading="lazy" /></a>
   <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708" loading="lazy" /></a>
-  <!-- Add all your other images similarly without any glightbox classes -->
+  <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734" loading="lazy" /></a>
+  <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741" loading="lazy" /></a>
+  <!-- Add remaining images similarly -->
 </section>
 
-<section id="contact">
+<section id="contact" class="contact">
   <h2>Let's Connect</h2>
   <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#ddd;">dillucapture@gmail.com</a></p>
   <p>Phone: <a href="tel:+919700034138" style="color:#ddd;">+91 9700034138</a></p>
@@ -233,15 +239,15 @@
   </div>
 </section>
 
-<footer style="text-align:center; padding:20px; background:#080e1c; color:#888;">© 2025 Dillu Captures. All rights reserved.</footer>
+<footer style="text-align:center; padding:20px; background:#080e1c; color:#888;">© 2025 Dillu Captures. All Rights Reserved.</footer>
 
 <script>
-  // Scroll to top on load to prevent jumping to hash on refresh
+  // Always load at top and remove any hash in URL on refresh
   window.addEventListener('load', () => {
     if (window.location.hash) {
       history.replaceState(null, null, ' ');
-      window.scrollTo(0,0);
     }
+    window.scrollTo(0, 0);
   });
 </script>
 
