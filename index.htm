@@ -22,24 +22,27 @@
       color: #eee;
       overflow-x: hidden;
       transition: background-color 0.5s ease;
-      background:
-        linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center center fixed;
+      background: linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95));
+      background-repeat: no-repeat;
+      background-position: center center;
       background-size: cover;
       animation: bgZoom 60s ease-in-out infinite alternate;
+      /* Default horizontal */
+      background-image:
+        linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85');
     }
     @keyframes bgZoom {
       0% { background-size: 105%; }
       100% { background-size: 110%; }
     }
 
-    /* Mobile background override */
-    @media (max-width: 768px) {
+    /* Portrait orientation */
+    @media (orientation: portrait) {
       body, html {
-        background:
+        background-image:
           linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
-          url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=768&q=80') no-repeat center center fixed;
-        background-size: cover;
+          url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=768&q=80');
       }
     }
 
@@ -346,67 +349,67 @@
     <p>Welcome to Dillu Captures — where every photograph is a blend of passion, precision, and storytelling. From candid smiles to artistic portraits, I capture life in all its authentic beauty.</p>
   </section>
 
- <section class="gallery" id="gallery">
-    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand"></a>
-    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch"></a>
-    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708"></a>
-    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734"></a>
-    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741"></a>
-    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3"></a>
-    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi"></a>
-    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg"></a>
-    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg"></a>
-    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg"></a>
-    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka bday 1"></a>
-    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg"></a>
-    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg"></a>
-    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg"></a>
-    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg"></a>
-    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg"></a>
-    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg"></a>
-    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg"></a>
-    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg"></a>
-    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg"></a>
-    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg"></a>
-    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg"></a>
-    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg"></a>
-    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg"></a>
-    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg"></a>
-    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg"></a>
-    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg"></a>
-    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg"></a>
-    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg"></a>
-    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg"></a>
-    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg"></a>
-    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg"></a>
-    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg"></a>
-    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg"></a>
-    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg"></a>
-    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg"></a>
-    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg"></a>
-    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg"></a>
-    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg"></a>
-    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg"></a>
-    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg"></a>
-    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg"></a>
-    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg"></a>
-    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg"></a>
-    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg"></a>
-    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg"></a>
-    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg"></a>
-    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg"></a>
-    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg"></a>
-    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg"></a>
-    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg"></a>
+  <section id="gallery" class="gallery">
+    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" /></a>
+    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch" /></a>
+    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708" /></a>
+    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734" /></a>
+    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741" /></a>
+    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3" /></a>
+    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi" /></a>
+    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" alt="WhatsApp Image 1" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" alt="WhatsApp Image 2" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" alt="WhatsApp Image 3" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" alt="WhatsApp Image 4" /></a>
+    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg" alt="Gindu sleeping" /></a>
+    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka birthday" /></a>
+    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg" alt="Kriishna with tree" /></a>
+    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg" alt="Krishna" /></a>
+    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg" alt="Manasvi" /></a>
+    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg" alt="Manasvi 2" /></a>
+    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg" alt="Srilatha 1" /></a>
+    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg" alt="Srilatha 2" /></a>
+    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg" alt="Krisha kid sitting" /></a>
+    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg" alt="Krishna crying" /></a>
+    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg" alt="Krishna Laughing" /></a>
+    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg" alt="Krishna playing with cotton" /></a>
+    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg" alt="Krishna watching" /></a>
+    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg" alt="Dhothi walk US kid" /></a>
+    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg" alt="US kid birla" /></a>
+    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg" alt="Us walking for pegion" /></a>
+    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg" alt="Us walking for pegion 2" /></a>
+    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg" alt="US kid necklace road walk" /></a>
+    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg" alt="Us kid playing with ball" /></a>
+    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg" alt="US kid ntr garden" /></a>
+    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg" alt="US kid ntr garden 2" /></a>
+    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg" alt="Me with helmet" /></a>
+    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg" alt="Me thinking with helmet" /></a>
+    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg" alt="Me thinking with helmet 2" /></a>
+    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg" alt="Me helmet setting" /></a>
+    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg" alt="Me holding helmet" /></a>
+    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg" alt="Me helmet watching up" /></a>
+    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg" alt="Me lean on tree necklace road" /></a>
+    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg" alt="Me standing with tree" /></a>
+    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg" alt="Me walking 2" /></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" /></a>
+    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg" alt="Me setting helmet BW" /></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" /></a>
+    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg" alt="Me leaning on bike" /></a>
+    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg" alt="Standing with bike" /></a>
+    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg" alt="Me sitting on bike cross" /></a>
+    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg" alt="Me sitting on bike" /></a>
+    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg" alt="Me sitting in bike" /></a>
+    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg" alt="Me GVK shoot sitting on bike" /></a>
+    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg" alt="My bike with head hand" /></a>
+    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg" alt="Me laughing" /></a>
+    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg" alt="Necklace road murmura uncle" /></a>
   </section>
 
   <section id="contact" class="contact">
     <h2>Let's Connect</h2>
-    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#ddd;">dillucapture@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919700034138" style="color:#ddd;">+91 9700034138</a></p>
+    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#bbb;">dillucapture@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919700034138" style="color:#bbb;">+91 9700034138</a></p>
     <div class="buttons">
       <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
       <a href="tel:+919700034138">📞 Call Me</a>
@@ -417,4 +420,3 @@
 
 </body>
 </html>
-
