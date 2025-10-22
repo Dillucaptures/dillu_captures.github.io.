@@ -8,8 +8,6 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- GLightbox CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
 
   <style>
     /* Reset & base */
@@ -33,23 +31,169 @@
       0% { background-size: 105%; }
       100% { background-size: 110%; }
     }
+
+    /* Portrait orientation - switch background image */
     @media (orientation: portrait) {
       body, html {
         background-image: linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
                           url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=768&q=80');
       }
     }
-    /* Navbar styles omitted for brevity (same as previous) */
-    .navbar {position: fixed; top: 0; left: 0; right: 0; background: rgba(20,20,20,0.9); backdrop-filter: blur(10px); display: flex; justify-content: space-between; align-items: center; padding: 18px 20px; z-index: 1000; box-shadow: 0 2px 8px rgba(255,255,255,0.1); flex-wrap: wrap; user-select: none;}
-    .logo {font-family: 'Dancing Script', cursive; color: #fff; font-size: 1.8rem; letter-spacing: 2px; cursor: pointer; text-decoration: none; transition: color 0.3s ease; flex: 1 1 auto; min-width: 150px;}
-    .logo:hover {color: #fff;}
-    .nav-links {display: flex; gap: 25px; flex: 2 1 auto; justify-content: flex-end; flex-wrap: wrap;}
-    .nav-links a {color: #ddd; font-weight: 600; text-decoration: none; font-size: 1rem; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color 0.3s, border-bottom-color 0.3s; letter-spacing: 1px; white-space: nowrap; display: flex; align-items: center; gap: 6px;}
-    .nav-links a:hover {color: white; border-bottom-color: white; text-shadow: 0 0 6px white;}
-    .nav-links a i {font-size: 1.3rem;}
-    /* Other styles as above omitted for brevity */
 
-    /* Gallery Style Update for GLightbox */
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(20,20,20,0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+      user-select: none;
+    }
+    .logo {
+      font-family: 'Dancing Script', cursive;
+      color: #fff;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      flex: 1 1 auto;
+      min-width: 150px;
+    }
+    .logo:hover {
+      color: #fff;
+    }
+   
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      flex: 2 1 auto;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #ddd;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s, border-bottom-color 0.3s;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover {
+      color: white;
+      border-bottom-color: white;
+      text-shadow: 0 0 6px white;
+    }
+    .nav-links a i {
+      font-size: 1.3rem;
+    }
+
+    /* Hero Section */
+    #home {
+      height: auto;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px 80px 20px;
+      z-index: 1;
+      position: relative;
+      color: #fff;
+      background: rgba(0,0,0,0.7);
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 100px auto 60px auto;
+      box-shadow: 0 10px 50px rgba(255,255,255,0.15);
+      user-select: text;
+    }
+    #home h1 {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 400;
+      font-size: 4.2rem;
+      margin: 0 0 20px;
+      letter-spacing: 2px;
+      text-shadow: none;
+    }
+    #home p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      color: #ddd;
+      margin-bottom: 40px;
+    }
+    #home a.cta-btn {
+      background-color: #fff;
+      color: #121212;
+      font-weight: 700;
+      padding: 14px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 25px white;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #home a.cta-btn:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.1);
+      box-shadow: 0 0 50px white;
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 20px;
+      text-align: center;
+      backdrop-filter: blur(15px);
+      background: rgba(0,0,0,0.75);
+      margin: 0 20px 60px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.15);
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: text;
+    }
+    section h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.8rem;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px white;
+    }
+    section p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      justify-items: center;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
     .gallery a {
       position: relative;
       overflow: hidden;
@@ -60,7 +204,6 @@
       display: block;
       width: 100%;
       max-width: 280px;
-      text-decoration: none;
     }
     .gallery a img {
       width: 100%;
@@ -71,115 +214,205 @@
       display: block;
       loading: lazy;
     }
+    .gallery a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.25), transparent 70%);
+      opacity: 0.4;
+      border-radius: 15px;
+      transition: opacity 0.5s ease;
+    }
     .gallery a:hover {
       transform: scale(1.05);
       box-shadow: 0 0 75px white;
       z-index: 5;
     }
+    .gallery a:hover::after {
+      opacity: 0.7;
+    }
+    .gallery a:hover img {
+      filter: brightness(1.2);
+      transform: scale(1.1);
+    }
+
+    /* Contact Section */
+    .contact .buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .contact .buttons a {
+      background-color: #444c66;
+      color: #eee;
+      font-weight: 700;
+      padding: 12px 35px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      box-shadow: 0 0 15px white;
+      flex: 1 1 140px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .contact .buttons a:hover {
+      background-color: #f0f0f0;
+      color: #121212;
+      transform: scale(1.1);
+      box-shadow: 0 0 50px white;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 700px) {
+      .nav-links {
+        justify-content: center;
+      }
+      #home h1 {
+        font-size: 3rem;
+      }
+      section h2 {
+        font-size: 2.3rem;
+      }
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+      .gallery a {
+        max-width: 140px;
+      }
+      .contact .buttons a {
+        flex: 1 1 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media(max-width: 400px) {
+      .navbar {
+        padding: 15px 10px;
+      }
+      #home {
+        margin: 90px 10px 40px 10px;
+        padding: 50px 15px 70px 15px;
+      }
+      #home h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1.2px;
+      }
+      #home p {
+        font-size: 1.1rem;
+      }
+      section {
+        margin: 0 10px 40px 10px;
+        padding: 60px 10px;
+      }
+    }
   </style>
 </head>
 <body>
 
-<nav class="navbar">
-  <a href="#home" class="logo">Dillu Captures</a>
-  <div class="nav-links">
-    <a href="#home"><i class="fas fa-home"></i> Home</a>
-    <a href="#gallery"><i class="fas fa-images"></i> Portfolio</a>
-    <a href="#about"><i class="fas fa-user"></i> About</a>
-    <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
-  </div>
-</nav>
+  <nav class="navbar">
+    <a href="#home" class="logo">Dillu Captures</a>
 
-<section id="home">
-  <h1>Dillu Captures</h1>
-  <p>Bright, emotive, and timeless—capturing life's moments through my lens for stories that last forever.</p>
-  <a href="#gallery" class="cta-btn"><i class="fas fa-camera"></i> Explore Work</a>
-</section>
+    <div class="nav-links">
+      <a href="#home"><i class="fas fa-home"></i> Home</a>
+      <a href="#gallery"><i class="fas fa-images"></i> Portfolio</a>
+      <a href="#about"><i class="fas fa-user"></i> About</a>
+      <a href="#contact"><i class="fas fa-phone"></i> Contact</a>
+    </div>
+  </nav>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>Welcome to Dillu Captures — where every photograph is a blend of passion, precision, and storytelling. From candid smiles to artistic portraits, I capture life in all its authentic beauty.</p>
-</section>
+  <section id="home">
+    <h1>Dillu Captures</h1>
+    <p>Bright, emotive, and timeless—capturing life's moments through my lens for stories that last forever.</p>
+    <a href="#gallery" class="cta-btn"><i class="fas fa-camera"></i> Explore Work</a>
+  </section>
 
-<section id="gallery" class="gallery">
-  <a href="images/Baby on hand.jpeg" class="glightbox" data-gallery="portfolio" data-title="Baby on hand" target="_self"><img src="images/Baby on hand.jpeg" alt="Baby on hand" loading="lazy" /></a>
-  <a href="images/Baby touch.jpeg" class="glightbox" data-gallery="portfolio" data-title="Baby touch" target="_self"><img src="images/Baby touch.jpeg" alt="Baby touch" loading="lazy" /></a>
-  <a href="images/20240805190624_IMG_0708.jpg" class="glightbox" data-gallery="portfolio" data-title="IMG_0708" target="_self"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708" loading="lazy" /></a>
-  <a href="images/20240805220231_IMG_0734.jpg" class="glightbox" data-gallery="portfolio" data-title="IMG_0734" target="_self"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734" loading="lazy" /></a>
-  <a href="images/20240805220623_IMG_0741.jpg" class="glightbox" data-gallery="portfolio" data-title="IMG_0741" target="_self"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741" loading="lazy" /></a>
-  <a href="images/Manasvi 3.jpeg" class="glightbox" data-gallery="portfolio" data-title="Manasvi 3" target="_self"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3" loading="lazy" /></a>
-  <a href="images/Haldi.jpeg" class="glightbox" data-gallery="portfolio" data-title="Haldi" target="_self"><img src="images/Haldi.jpeg" alt="Haldi" loading="lazy" /></a>
-  <a href="images/Temple.jpeg" class="glightbox" data-gallery="portfolio" data-title="Temple" target="_self"><img src="images/Temple.jpeg" alt="Temple" loading="lazy" /></a>
-  <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" class="glightbox" data-gallery="portfolio" data-title="WhatsApp Image 1" target="_self"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" alt="WhatsApp Image 1" loading="lazy" /></a>
-  <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" class="glightbox" data-gallery="portfolio" data-title="WhatsApp Image 2" target="_self"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" alt="WhatsApp Image 2" loading="lazy" /></a>
-  <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" class="glightbox" data-gallery="portfolio" data-title="WhatsApp Image 3" target="_self"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" alt="WhatsApp Image 3" loading="lazy" /></a>
-  <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" class="glightbox" data-gallery="portfolio" data-title="WhatsApp Image 4" target="_self"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" alt="WhatsApp Image 4" loading="lazy" /></a>
-  <a href="images/Gindu sleeping.jpeg" class="glightbox" data-gallery="portfolio" data-title="Gindu sleeping" target="_self"><img src="images/Gindu sleeping.jpeg" alt="Gindu sleeping" loading="lazy" /></a>
-  <a href="images/Alka bday 1.jpeg" class="glightbox" data-gallery="portfolio" data-title="Alka birthday" target="_self"><img src="images/Alka bday 1.jpeg" alt="Alka birthday" loading="lazy" /></a>
-  <a href="images/Kriishna with tree.jpeg" class="glightbox" data-gallery="portfolio" data-title="Kriishna with tree" target="_self"><img src="images/Kriishna with tree.jpeg" alt="Kriishna with tree" loading="lazy" /></a>
-  <a href="images/Krishna.jpeg" class="glightbox" data-gallery="portfolio" data-title="Krishna" target="_self"><img src="images/Krishna.jpeg" alt="Krishna" loading="lazy" /></a>
-  <a href="images/Manasvi.jpeg" class="glightbox" data-gallery="portfolio" data-title="Manasvi" target="_self"><img src="images/Manasvi.jpeg" alt="Manasvi" loading="lazy" /></a>
-  <a href="images/Manasvi 2.jpeg" class="glightbox" data-gallery="portfolio" data-title="Manasvi 2" target="_self"><img src="images/Manasvi 2.jpeg" alt="Manasvi 2" loading="lazy" /></a>
-  <a href="images/Srilatha 1.jpeg" class="glightbox" data-gallery="portfolio" data-title="Srilatha 1" target="_self"><img src="images/Srilatha 1.jpeg" alt="Srilatha 1" loading="lazy" /></a>
-  <a href="images/Srilatha 2.jpeg" class="glightbox" data-gallery="portfolio" data-title="Srilatha 2" target="_self"><img src="images/Srilatha 2.jpeg" alt="Srilatha 2" loading="lazy" /></a>
-  <a href="images/Krisha kid sitting.jpeg" class="glightbox" data-gallery="portfolio" data-title="Krisha kid sitting" target="_self"><img src="images/Krisha kid sitting.jpeg" alt="Krisha kid sitting" loading="lazy" /></a>
-  <a href="images/krishna crying.jpeg" class="glightbox" data-gallery="portfolio" data-title="Krishna crying" target="_self"><img src="images/krishna crying.jpeg" alt="Krishna crying" loading="lazy" /></a>
-  <a href="images/Krishna Laughing.jpeg" class="glightbox" data-gallery="portfolio" data-title="Krishna Laughing" target="_self"><img src="images/Krishna Laughing.jpeg" alt="Krishna Laughing" loading="lazy" /></a>
-  <a href="images/Krishna playing with cotton.jpeg" class="glightbox" data-gallery="portfolio" data-title="Krishna playing with cotton" target="_self"><img src="images/Krishna playing with cotton.jpeg" alt="Krishna playing with cotton" loading="lazy" /></a>
-  <a href="images/Krishna watching.jpeg" class="glightbox" data-gallery="portfolio" data-title="Krishna watching" target="_self"><img src="images/Krishna watching.jpeg" alt="Krishna watching" loading="lazy" /></a>
-  <a href="images/Dhothi walk US kid.jpeg" class="glightbox" data-gallery="portfolio" data-title="Dhothi walk US kid" target="_self"><img src="images/Dhothi walk US kid.jpeg" alt="Dhothi walk US kid" loading="lazy" /></a>
-  <a href="images/US kid birla.jpeg" class="glightbox" data-gallery="portfolio" data-title="US kid birla" target="_self"><img src="images/US kid birla.jpeg" alt="US kid birla" loading="lazy" /></a>
-  <a href="images/Us walking for pegion.jpeg" class="glightbox" data-gallery="portfolio" data-title="Us walking for pegion" target="_self"><img src="images/Us walking for pegion.jpeg" alt="Us walking for pegion" loading="lazy" /></a>
-  <a href="images/Us walking for pegion 2.jpeg" class="glightbox" data-gallery="portfolio" data-title="Us walking for pegion 2" target="_self"><img src="images/Us walking for pegion 2.jpeg" alt="Us walking for pegion 2" loading="lazy" /></a>
-  <a href="images/US kid necklace road walk.jpeg" class="glightbox" data-gallery="portfolio" data-title="US kid necklace road walk" target="_self"><img src="images/US kid necklace road walk.jpeg" alt="US kid necklace road walk" loading="lazy" /></a>
-  <a href="images/Us kid playing with Baall.jpeg" class="glightbox" data-gallery="portfolio" data-title="Us kid playing with ball" target="_self"><img src="images/Us kid playing with Baall.jpeg" alt="Us kid playing with ball" loading="lazy" /></a>
-  <a href="images/US kid ntr garden.jpeg" class="glightbox" data-gallery="portfolio" data-title="US kid ntr garden" target="_self"><img src="images/US kid ntr garden.jpeg" alt="US kid ntr garden" loading="lazy" /></a>
-  <a href="images/US kid ntr garden 2.jpeg" class="glightbox" data-gallery="portfolio" data-title="US kid ntr garden 2" target="_self"><img src="images/US kid ntr garden 2.jpeg" alt="US kid ntr garden 2" loading="lazy" /></a>
-  <a href="images/Me with helmet thumbsuo.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me with helmet" target="_self"><img src="images/Me with helmet thumbsuo.jpeg" alt="Me with helmet" loading="lazy" /></a>
-  <a href="images/me thinking with helmet.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me thinking with helmet" target="_self"><img src="images/me thinking with helmet.jpeg" alt="Me thinking with helmet" loading="lazy" /></a>
-  <a href="images/Me thinking with helmet 2.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me thinking with helmet 2" target="_self"><img src="images/Me thinking with helmet 2.jpeg" alt="Me thinking with helmet 2" loading="lazy" /></a>
-  <a href="images/Me helmet setting.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me helmet setting" target="_self"><img src="images/Me helmet setting.jpeg" alt="Me helmet setting" loading="lazy" /></a>
-  <a href="images/Me holding helmet with hands.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me holding helmet" target="_self"><img src="images/Me holding helmet with hands.jpeg" alt="Me holding helmet" loading="lazy" /></a>
-  <a href="images/Me helmet watching up.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me helmet watching up" target="_self"><img src="images/Me helmet watching up.jpeg" alt="Me helmet watching up" loading="lazy" /></a>
-  <a href="images/Me lean on tree necklace road.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me lean on tree necklace road" target="_self"><img src="images/Me lean on tree necklace road.jpeg" alt="Me lean on tree necklace road" loading="lazy" /></a>
-  <a href="images/Me standing with tree.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me standing with tree" target="_self"><img src="images/Me standing with tree.jpeg" alt="Me standing with tree" loading="lazy" /></a>
-  <a href="images/Me walking 2.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me walking 2" target="_self"><img src="images/Me walking 2.jpeg" alt="Me walking 2" loading="lazy" /></a>
-  <a href="images/Me walkig with helmet.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me walking with helmet" target="_self"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
-  <a href="images/me setting helmet Bw.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me setting helmet BW" target="_self"><img src="images/me setting helmet Bw.jpeg" alt="Me setting helmet BW" loading="lazy" /></a>
-  <a href="images/Me walkig with helmet.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me walking with helmet" target="_self"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
-  <a href="images/Me lean on bike.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me leaning on bike" target="_self"><img src="images/Me lean on bike.jpeg" alt="Me leaning on bike" loading="lazy" /></a>
-  <a href="images/Standing with bike.jpeg" class="glightbox" data-gallery="portfolio" data-title="Standing with bike" target="_self"><img src="images/Standing with bike.jpeg" alt="Standing with bike" loading="lazy" /></a>
-  <a href="images/Me sitting on bike cross.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me sitting on bike cross" target="_self"><img src="images/Me sitting on bike cross.jpeg" alt="Me sitting on bike cross" loading="lazy" /></a>
-  <a href="images/Me sitting on bike.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me sitting on bike" target="_self"><img src="images/Me sitting on bike.jpeg" alt="Me sitting on bike" loading="lazy" /></a>
-  <a href="images/Me sitting in bike.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me sitting in bike" target="_self"><img src="images/Me sitting in bike.jpeg" alt="Me sitting in bike" loading="lazy" /></a>
-  <a href="images/Me GVK shoot sitting on bike.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me GVK shoot sitting on bike" target="_self"><img src="images/Me GVK shoot sitting on bike.jpeg" alt="Me GVK shoot sitting on bike" loading="lazy" /></a>
-  <a href="images/my bike with head hand.jpeg" class="glightbox" data-gallery="portfolio" data-title="My bike with head hand" target="_self"><img src="images/my bike with head hand.jpeg" alt="My bike with head hand" loading="lazy" /></a>
-  <a href="images/Me laughing.jpeg" class="glightbox" data-gallery="portfolio" data-title="Me laughing" target="_self"><img src="images/Me laughing.jpeg" alt="Me laughing" loading="lazy" /></a>
-  <a href="images/Necklace road murmura uncle.jpeg" class="glightbox" data-gallery="portfolio" data-title="Necklace road murmura uncle" target="_self"><img src="images/Necklace road murmura uncle.jpeg" alt="Necklace road murmura uncle" loading="lazy" /></a>
-</section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Welcome to Dillu Captures — where every photograph is a blend of passion, precision, and storytelling. From candid smiles to artistic portraits, I capture life in all its authentic beauty.</p>
+  </section>
   
-<section id="contact" class="contact">
-  <h2>Let's Connect</h2>
-  <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#ddd;">dillucapture@gmail.com</a></p>
-  <p>Phone: <a href="tel:+919700034138" style="color:#ddd;">+91 9700034138</a></p>
-  <div class="buttons">
-    <a href="mailto:dillucapture@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
-    <a href="tel:+919700034138"><i class="fas fa-phone"></i> Call Me</a>
-    <a href="https://www.instagram.com/dillu_captures/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-    <a href="https://wa.me/919700034138?text=Hi%20Dillu!" target="_blank" style="background: #25D366;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-  </div>
-</section>
+  <section id="gallery" class="gallery">
+    <!-- All your images inserted here with loading="lazy" -->
+    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" loading="lazy" /></a>
+    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch" loading="lazy" /></a>
+    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708" loading="lazy" /></a>
+    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734" loading="lazy" /></a>
+    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741" loading="lazy" /></a>
+    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3" loading="lazy" /></a>
+    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi" loading="lazy" /></a>
+    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" alt="WhatsApp Image 1" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" alt="WhatsApp Image 2" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" alt="WhatsApp Image 3" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" alt="WhatsApp Image 4" loading="lazy" /></a>
+    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg" alt="Gindu sleeping" loading="lazy" /></a>
+    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka birthday" loading="lazy" /></a>
+    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg" alt="Kriishna with tree" loading="lazy" /></a>
+    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg" alt="Krishna" loading="lazy" /></a>
+    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg" alt="Manasvi" loading="lazy" /></a>
+    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg" alt="Manasvi 2" loading="lazy" /></a>
+    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg" alt="Srilatha 1" loading="lazy" /></a>
+    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg" alt="Srilatha 2" loading="lazy" /></a>
+    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg" alt="Krisha kid sitting" loading="lazy" /></a>
+    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg" alt="Krishna crying" loading="lazy" /></a>
+    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg" alt="Krishna Laughing" loading="lazy" /></a>
+    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg" alt="Krishna playing with cotton" loading="lazy" /></a>
+    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg" alt="Krishna watching" loading="lazy" /></a>
+    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg" alt="Dhothi walk US kid" loading="lazy" /></a>
+    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg" alt="US kid birla" loading="lazy" /></a>
+    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg" alt="Us walking for pegion" loading="lazy" /></a>
+    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg" alt="Us walking for pegion 2" loading="lazy" /></a>
+    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg" alt="US kid necklace road walk" loading="lazy" /></a>
+    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg" alt="Us kid playing with ball" loading="lazy" /></a>
+    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg" alt="US kid ntr garden" loading="lazy" /></a>
+    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg" alt="US kid ntr garden 2" loading="lazy" /></a>
+    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg" alt="Me with helmet" loading="lazy" /></a>
+    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg" alt="Me thinking with helmet" loading="lazy" /></a>
+    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg" alt="Me thinking with helmet 2" loading="lazy" /></a>
+    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg" alt="Me helmet setting" loading="lazy" /></a>
+    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg" alt="Me holding helmet" loading="lazy" /></a>
+    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg" alt="Me helmet watching up" loading="lazy" /></a>
+    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg" alt="Me lean on tree necklace road" loading="lazy" /></a>
+    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg" alt="Me standing with tree" loading="lazy" /></a>
+    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg" alt="Me walking 2" loading="lazy" /></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
+    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg" alt="Me setting helmet BW" loading="lazy" /></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
+    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg" alt="Me leaning on bike" loading="lazy" /></a>
+    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg" alt="Standing with bike" loading="lazy" /></a>
+    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg" alt="Me sitting on bike cross" loading="lazy" /></a>
+    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg" alt="Me sitting on bike" loading="lazy" /></a>
+    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg" alt="Me sitting in bike" loading="lazy" /></a>
+    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg" alt="Me GVK shoot sitting on bike" loading="lazy" /></a>
+    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg" alt="My bike with head hand" loading="lazy" /></a>
+    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg" alt="Me laughing" loading="lazy" /></a>
+    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg" alt="Necklace road murmura uncle" loading="lazy" /></a>
+  </section>
 
-<footer>© 2025 Dillu Captures. All Rights Reserved.</footer>
+  <section id="contact" class="contact">
+    <h2>Let's Connect</h2>
+    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#ddd;">dillucapture@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919700034138" style="color:#ddd;">+91 9700034138</a></p>
+    <div class="buttons">
+      <a href="mailto:dillucapture@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+      <a href="tel:+919700034138"><i class="fas fa-phone"></i> Call Me</a>
+      <a href="https://www.instagram.com/dillu_captures/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://wa.me/919700034138?text=Hi%20Dillu!" target="_blank" style="background: #25D366;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </section>
 
-<!-- GLightbox JS -->
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script>
-  const lightbox = GLightbox({
-    selector: '.glightbox',
-    loop: true
-  });
-</script>
+  <footer>© 2025 Dillu Captures. All Rights Reserved.</footer>
 
 </body>
 </html>
+
+
+
