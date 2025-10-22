@@ -6,11 +6,11 @@
   <title>Dillu Captures | Visual Storyteller</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
-    /* Smooth transitions & basic reset */
+    /* Reset & base */
     *, *::before, *::after {
       box-sizing: border-box;
       scroll-behavior: smooth;
@@ -46,10 +46,10 @@
       z-index: 1000;
     }
     .logo {
-      font-family: 'Merriweather', serif;
-      color: #40e0d0;
+      font-family: 'Dancing Script', cursive;
+      color: #fff;
       font-size: 1.9rem;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
       cursor: pointer;
       text-decoration: none;
       transition: color 0.3s ease;
@@ -62,7 +62,7 @@
       gap: 30px;
     }
     .nav-links a {
-      color: #ccc;
+      color: #ddd;
       font-weight: 600;
       text-decoration: none;
       font-size: 1rem;
@@ -72,11 +72,11 @@
       letter-spacing: 1px;
     }
     .nav-links a:hover {
-      color: #40e0d0;
-      border-bottom-color: #40e0d0;
+      color: #a0f0e8;
+      border-bottom-color: #a0f0e8;
     }
 
-    /* Hero */
+    /* Hero Section */
     #home {
       height: 100vh;
       display: flex;
@@ -88,39 +88,29 @@
       z-index: 1;
       position: relative;
       user-select: none;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 100px auto 60px auto;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.7);
     }
-
-    /* Typing effect container */
     #home h1 {
-      font-family: 'Allura', cursive;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 400;
       font-size: 5rem;
-      color: #40e0d0;
-      letter-spacing: 3px;
       margin: 0 0 20px;
-      border-right: 4px solid #40e0d0;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(15, end) forwards, blink-caret 0.75s step-end infinite;
+      letter-spacing: 2px;
+      user-select: text;
     }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 15ch; }
-    }
-    @keyframes blink-caret {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #40e0d0; }
-    }
-
     #home p {
       font-size: 1.3rem;
       max-width: 700px;
       color: #ccc;
       margin-bottom: 40px;
-      animation: fadeUp 2s ease forwards;
     }
     #home a.cta-btn {
-      background-color: #40e0d0;
+      background-color: #a0f0e8;
       color: #121212;
       font-weight: 700;
       padding: 14px 40px;
@@ -129,13 +119,13 @@
       font-size: 1.1rem;
       letter-spacing: 1.5px;
       transition: background-color 0.3s ease, transform 0.3s ease;
-      /* Removed box-shadow for cleaner look */
+      box-shadow: 0 0 25px #a0f0e8;
       user-select: none;
     }
     #home a.cta-btn:hover {
       background-color: #76f2e8;
       transform: scale(1.1);
-      /* Removed box-shadow */
+      box-shadow: 0 0 50px #76f2e8;
     }
 
     /* Sections */
@@ -143,16 +133,17 @@
       padding: 90px 20px;
       text-align: center;
       backdrop-filter: blur(15px);
-      background: rgba(10, 10, 10, 0.6);
+      background: rgba(0,0,0,0.65);
       margin: 0 30px 60px 30px;
       border-radius: 10px;
-      box-shadow: 0 0 40px rgba(0,255,255,0.15);
+      box-shadow: 0 0 40px rgba(160,240,232,0.15);
     }
     section h2 {
       font-family: 'Merriweather', serif;
       font-size: 2.8rem;
-      color: #40e0d0;
+      color: #fff;
       margin-bottom: 20px;
+      user-select: text;
     }
     section p {
       max-width: 850px;
@@ -160,10 +151,7 @@
       font-size: 1.15rem;
       line-height: 1.6;
       color: #ddd;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+      user-select: text;
     }
 
     /* Gallery */
@@ -178,7 +166,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 15px;
-      box-shadow: 0 0 30px rgba(0,255,255,0.15);
+      box-shadow: 0 0 30px rgba(160,240,232,0.15);
       transition: transform 1s ease, box-shadow 0.5s ease;
       cursor: pointer;
       display: block;
@@ -197,14 +185,14 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(64,224,208,0.25), transparent 70%);
+      background: linear-gradient(135deg, rgba(160,240,232,0.25), transparent 70%);
       opacity: 0.4;
       transition: opacity 0.5s ease;
       border-radius: 15px;
     }
     .gallery a:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 75px #40e0d0;
+      box-shadow: 0 0 75px #a0f0e8;
       z-index: 5;
     }
     .gallery a:hover::after {
@@ -220,8 +208,8 @@
       margin-top: 30px;
     }
     .contact .buttons a {
-      background-color: #40e0d0;
-      color: #121212;
+      background-color: #444c66;
+      color: #eee;
       font-weight: 700;
       padding: 12px 35px;
       border-radius: 30px;
@@ -230,37 +218,77 @@
       font-size: 1.1rem;
       letter-spacing: 1.3px;
       transition: background-color 0.3s ease, transform 0.3s ease;
-      /* Removed box-shadow */
       user-select: none;
       display: inline-block;
+      box-shadow: 0 0 15px rgba(160,240,232,0.15);
     }
     .contact .buttons a:hover {
       background-color: #76f2e8;
+      color: #121212;
       transform: scale(1.1);
-      /* Removed box-shadow */
+      box-shadow: 0 0 50px #76f2e8;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      color: #666;
-      background: #070707;
+      color: #bbb;
+      background: #080e1c;
       padding: 18px 0;
       font-size: 0.9rem;
       letter-spacing: 0.8px;
       user-select: none;
+      box-shadow: inset 0 1px 0 #227a89;
     }
 
-    /* Responsive */
+    /* Responsive Adjustments */
     @media (max-width: 900px) {
-      #home h1 { font-size: 2.7rem; border-right: 3px solid #40e0d0; }
-      section h2 { font-size: 2.3rem; }
-      .nav-links { gap: 15px; }
+      #home h1 {
+        font-size: 3rem;
+      }
+      section h2 {
+        font-size: 2.3rem;
+      }
+      .nav-links {
+        gap: 15px;
+      }
       .gallery {
-        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+        grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
       }
       .gallery a {
-        max-width: 200px;
+        max-width: 220px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+      #home {
+        padding: 60px 15px;
+        margin: 110px 10px 50px 10px;
+      }
+      #home h1 {
+        font-size: 2.5rem;
+      }
+      #home p {
+        font-size: 1.1rem;
+      }
+      .gallery a {
+        max-width: 180px;
+      }
+      section {
+        margin: 0 10px 40px 10px;
+        padding: 60px 15px;
       }
     }
   </style>
@@ -302,324 +330,8 @@
 
   <section id="contact" class="contact">
     <h2>Let's Connect</h2>
-    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#40e0d0;">dillucapture@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919700034138" style="color:#40e0d0;">+91 9700034138</a></p>
-    <div class="buttons">
-      <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
-      <a href="tel:+919700034138">📞 Call Me</a>
-    </div>
-  </section>
-
-  <footer>© 2025 Dillu Captures. All Rights Reserved.</footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dillu Captures | Visual Storyteller</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <style>
-    /* Smooth transitions & basic reset */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body, html {
-      margin: 0; padding: 0;
-      height: 100%;
-      font-family: 'Montserrat', sans-serif;
-      background:
-        linear-gradient(rgba(3,3,3,0.75), rgba(3,3,3,0.9)),
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center center fixed;
-      background-size: cover;
-      color: #eee;
-      overflow-x: hidden;
-      transition: background-color 0.5s ease;
-      animation: bgZoom 60s ease-in-out infinite alternate;
-    }
-    @keyframes bgZoom {
-      0% { background-size: 105%; }
-      100% { background-size: 110%; }
-    }
-
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(20, 20, 20, 0.8);
-      backdrop-filter: blur(8px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 50px;
-      z-index: 1000;
-    }
-    .logo {
-      font-family: 'Merriweather', serif;
-      color: #40e0d0;
-      font-size: 1.9rem;
-      letter-spacing: 2.5px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .logo:hover {
-      color: #a0f0e8;
-    }
-    .nav-links {
-      display: flex;
-      gap: 30px;
-    }
-    .nav-links a {
-      color: #ccc;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1rem;
-      padding-bottom: 3px;
-      border-bottom: 2px solid transparent;
-      transition: color 0.3s, border-bottom-color 0.3s;
-      letter-spacing: 1px;
-    }
-    .nav-links a:hover {
-      color: #40e0d0;
-      border-bottom-color: #40e0d0;
-    }
-
-    /* Hero */
-    #home {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 30px;
-      z-index: 1;
-      position: relative;
-      user-select: none;
-    }
-
-    /* Typing effect container */
-    #home h1 {
-      font-family: 'Allura', cursive;
-      font-size: 5rem;
-      color: #40e0d0;
-      letter-spacing: 3px;
-      margin: 0 0 20px;
-      border-right: 4px solid #40e0d0;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(15, end) forwards, blink-caret 0.75s step-end infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 15ch; }
-    }
-    @keyframes blink-caret {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #40e0d0; }
-    }
-
-    #home p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      color: #ccc;
-      margin-bottom: 40px;
-      animation: fadeUp 2s ease forwards;
-    }
-    #home a.cta-btn {
-      background-color: #40e0d0;
-      color: #121212;
-      font-weight: 700;
-      padding: 14px 40px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      letter-spacing: 1.5px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      /* Removed box-shadow for cleaner look */
-      user-select: none;
-    }
-    #home a.cta-btn:hover {
-      background-color: #76f2e8;
-      transform: scale(1.1);
-      /* Removed box-shadow */
-    }
-
-    /* Sections */
-    section {
-      padding: 90px 20px;
-      text-align: center;
-      backdrop-filter: blur(15px);
-      background: rgba(10, 10, 10, 0.6);
-      margin: 0 30px 60px 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 40px rgba(0,255,255,0.15);
-    }
-    section h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 2.8rem;
-      color: #40e0d0;
-      margin-bottom: 20px;
-    }
-    section p {
-      max-width: 850px;
-      margin: 0 auto;
-      font-size: 1.15rem;
-      line-height: 1.6;
-      color: #ddd;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 20px;
-      justify-items: center;
-      margin-top: 40px;
-    }
-    .gallery a {
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0 0 30px rgba(0,255,255,0.15);
-      transition: transform 1s ease, box-shadow 0.5s ease;
-      cursor: pointer;
-      display: block;
-      width: 100%;
-      max-width: 280px;
-    }
-    .gallery a img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      display: block;
-      transition: transform 1s ease, filter 0.8s ease;
-      border-radius: 15px;
-    }
-    .gallery a::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(64,224,208,0.25), transparent 70%);
-      opacity: 0.4;
-      transition: opacity 0.5s ease;
-      border-radius: 15px;
-    }
-    .gallery a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 75px #40e0d0;
-      z-index: 5;
-    }
-    .gallery a:hover::after {
-      opacity: 0.7;
-    }
-    .gallery a:hover img {
-      filter: brightness(1.2);
-      transform: scale(1.1);
-    }
-
-    /* Contact Section */
-    .contact .buttons {
-      margin-top: 30px;
-    }
-    .contact .buttons a {
-      background-color: #40e0d0;
-      color: #121212;
-      font-weight: 700;
-      padding: 12px 35px;
-      border-radius: 30px;
-      text-decoration: none;
-      margin: 10px;
-      font-size: 1.1rem;
-      letter-spacing: 1.3px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      /* Removed box-shadow */
-      user-select: none;
-      display: inline-block;
-    }
-    .contact .buttons a:hover {
-      background-color: #76f2e8;
-      transform: scale(1.1);
-      /* Removed box-shadow */
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      color: #666;
-      background: #070707;
-      padding: 18px 0;
-      font-size: 0.9rem;
-      letter-spacing: 0.8px;
-      user-select: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      #home h1 { font-size: 2.7rem; border-right: 3px solid #40e0d0; }
-      section h2 { font-size: 2.3rem; }
-      .nav-links { gap: 15px; }
-      .gallery {
-        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      }
-      .gallery a {
-        max-width: 200px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <nav class="navbar">
-    <a href="#home" class="logo">Dillu Captures</a>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#gallery">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-  <section id="home">
-    <h1>Dillu Captures</h1>
-    <p>Bright, emotive, and timeless—capturing life's moments through my lens for stories that last forever.</p>
-    <a href="#gallery" class="cta-btn">Explore Work</a>
-  </section>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Welcome to Dillu Captures — where every photograph is a blend of passion, precision, and storytelling. From candid smiles to artistic portraits, I capture life in all its authentic beauty.</p>
-  </section>
-
-  <section id="gallery" class="gallery">
-    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" /></a>
-    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi ceremony" /></a>
-    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple" /></a>
-    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3" /></a>
-    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg" alt="Krishna laughing" /></a>
-    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg" alt="US kid birla" /></a>
-    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg" alt="Me sitting on bike" /></a>
-    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg" alt="Me laughing" /></a>
-    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg" alt="Manasvi" /></a>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Let's Connect</h2>
-    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#40e0d0;">dillucapture@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919700034138" style="color:#40e0d0;">+91 9700034138</a></p>
+    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#bbb;">dillucapture@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919700034138" style="color:#bbb;">+91 9700034138</a></p>
     <div class="buttons">
       <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
       <a href="tel:+919700034138">📞 Call Me</a>
