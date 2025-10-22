@@ -1,238 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dillu Captures | Visual Storyteller</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<style>
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: #0b0b0b;
-    color: #eee;
-    font-family: 'Poppins', sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dillu Captures | Visual Storyteller</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Urbanist:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  /* Navbar */
-  .navbar {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: rgba(20,20,20,0.8);
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 50px;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-  }
-  .logo {
-    font-family: 'Cinzel Decorative', serif;
-    color: #0ff;
-    font-size: 1.8em;
-    text-decoration: none;
-    letter-spacing: 3px;
-    transition: color 0.3s;
-  }
-  .logo:hover { color: #fff; }
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #0a0a0a;
+      color: #f8f8f8;
+      font-family: 'Urbanist', sans-serif;
+      overflow-x: hidden;
+    }
 
-  .nav-links { display: flex; gap: 25px; }
-  .nav-links a {
-    color: #ccc; text-decoration: none; font-weight: 500;
-    transition: color 0.3s, border-color 0.3s;
-    border-bottom: 2px solid transparent;
-  }
-  .nav-links a:hover {
-    color: #0ff; border-bottom: 2px solid #0ff;
-  }
+    /* Navbar */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 50px;
+      background: rgba(20, 20, 20, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      color: #00ffe1;
+      font-size: 1.9em;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .logo:hover { color: #fff; }
+    .nav-links { display: flex; gap: 25px; }
+    .nav-links a {
+      color: #ddd; text-decoration: none;
+      font-weight: 600; font-family: 'Urbanist', sans-serif;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover { color: #00ffe1; }
 
-  /* Hero section */
-  .hero {
-    height: 100vh;
-    background: linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
-      url('images/hero-bg.jpg') center/cover no-repeat;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center; padding: 0 20px;
-  }
-  .hero h1 {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 3.5em;
-    background: linear-gradient(270deg,#0ff,#ff0,#0ff);
-    background-size: 300%;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: gradient-move 8s ease infinite alternate;
-  }
-  @keyframes gradient-move {
-    0%{background-position:0%}
-    100%{background-position:100%}
-  }
-  .hero p {
-    max-width: 700px;
-    font-size: 1.2em;
-    color: #ddd;
-    margin-bottom: 30px;
-    animation: fadeUp 2s ease;
-  }
-  .cta-btn {
-    background: #0ff;
-    color: #111;
-    border: none; border-radius: 25px;
-    padding: 12px 28px;
-    font-weight: 600; text-decoration: none;
-    transition: 0.3s;
-  }
-  .cta-btn:hover { transform: scale(1.1); background: #fff; }
+    /* Dynamic Gradient Background for Hero */
+    .hero {
+      height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      position: relative; text-align: center;
+      color: #fff;
+      background: linear-gradient(120deg, #0c0c0c, #004148, #0c0c0c);
+      background-size: 400% 400%;
+      animation: backgroundShift 12s ease-in-out infinite;
+    }
+    @keyframes backgroundShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    /* Hero Title Animation */
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4em;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: linear-gradient(45deg, #00ffe1, #92d8ff, #00ffe1);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: glowPulse 4s alternate infinite ease-in-out;
+    }
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 20px #00e2ff, 0 0 40px #00e2ff; }
+      100% { text-shadow: 0 0 30px #00ffe1, 0 0 60px #00ffe1; }
+    }
 
-  /* About section */
-  .about {
-    padding: 100px 30px;
-    text-align: center;
-    background: #111;
-  }
-  .about h2 {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 2.8em;
-    color: #0ff;
-    margin-bottom: 20px;
-  }
-  .about p {
-    font-size: 1.15em;
-    max-width: 800px;
-    margin: auto;
-    color: #ccc;
-    line-height: 1.8;
-    animation: fadeUp 2s ease;
-  }
+    .hero p {
+      font-size: 1.2em;
+      color: #e8e8e8;
+      max-width: 700px;
+      margin: 20px auto 30px;
+      animation: fadeUp 2s ease forwards;
+    }
 
-  /* Gallery */
-  .gallery {
-    padding: 80px 20px;
-    background: #0d0d0d;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 12px;
-  }
-  .image-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  }
-  .image-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1.5s ease, filter 1s ease;
-  }
-  .image-card:hover img {
-    transform: scale(1.1);
-    filter: brightness(1.15) contrast(1.1);
-  }
-  .image-card::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to top,rgba(0,0,0,0.7),rgba(0,0,0,0));
-    opacity: 0.4;
-    transition: opacity 0.5s ease;
-  }
-  .image-card:hover::after { opacity: 0; }
+    .cta-btn {
+      background: #00ffe1;
+      color: #111;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 28px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Urbanist', sans-serif;
+      transition: all 0.3s;
+    }
+    .cta-btn:hover {
+      transform: scale(1.1);
+      background: #fff;
+      color: #000;
+    }
 
-  /* Contact */
-  .contact {
-    text-align: center;
-    background: #111;
-    padding: 100px 20px;
-  }
-  .contact h2 {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 2.6em;
-    color: #0ff;
-    margin-bottom: 20px;
-  }
-  .contact p { color: #ccc; font-size: 1.1em; }
-  .buttons a {
-    background: #0ff;
-    color: #111;
-    padding: 10px 25px;
-    margin: 8px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.3s, transform 0.3s;
-    display: inline-block;
-  }
-  .buttons a:hover {
-    background: #fff; transform: scale(1.1);
-  }
+    /* About */
+    .about {
+      text-align: center;
+      padding: 90px 20px;
+      background: #121212;
+    }
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8em;
+      color: #00ffe1;
+      margin-bottom: 20px;
+    }
+    .about p {
+      max-width: 750px;
+      margin: 0 auto;
+      font-size: 1.15em;
+      color: #ccc;
+      line-height: 1.7;
+      animation: fadeUp 2s ease;
+    }
 
-  footer {
-    background: #090909;
-    color: #888;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-  }
+    /* Gallery */
+    .gallery {
+      background: #0f0f0f;
+      padding: 70px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .photo {
+      overflow: hidden;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.5s ease, filter 1.2s ease;
+    }
+    .photo:hover img {
+      transform: scale(1.12);
+      filter: brightness(1.2);
+    }
 
-  @media(max-width:800px){
-    .hero h1{font-size:2.5em;}
-    .about h2,.contact h2{font-size:2em;}
-  }
-</style>
+    /* Contact */
+    .contact {
+      background: #111;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .contact h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6em;
+      color: #00ffe1;
+    }
+    .contact p { color: #ccc; font-size: 1.1em; }
+    .buttons a {
+      background: #00ffe1;
+      color: #111;
+      padding: 10px 25px;
+      margin: 8px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .buttons a:hover { background: #fff; color: #111; transform: scale(1.1); }
+
+    footer {
+      text-align: center;
+      background: #0a0a0a;
+      color: #888;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width:800px){
+      .hero h1 { font-size: 2.5em; }
+      .about h2, .contact h2 { font-size: 2em; }
+    }
+  </style>
 </head>
 <body>
-  <div class="navbar">
-    <a href="#home" class="logo">Dillu Captures</a>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#gallery">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
+
+<div class="navbar">
+  <a href="#home" class="logo">Dillu Captures</a>
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#gallery">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </div>
+</div>
 
-  <section class="hero" id="home">
-    <h1>Dillu Captures</h1>
-    <p>Bright, emotive, and timeless — capturing life's moments through my lens for stories that last forever.</p>
-    <a href="#gallery" class="cta-btn">Explore Work</a>
-  </section>
+<section class="hero" id="home">
+  <h1>Dillu Captures</h1>
+  <p>Where emotion meets light — creating moments that breathe life long after they’re captured.</p>
+  <a href="#gallery" class="cta-btn">View Gallery</a>
+</section>
 
-  <section class="about" id="about">
-    <h2>About Me</h2>
-    <p>Welcome to Dillu Captures — where each photograph speaks emotion and artistry. Whether it's a candid smile, a sunlit portrait, or an elegant event moment, every session is a blend of passion, patience, and storytelling.</p>
-  </section>
+<section class="about" id="about">
+  <h2>About Me</h2>
+  <p>I’m Dillu, a visual storyteller using natural light and emotion to turn real-life moments into unforgettable frames. Every photo is a story — filled with heart, color, movement, and meaning.</p>
+</section>
 
-  <section class="gallery" id="gallery">
-    <!-- Representing all added images -->
-    <div class="image-card"><img src="images/Baby on hand.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Haldi.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Temple.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Manasvi 3.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Manasvi 2.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Krishna Laughing.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/US kid birla.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Me sitting on bike.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Manasvi.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Me laughing.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Gindu sleeping.jpeg" alt=""></div>
-    <div class="image-card"><img src="images/Necklace road murmura uncle.jpeg" alt=""></div>
-  </section>
+<section class="gallery" id="gallery">
+  <div class="photo"><img src="images/Baby on hand.jpeg" alt=""></div>
+  <div class="photo"><img src="images/Haldi.jpeg" alt=""></div>
+  <div class="photo"><img src="images/Temple.jpeg" alt=""></div>
+  <div class="photo"><img src="images/Manasvi 3.jpeg" alt=""></div>
+  <div class="photo"><img src="images/Krishna Laughing.jpeg" alt=""></div>
+  <div class="photo"><img src="images/US kid birla.jpeg" alt=""></div>
+  <div class="photo"><img src="images/Me sitting on bike.jpeg" alt=""></div>
+  <div class="photo"><img src="images/Me laughing.jpeg" alt=""></div>
+  <div class="photo"><img src="images/Manasvi.jpeg" alt=""></div>
+</section>
 
-  <section class="contact" id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#0ff;">dillucapture@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919700034138" style="color:#0ff;">+91 9700034138</a></p>
-    <div class="buttons">
-      <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
-      <a href="tel:+919700034138">📞 Call Me</a>
-    </div>
-  </section>
+<section class="contact" id="contact">
+  <h2>Let's Connect</h2>
+  <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#00ffe1;">dillucapture@gmail.com</a></p>
+  <p>Phone: <a href="tel:+919700034138" style="color:#00ffe1;">+91 9700034138</a></p>
+  <div class="buttons">
+    <a href="mailto:dillucapture@gmail.com">📧 Email</a>
+    <a href="tel:+919700034138">📞 Call</a>
+  </div>
+</section>
 
-  <footer>© 2025 Dillu Captures. All Rights Reserved.</footer>
+<footer>© 2025 Dillu Captures. All Rights Reserved.</footer>
+
 </body>
 </html>
