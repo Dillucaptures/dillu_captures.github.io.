@@ -69,25 +69,39 @@
     .logo:hover {
       color: #fff;
     }
-    /* Top icons above nav links */
+    /* Nav icons + text */
     .nav-icons {
       display: flex;
       gap: 25px;
       flex: 2 1 auto;
       justify-content: flex-end;
       flex-wrap: wrap;
-      margin-bottom: 5px;
+      margin-right: 20px;
     }
     .nav-icons a {
-      color: #ccc;
-      font-size: 1.3rem;
+      color: #ddd;
+      font-weight: 600;
+      font-size: 1rem;
       text-decoration: none;
       cursor: pointer;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
     }
     .nav-icons a:hover {
       color: white;
+      border-bottom-color: white;
       text-shadow: 0 0 6px white;
+    }
+    .nav-icons a i {
+      font-size: 1.3rem;
+      line-height: 1;
     }
     .nav-links {
       display: flex;
@@ -139,7 +153,7 @@
       font-size: 4.2rem;
       margin: 0 0 20px;
       letter-spacing: 2px;
-      text-shadow: none; /* removed glow */
+      text-shadow: none; /* no glow */
     }
     #home p {
       font-size: 1.3rem;
@@ -281,26 +295,14 @@
       box-shadow: 0 0 50px white;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      color: #bbb;
-      background: #080e1c;
-      padding: 18px 0;
-      font-size: 0.9rem;
-      letter-spacing: 0.8px;
-      user-select: none;
-      box-shadow: inset 0 1px 0 #227a89;
-    }
-
     /* Responsive Adjustments */
     @media (max-width: 700px) {
-      .nav-links {
-        justify-content: center;
-      }
       .nav-icons {
         justify-content: center;
         margin-bottom: 8px;
+      }
+      .nav-links {
+        justify-content: center;
       }
       #home h1 {
         font-size: 3rem;
@@ -348,10 +350,10 @@
     <a href="#home" class="logo">Dillu Captures</a>
 
     <div class="nav-icons">
-      <a href="#home" title="Home"><i class="fas fa-home"></i></a>
-      <a href="#gallery" title="Portfolio"><i class="fas fa-images"></i></a>
-      <a href="#about" title="About"><i class="fas fa-user"></i></a>
-      <a href="#contact" title="Contact"><i class="fas fa-phone"></i></a>
+      <a href="#home" title="Home"><i class="fas fa-home"></i> Home</a>
+      <a href="#gallery" title="Portfolio"><i class="fas fa-images"></i> Portfolio</a>
+      <a href="#about" title="About"><i class="fas fa-user"></i> About</a>
+      <a href="#contact" title="Contact"><i class="fas fa-phone"></i> Contact</a>
     </div>
 
     <div class="nav-links">
@@ -373,62 +375,63 @@
     <p>Welcome to Dillu Captures — where every photograph is a blend of passion, precision, and storytelling. From candid smiles to artistic portraits, I capture life in all its authentic beauty.</p>
   </section>
 
- <section id="gallery" class="gallery">
-  <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" loading="lazy" /></a>
-  <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch" loading="lazy" /></a>
-  <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708" loading="lazy" /></a>
-  <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734" loading="lazy" /></a>
-  <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741" loading="lazy" /></a>
-  <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3" loading="lazy" /></a>
-  <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi" loading="lazy" /></a>
-  <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple" loading="lazy" /></a>
-  <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" alt="WhatsApp Image 1" loading="lazy" /></a>
-  <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" alt="WhatsApp Image 2" loading="lazy" /></a>
-  <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" alt="WhatsApp Image 3" loading="lazy" /></a>
-  <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" alt="WhatsApp Image 4" loading="lazy" /></a>
-  <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg" alt="Gindu sleeping" loading="lazy" /></a>
-  <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka birthday" loading="lazy" /></a>
-  <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg" alt="Kriishna with tree" loading="lazy" /></a>
-  <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg" alt="Krishna" loading="lazy" /></a>
-  <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg" alt="Manasvi" loading="lazy" /></a>
-  <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg" alt="Manasvi 2" loading="lazy" /></a>
-  <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg" alt="Srilatha 1" loading="lazy" /></a>
-  <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg" alt="Srilatha 2" loading="lazy" /></a>
-  <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg" alt="Krisha kid sitting" loading="lazy" /></a>
-  <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg" alt="Krishna crying" loading="lazy" /></a>
-  <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg" alt="Krishna Laughing" loading="lazy" /></a>
-  <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg" alt="Krishna playing with cotton" loading="lazy" /></a>
-  <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg" alt="Krishna watching" loading="lazy" /></a>
-  <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg" alt="Dhothi walk US kid" loading="lazy" /></a>
-  <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg" alt="US kid birla" loading="lazy" /></a>
-  <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg" alt="Us walking for pegion" loading="lazy" /></a>
-  <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg" alt="Us walking for pegion 2" loading="lazy" /></a>
-  <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg" alt="US kid necklace road walk" loading="lazy" /></a>
-  <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg" alt="Us kid playing with ball" loading="lazy" /></a>
-  <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg" alt="US kid ntr garden" loading="lazy" /></a>
-  <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg" alt="US kid ntr garden 2" loading="lazy" /></a>
-  <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg" alt="Me with helmet" loading="lazy" /></a>
-  <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg" alt="Me thinking with helmet" loading="lazy" /></a>
-  <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg" alt="Me thinking with helmet 2" loading="lazy" /></a>
-  <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg" alt="Me helmet setting" loading="lazy" /></a>
-  <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg" alt="Me holding helmet" loading="lazy" /></a>
-  <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg" alt="Me helmet watching up" loading="lazy" /></a>
-  <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg" alt="Me lean on tree necklace road" loading="lazy" /></a>
-  <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg" alt="Me standing with tree" loading="lazy" /></a>
-  <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg" alt="Me walking 2" loading="lazy" /></a>
-  <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
-  <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg" alt="Me setting helmet BW" loading="lazy" /></a>
-  <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
-  <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg" alt="Me leaning on bike" loading="lazy" /></a>
-  <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg" alt="Standing with bike" loading="lazy" /></a>
-  <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg" alt="Me sitting on bike cross" loading="lazy" /></a>
-  <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg" alt="Me sitting on bike" loading="lazy" /></a>
-  <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg" alt="Me sitting in bike" loading="lazy" /></a>
-  <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg" alt="Me GVK shoot sitting on bike" loading="lazy" /></a>
-  <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg" alt="My bike with head hand" loading="lazy" /></a>
-  <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg" alt="Me laughing" loading="lazy" /></a>
-  <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg" alt="Necklace road murmura uncle" loading="lazy" /></a>
-</section>
+  <section id="gallery" class="gallery">
+    <!-- All your images inserted here with loading="lazy" -->
+    <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" loading="lazy" /></a>
+    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch" loading="lazy" /></a>
+    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708" loading="lazy" /></a>
+    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734" loading="lazy" /></a>
+    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741" loading="lazy" /></a>
+    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3" loading="lazy" /></a>
+    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi" loading="lazy" /></a>
+    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" alt="WhatsApp Image 1" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" alt="WhatsApp Image 2" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" alt="WhatsApp Image 3" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" alt="WhatsApp Image 4" loading="lazy" /></a>
+    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg" alt="Gindu sleeping" loading="lazy" /></a>
+    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka birthday" loading="lazy" /></a>
+    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg" alt="Kriishna with tree" loading="lazy" /></a>
+    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg" alt="Krishna" loading="lazy" /></a>
+    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg" alt="Manasvi" loading="lazy" /></a>
+    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg" alt="Manasvi 2" loading="lazy" /></a>
+    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg" alt="Srilatha 1" loading="lazy" /></a>
+    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg" alt="Srilatha 2" loading="lazy" /></a>
+    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg" alt="Krisha kid sitting" loading="lazy" /></a>
+    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg" alt="Krishna crying" loading="lazy" /></a>
+    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg" alt="Krishna Laughing" loading="lazy" /></a>
+    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg" alt="Krishna playing with cotton" loading="lazy" /></a>
+    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg" alt="Krishna watching" loading="lazy" /></a>
+    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg" alt="Dhothi walk US kid" loading="lazy" /></a>
+    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg" alt="US kid birla" loading="lazy" /></a>
+    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg" alt="Us walking for pegion" loading="lazy" /></a>
+    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg" alt="Us walking for pegion 2" loading="lazy" /></a>
+    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg" alt="US kid necklace road walk" loading="lazy" /></a>
+    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg" alt="Us kid playing with ball" loading="lazy" /></a>
+    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg" alt="US kid ntr garden" loading="lazy" /></a>
+    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg" alt="US kid ntr garden 2" loading="lazy" /></a>
+    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg" alt="Me with helmet" loading="lazy" /></a>
+    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg" alt="Me thinking with helmet" loading="lazy" /></a>
+    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg" alt="Me thinking with helmet 2" loading="lazy" /></a>
+    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg" alt="Me helmet setting" loading="lazy" /></a>
+    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg" alt="Me holding helmet" loading="lazy" /></a>
+    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg" alt="Me helmet watching up" loading="lazy" /></a>
+    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg" alt="Me lean on tree necklace road" loading="lazy" /></a>
+    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg" alt="Me standing with tree" loading="lazy" /></a>
+    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg" alt="Me walking 2" loading="lazy" /></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
+    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg" alt="Me setting helmet BW" loading="lazy" /></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
+    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg" alt="Me leaning on bike" loading="lazy" /></a>
+    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg" alt="Standing with bike" loading="lazy" /></a>
+    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg" alt="Me sitting on bike cross" loading="lazy" /></a>
+    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg" alt="Me sitting on bike" loading="lazy" /></a>
+    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg" alt="Me sitting in bike" loading="lazy" /></a>
+    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg" alt="Me GVK shoot sitting on bike" loading="lazy" /></a>
+    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg" alt="My bike with head hand" loading="lazy" /></a>
+    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg" alt="Me laughing" loading="lazy" /></a>
+    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg" alt="Necklace road murmura uncle" loading="lazy" /></a>
+  </section>
 
   <section id="contact" class="contact">
     <h2>Let's Connect</h2>
