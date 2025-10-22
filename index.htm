@@ -19,19 +19,35 @@
       margin: 0; padding: 0;
       height: 100%;
       font-family: 'Montserrat', sans-serif;
-      background:
-        linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
-        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
       color: #eee;
       overflow-x: hidden;
       transition: background-color 0.5s ease;
+      background:
+        linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center center fixed;
+      background-size: cover;
+      animation: bgZoom 60s ease-in-out infinite alternate;
     }
-    
+    @keyframes bgZoom {
+      0% { background-size: 105%; }
+      100% { background-size: 110%; }
+    }
+
+    /* Mobile background override */
+    @media (max-width: 768px) {
+      body, html {
+        background:
+          linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
+          url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=768&q=80') no-repeat center center fixed;
+        background-size: cover;
+      }
+    }
+
     /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(20, 20, 20, 0.9);
+      background: rgba(20,20,20,0.9);
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
@@ -356,3 +372,4 @@
 
 </body>
 </html>
+
