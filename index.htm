@@ -20,31 +20,25 @@
       height: 100%;
       font-family: 'Montserrat', sans-serif;
       background:
-        linear-gradient(rgba(3,3,3,0.75), rgba(3,3,3,0.9)),
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center center fixed;
-      background-size: cover;
+        linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
       color: #eee;
       overflow-x: hidden;
       transition: background-color 0.5s ease;
-      animation: bgZoom 60s ease-in-out infinite alternate;
     }
-    @keyframes bgZoom {
-      0% { background-size: 105%; }
-      100% { background-size: 110%; }
-    }
-
+    
     /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(20, 20, 20, 0.8);
-      backdrop-filter: blur(8px);
+      background: rgba(20, 20, 20, 0.9);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 18px 20px;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(255,255,255,0.1);
       flex-wrap: wrap;
     }
     .logo {
@@ -57,9 +51,11 @@
       transition: color 0.3s ease;
       flex: 1 1 auto;
       min-width: 150px;
+      user-select: none;
     }
     .logo:hover {
-      color: #a0f0e8;
+      color: #fff;
+      text-shadow: 0 0 8px white;
     }
     .nav-links {
       display: flex;
@@ -78,10 +74,12 @@
       transition: color 0.3s, border-bottom-color 0.3s;
       letter-spacing: 1px;
       white-space: nowrap;
+      user-select: none;
     }
     .nav-links a:hover {
-      color: #a0f0e8;
-      border-bottom-color: #a0f0e8;
+      color: white;
+      border-bottom-color: white;
+      text-shadow: 0 0 6px white;
     }
 
     /* Hero Section */
@@ -98,11 +96,11 @@
       position: relative;
       user-select: none;
       color: #fff;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.7);
       border-radius: 15px;
       max-width: 900px;
       margin: 100px auto 60px auto;
-      box-shadow: 0 10px 50px rgba(0,0,0,0.7);
+      box-shadow: 0 10px 50px rgba(255,255,255,0.15);
     }
     #home h1 {
       font-family: 'Dancing Script', cursive;
@@ -111,15 +109,20 @@
       margin: 0 0 20px;
       letter-spacing: 2px;
       user-select: text;
+      text-shadow:
+        0 0 5px white,
+        0 0 15px white,
+        0 0 30px white,
+        0 0 45px white;
     }
     #home p {
       font-size: 1.3rem;
       max-width: 700px;
-      color: #ccc;
+      color: #ddd;
       margin-bottom: 40px;
     }
     #home a.cta-btn {
-      background-color: #a0f0e8;
+      background-color: #fff;
       color: #121212;
       font-weight: 700;
       padding: 14px 40px;
@@ -127,14 +130,14 @@
       text-decoration: none;
       font-size: 1.1rem;
       letter-spacing: 1.5px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 25px #a0f0e8;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 25px white;
       user-select: none;
     }
     #home a.cta-btn:hover {
-      background-color: #76f2e8;
+      background-color: #f0f0f0;
       transform: scale(1.1);
-      box-shadow: 0 0 50px #76f2e8;
+      box-shadow: 0 0 50px white;
     }
 
     /* Sections */
@@ -142,10 +145,10 @@
       padding: 90px 20px;
       text-align: center;
       backdrop-filter: blur(15px);
-      background: rgba(0,0,0,0.65);
+      background: rgba(0,0,0,0.75);
       margin: 0 20px 60px 20px;
       border-radius: 10px;
-      box-shadow: 0 0 40px rgba(160,240,232,0.15);
+      box-shadow: 0 0 40px rgba(255,255,255,0.15);
       max-width: 1000px;
       margin-left: auto;
       margin-right: auto;
@@ -156,6 +159,7 @@
       color: #fff;
       margin-bottom: 20px;
       user-select: text;
+      text-shadow: 0 0 5px white;
     }
     section p {
       max-width: 850px;
@@ -179,7 +183,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 15px;
-      box-shadow: 0 0 30px rgba(160,240,232,0.15);
+      box-shadow: 0 0 30px rgba(255,255,255,0.15);
       transition: transform 0.5s ease, box-shadow 0.5s ease;
       cursor: pointer;
       display: block;
@@ -198,14 +202,14 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(160,240,232,0.25), transparent 70%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.25), transparent 70%);
       opacity: 0.4;
       border-radius: 15px;
       transition: opacity 0.5s ease;
     }
     .gallery a:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 75px #a0f0e8;
+      box-shadow: 0 0 75px white;
       z-index: 5;
     }
     .gallery a:hover::after {
@@ -233,17 +237,17 @@
       text-decoration: none;
       font-size: 1.1rem;
       letter-spacing: 1px;
-      transition: background-color 0.3s ease, transform 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       user-select: none;
-      box-shadow: 0 0 15px rgba(160,240,232,0.15);
+      box-shadow: 0 0 15px white;
       flex: 1 1 140px;
       text-align: center;
     }
     .contact .buttons a:hover {
-      background-color: #76f2e8;
+      background-color: #f0f0f0;
       color: #121212;
       transform: scale(1.1);
-      box-shadow: 0 0 50px #76f2e8;
+      box-shadow: 0 0 50px white;
     }
 
     /* Footer */
@@ -340,8 +344,8 @@
 
   <section id="contact" class="contact">
     <h2>Let's Connect</h2>
-    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#ccc;">dillucapture@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919700034138" style="color:#ccc;">+91 9700034138</a></p>
+    <p>Email: <a href="mailto:dillucapture@gmail.com" style="color:#ddd;">dillucapture@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919700034138" style="color:#ddd;">+91 9700034138</a></p>
     <div class="buttons">
       <a href="mailto:dillucapture@gmail.com">📧 Email Me</a>
       <a href="tel:+919700034138">📞 Call Me</a>
