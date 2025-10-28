@@ -10,35 +10,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
+    /* Reset & base */
     *, *::before, *::after {
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-    html { scroll-behavior: smooth; }
     body, html {
       margin: 0; padding: 0;
       height: 100%;
       font-family: 'Montserrat', sans-serif;
       color: #eee;
       overflow-x: hidden;
+      transition: background-color 0.5s ease;
       background: linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center center fixed;
+                  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center center fixed;
       background-size: cover;
       animation: bgZoom 60s ease-in-out infinite alternate;
-      transition: background-color 0.5s ease;
     }
     @keyframes bgZoom {
       0% { background-size: 105%; }
       100% { background-size: 110%; }
     }
+
+    /* Portrait orientation - switch background image */
     @media (orientation: portrait) {
       body, html {
         background-image: linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
-          url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=768&q=80');
+                          url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=768&q=80');
       }
     }
 
-    /* Navbar & Logo */
+    /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -47,52 +49,27 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      z-index: 999;
+      padding: 18px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.1);
       flex-wrap: wrap;
+      user-select: none;
     }
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 2.2rem;
-      background: none;
-      padding: 4px 12px;
-      border-radius: 8px;
-      letter-spacing: 2px;
-      color: #fff;
-      text-shadow: 0 1px 12px #0cf, 0 0px 1px #fff;
-      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-      text-decoration: none;
-    }
-    .logo i {
-      font-size: 1.5rem;
-      margin-right: 8px;
-      color: #1de9b6;
-      text-shadow: 0 4px 24px #09fcc6, 0 1px 2px #fff;
-    }
-    .logo-script {
       font-family: 'Dancing Script', cursive;
-      font-size: 2.1rem;
-      margin-right: 4px;
       color: #fff;
-      font-weight: 700;
+      font-size: 1.8rem;
       letter-spacing: 2px;
-    }
-    .logo-plain {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      color: #1de9b6;
-      text-shadow: 0 1px 4px #1de9b6, 0 0px 1px #fff;
-    }
-    .logo:hover, .logo:focus {
-      background: rgba(255,255,255,0.08);
-      color: #00ffd1;
-      box-shadow: 0 2px 16px #000;
+      cursor: pointer;
       text-decoration: none;
+      transition: color 0.3s ease;
+      flex: 1 1 auto;
+      min-width: 150px;
     }
+    .logo:hover {
+      color: #fff;
+    }
+   
     .nav-links {
       display: flex;
       gap: 25px;
@@ -115,12 +92,68 @@
       gap: 6px;
     }
     .nav-links a:hover {
-      color: #fff;
-      border-bottom-color: #1de9b6;
+      color: white;
+      border-bottom-color: white;
       text-shadow: 0 0 6px white;
     }
     .nav-links a i {
       font-size: 1.3rem;
+    }
+
+    /* Hero Section */
+    #home {
+      height: auto;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px 80px 20px;
+      z-index: 1;
+      position: relative;
+      color: #fff;
+      background: rgba(0,0,0,0.7);
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 100px auto 60px auto;
+      box-shadow: 0 10px 50px rgba(255,255,255,0.15);
+      user-select: text;
+    }
+    #home h1 {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 400;
+      font-size: 4.2rem;
+      margin: 0 0 20px;
+      letter-spacing: 2px;
+      text-shadow: none;
+    }
+    #home p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      color: #ddd;
+      margin-bottom: 40px;
+    }
+    #home a.cta-btn {
+      background-color: #fff;
+      color: #121212;
+      font-weight: 700;
+      padding: 14px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 25px white;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #home a.cta-btn:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.1);
+      box-shadow: 0 0 50px white;
     }
 
     /* Sections */
@@ -259,6 +292,7 @@
         max-width: 300px;
       }
     }
+
     @media(max-width: 400px) {
       .navbar {
         padding: 15px 10px;
@@ -284,11 +318,8 @@
 <body>
 
   <nav class="navbar">
-    <a href="#home" class="logo">
-      <i class="fas fa-camera"></i>
-      <span class="logo-script">Dillu</span>
-      <span class="logo-plain">Captures</span>
-    </a>
+    <a href="#home" class="logo">Dillu Captures</a>
+
     <div class="nav-links">
       <a href="#home"><i class="fas fa-home"></i> Home</a>
       <a href="#gallery"><i class="fas fa-images"></i> Portfolio</a>
@@ -307,7 +338,7 @@
     <h2>About Me</h2>
     <p>Welcome to Dillu Captures — where every photograph is a blend of passion, precision, and storytelling. From candid smiles to artistic portraits, I capture life in all its authentic beauty.</p>
   </section>
-    
+  
   <section id="gallery" class="gallery">
     <!-- All your images inserted here with loading="lazy" -->
     <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" loading="lazy" /></a>
