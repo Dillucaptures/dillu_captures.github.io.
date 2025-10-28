@@ -10,109 +10,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
+    /* Reset & base */
     *, *::before, *::after {
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-    html { scroll-behavior: smooth; }
     body, html {
       margin: 0; padding: 0;
       height: 100%;
       font-family: 'Montserrat', sans-serif;
       color: #eee;
       overflow-x: hidden;
+      transition: background-color 0.5s ease;
       background: linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center center fixed;
+                  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=85') no-repeat center center fixed;
       background-size: cover;
       animation: bgZoom 60s ease-in-out infinite alternate;
-      transition: background-color 0.5s ease;
     }
     @keyframes bgZoom {
       0% { background-size: 105%; }
       100% { background-size: 110%; }
     }
+
+    /* Portrait orientation - switch background image */
     @media (orientation: portrait) {
       body, html {
         background-image: linear-gradient(rgba(3,3,3,0.85), rgba(3,3,3,0.95)),
-          url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=768&q=80');
+                          url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=768&q=80');
       }
     }
 
-    /* Welcome Splash */
-    #welcome-overlay {
-      position: fixed;
-      z-index: 2000;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: linear-gradient(135deg, #03213b 40%, #141c23 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.7s cubic-bezier(0.86, 0, 0.07, 1);
-    }
-    .welcome-content {
-      text-align: center;
-      color: #eef9f1;
-      animation: fadeInWelcome 1.5s;
-    }
-    @keyframes fadeInWelcome {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    .welcome-content i {
-      font-size: 3.4rem;
-      color: #1de9b6;
-      text-shadow: 0 4px 24px #09fcc6, 0 1px 2px #fff;
-      margin-bottom: 20px;
-      display: block;
-    }
-    .welcome-content h1 {
-      font-size: 2.5rem;
-      margin: 8px 0;
-    }
-    .welcome-content .logo-script {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2.1rem;
-      letter-spacing:2px;
-      color: #fff;
-      font-weight: 700;
-    }
-    .welcome-content .logo-plain {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #1de9b6;
-      letter-spacing: 2px;
-    }
-    #welcome-overlay p {
-      color: #e0ffff;
-      letter-spacing: 1.1px;
-      margin-bottom: 26px;
-    }
-    #welcome-overlay button {
-      background: #1de9b6;
-      color: #111;
-      border: none;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      padding: 12px 36px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
-      box-shadow: 0 0 18px #1de9b6, 0 1px 1px #fff;
-    }
-    #welcome-overlay button:hover {
-      background: #fff;
-      color: #121212;
-      transform: scale(1.05);
-    }
-    .hide-welcome {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.6s;
-    }
-
-    /* Navbar & Logo */
+    /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -121,52 +49,27 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 20px;
-      z-index: 999;
+      padding: 18px 20px;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(255,255,255,0.1);
       flex-wrap: wrap;
+      user-select: none;
     }
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 2.2rem;
-      background: none;
-      padding: 4px 12px;
-      border-radius: 8px;
-      letter-spacing: 2px;
-      color: #fff;
-      text-shadow: 0 1px 12px #0cf, 0 0px 1px #fff;
-      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-      text-decoration: none;
-    }
-    .logo i {
-      font-size: 1.5rem;
-      margin-right: 8px;
-      color: #1de9b6;
-      text-shadow: 0 4px 24px #09fcc6, 0 1px 2px #fff;
-    }
-    .logo-script {
       font-family: 'Dancing Script', cursive;
-      font-size: 2.1rem;
-      margin-right: 4px;
       color: #fff;
-      font-weight: 700;
+      font-size: 1.8rem;
       letter-spacing: 2px;
-    }
-    .logo-plain {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      color: #1de9b6;
-      text-shadow: 0 1px 4px #1de9b6, 0 0px 1px #fff;
-    }
-    .logo:hover, .logo:focus {
-      background: rgba(255,255,255,0.08);
-      color: #00ffd1;
-      box-shadow: 0 2px 16px #000;
+      cursor: pointer;
       text-decoration: none;
+      transition: color 0.3s ease;
+      flex: 1 1 auto;
+      min-width: 150px;
     }
+    .logo:hover {
+      color: #fff;
+    }
+   
     .nav-links {
       display: flex;
       gap: 25px;
@@ -189,12 +92,68 @@
       gap: 6px;
     }
     .nav-links a:hover {
-      color: #fff;
-      border-bottom-color: #1de9b6;
+      color: white;
+      border-bottom-color: white;
       text-shadow: 0 0 6px white;
     }
     .nav-links a i {
       font-size: 1.3rem;
+    }
+
+    /* Hero Section */
+    #home {
+      height: auto;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px 80px 20px;
+      z-index: 1;
+      position: relative;
+      color: #fff;
+      background: rgba(0,0,0,0.7);
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 100px auto 60px auto;
+      box-shadow: 0 10px 50px rgba(255,255,255,0.15);
+      user-select: text;
+    }
+    #home h1 {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 400;
+      font-size: 4.2rem;
+      margin: 0 0 20px;
+      letter-spacing: 2px;
+      text-shadow: none;
+    }
+    #home p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      color: #ddd;
+      margin-bottom: 40px;
+    }
+    #home a.cta-btn {
+      background-color: #fff;
+      color: #121212;
+      font-weight: 700;
+      padding: 14px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 25px white;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #home a.cta-btn:hover {
+      background-color: #f0f0f0;
+      transform: scale(1.1);
+      box-shadow: 0 0 50px white;
     }
 
     /* Sections */
@@ -225,6 +184,8 @@
       line-height: 1.6;
       color: #ddd;
     }
+
+    /* Gallery */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -275,6 +236,7 @@
       transform: scale(1.1);
     }
 
+    /* Contact Section */
     .contact .buttons {
       margin-top: 30px;
       display: flex;
@@ -307,6 +269,8 @@
       transform: scale(1.1);
       box-shadow: 0 0 50px white;
     }
+
+    /* Responsive Adjustments */
     @media (max-width: 700px) {
       .nav-links {
         justify-content: center;
@@ -328,6 +292,7 @@
         max-width: 300px;
       }
     }
+
     @media(max-width: 400px) {
       .navbar {
         padding: 15px 10px;
@@ -352,23 +317,9 @@
 </head>
 <body>
 
-  <!-- Welcome Splash Overlay -->
-  <div id="welcome-overlay">
-    <div class="welcome-content">
-      <i class="fas fa-camera-retro"></i>
-      <h2>Welcome to</h2>
-      <h1><span class="logo-script">Dillu</span> <span class="logo-plain">Captures</span></h1>
-      <p>Visual Storyteller</p>
-      <button id="enter-site-btn">Enter Site</button>
-    </div>
-  </div>
-
   <nav class="navbar">
-    <a href="#home" class="logo">
-      <i class="fas fa-camera"></i>
-      <span class="logo-script">Dillu</span>
-      <span class="logo-plain">Captures</span>
-    </a>
+    <a href="#home" class="logo">Dillu Captures</a>
+
     <div class="nav-links">
       <a href="#home"><i class="fas fa-home"></i> Home</a>
       <a href="#gallery"><i class="fas fa-images"></i> Portfolio</a>
@@ -391,7 +342,59 @@
   <section id="gallery" class="gallery">
     <!-- All your images inserted here with loading="lazy" -->
     <a href="images/Baby on hand.jpeg" target="_blank"><img src="images/Baby on hand.jpeg" alt="Baby on hand" loading="lazy" /></a>
-    <!-- ...repeat for all your images... -->
+    <a href="images/Baby touch.jpeg" target="_blank"><img src="images/Baby touch.jpeg" alt="Baby touch" loading="lazy" /></a>
+    <a href="images/20240805190624_IMG_0708.jpg" target="_blank"><img src="images/20240805190624_IMG_0708.jpg" alt="IMG_0708" loading="lazy" /></a>
+    <a href="images/20240805220231_IMG_0734.jpg" target="_blank"><img src="images/20240805220231_IMG_0734.jpg" alt="IMG_0734" loading="lazy" /></a>
+    <a href="images/20240805220623_IMG_0741.jpg" target="_blank"><img src="images/20240805220623_IMG_0741.jpg" alt="IMG_0741" loading="lazy" /></a>
+    <a href="images/Manasvi 3.jpeg" target="_blank"><img src="images/Manasvi 3.jpeg" alt="Manasvi 3" loading="lazy" /></a>
+    <a href="images/Haldi.jpeg" target="_blank"><img src="images/Haldi.jpeg" alt="Haldi" loading="lazy" /></a>
+    <a href="images/Temple.jpeg" target="_blank"><img src="images/Temple.jpeg" alt="Temple" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.20 AM (1).jpeg" alt="WhatsApp Image 1" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.50 AM.jpeg" alt="WhatsApp Image 2" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.40.57 AM (1).jpeg" alt="WhatsApp Image 3" loading="lazy" /></a>
+    <a href="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" target="_blank"><img src="images/WhatsApp Image 2025-07-06 at 10.41.04 AM (2).jpeg" alt="WhatsApp Image 4" loading="lazy" /></a>
+    <a href="images/Gindu sleeping.jpeg" target="_blank"><img src="images/Gindu sleeping.jpeg" alt="Gindu sleeping" loading="lazy" /></a>
+    <a href="images/Alka bday 1.jpeg" target="_blank"><img src="images/Alka bday 1.jpeg" alt="Alka birthday" loading="lazy" /></a>
+    <a href="images/Kriishna with tree.jpeg" target="_blank"><img src="images/Kriishna with tree.jpeg" alt="Kriishna with tree" loading="lazy" /></a>
+    <a href="images/Krishna.jpeg" target="_blank"><img src="images/Krishna.jpeg" alt="Krishna" loading="lazy" /></a>
+    <a href="images/Manasvi.jpeg" target="_blank"><img src="images/Manasvi.jpeg" alt="Manasvi" loading="lazy" /></a>
+    <a href="images/Manasvi 2.jpeg" target="_blank"><img src="images/Manasvi 2.jpeg" alt="Manasvi 2" loading="lazy" /></a>
+    <a href="images/Srilatha 1.jpeg" target="_blank"><img src="images/Srilatha 1.jpeg" alt="Srilatha 1" loading="lazy" /></a>
+    <a href="images/Srilatha 2.jpeg" target="_blank"><img src="images/Srilatha 2.jpeg" alt="Srilatha 2" loading="lazy" /></a>
+    <a href="images/Krisha kid sitting.jpeg" target="_blank"><img src="images/Krisha kid sitting.jpeg" alt="Krisha kid sitting" loading="lazy" /></a>
+    <a href="images/krishna crying.jpeg" target="_blank"><img src="images/krishna crying.jpeg" alt="Krishna crying" loading="lazy" /></a>
+    <a href="images/Krishna Laughing.jpeg" target="_blank"><img src="images/Krishna Laughing.jpeg" alt="Krishna Laughing" loading="lazy" /></a>
+    <a href="images/Krishna playing with cotton.jpeg" target="_blank"><img src="images/Krishna playing with cotton.jpeg" alt="Krishna playing with cotton" loading="lazy" /></a>
+    <a href="images/Krishna watching.jpeg" target="_blank"><img src="images/Krishna watching.jpeg" alt="Krishna watching" loading="lazy" /></a>
+    <a href="images/Dhothi walk US kid.jpeg" target="_blank"><img src="images/Dhothi walk US kid.jpeg" alt="Dhothi walk US kid" loading="lazy" /></a>
+    <a href="images/US kid birla.jpeg" target="_blank"><img src="images/US kid birla.jpeg" alt="US kid birla" loading="lazy" /></a>
+    <a href="images/Us walking for pegion.jpeg" target="_blank"><img src="images/Us walking for pegion.jpeg" alt="Us walking for pegion" loading="lazy" /></a>
+    <a href="images/Us walking for pegion 2.jpeg" target="_blank"><img src="images/Us walking for pegion 2.jpeg" alt="Us walking for pegion 2" loading="lazy" /></a>
+    <a href="images/US kid necklace road walk.jpeg" target="_blank"><img src="images/US kid necklace road walk.jpeg" alt="US kid necklace road walk" loading="lazy" /></a>
+    <a href="images/Us kid playing with Baall.jpeg" target="_blank"><img src="images/Us kid playing with Baall.jpeg" alt="Us kid playing with ball" loading="lazy" /></a>
+    <a href="images/US kid ntr garden.jpeg" target="_blank"><img src="images/US kid ntr garden.jpeg" alt="US kid ntr garden" loading="lazy" /></a>
+    <a href="images/US kid ntr garden 2.jpeg" target="_blank"><img src="images/US kid ntr garden 2.jpeg" alt="US kid ntr garden 2" loading="lazy" /></a>
+    <a href="images/Me with helmet thumbsuo.jpeg" target="_blank"><img src="images/Me with helmet thumbsuo.jpeg" alt="Me with helmet" loading="lazy" /></a>
+    <a href="images/me thinking with helmet.jpeg" target="_blank"><img src="images/me thinking with helmet.jpeg" alt="Me thinking with helmet" loading="lazy" /></a>
+    <a href="images/Me thinking with helmet 2.jpeg" target="_blank"><img src="images/Me thinking with helmet 2.jpeg" alt="Me thinking with helmet 2" loading="lazy" /></a>
+    <a href="images/Me helmet setting.jpeg" target="_blank"><img src="images/Me helmet setting.jpeg" alt="Me helmet setting" loading="lazy" /></a>
+    <a href="images/Me holding helmet with hands.jpeg" target="_blank"><img src="images/Me holding helmet with hands.jpeg" alt="Me holding helmet" loading="lazy" /></a>
+    <a href="images/Me helmet watching up.jpeg" target="_blank"><img src="images/Me helmet watching up.jpeg" alt="Me helmet watching up" loading="lazy" /></a>
+    <a href="images/Me lean on tree necklace road.jpeg" target="_blank"><img src="images/Me lean on tree necklace road.jpeg" alt="Me lean on tree necklace road" loading="lazy" /></a>
+    <a href="images/Me standing with tree.jpeg" target="_blank"><img src="images/Me standing with tree.jpeg" alt="Me standing with tree" loading="lazy" /></a>
+    <a href="images/Me walking 2.jpeg" target="_blank"><img src="images/Me walking 2.jpeg" alt="Me walking 2" loading="lazy" /></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
+    <a href="images/me setting helmet Bw.jpeg" target="_blank"><img src="images/me setting helmet Bw.jpeg" alt="Me setting helmet BW" loading="lazy" /></a>
+    <a href="images/Me walkig with helmet.jpeg" target="_blank"><img src="images/Me walkig with helmet.jpeg" alt="Me walking with helmet" loading="lazy" /></a>
+    <a href="images/Me lean on bike.jpeg" target="_blank"><img src="images/Me lean on bike.jpeg" alt="Me leaning on bike" loading="lazy" /></a>
+    <a href="images/Standing with bike.jpeg" target="_blank"><img src="images/Standing with bike.jpeg" alt="Standing with bike" loading="lazy" /></a>
+    <a href="images/Me sitting on bike cross.jpeg" target="_blank"><img src="images/Me sitting on bike cross.jpeg" alt="Me sitting on bike cross" loading="lazy" /></a>
+    <a href="images/Me sitting on bike.jpeg" target="_blank"><img src="images/Me sitting on bike.jpeg" alt="Me sitting on bike" loading="lazy" /></a>
+    <a href="images/Me sitting in bike.jpeg" target="_blank"><img src="images/Me sitting in bike.jpeg" alt="Me sitting in bike" loading="lazy" /></a>
+    <a href="images/Me GVK shoot sitting on bike.jpeg" target="_blank"><img src="images/Me GVK shoot sitting on bike.jpeg" alt="Me GVK shoot sitting on bike" loading="lazy" /></a>
+    <a href="images/my bike with head hand.jpeg" target="_blank"><img src="images/my bike with head hand.jpeg" alt="My bike with head hand" loading="lazy" /></a>
+    <a href="images/Me laughing.jpeg" target="_blank"><img src="images/Me laughing.jpeg" alt="Me laughing" loading="lazy" /></a>
+    <a href="images/Necklace road murmura uncle.jpeg" target="_blank"><img src="images/Necklace road murmura uncle.jpeg" alt="Necklace road murmura uncle" loading="lazy" /></a>
   </section>
   
   <section id="contact" class="contact">
@@ -408,18 +411,6 @@
 
   <footer>© 2025 Dillu Captures. All Rights Reserved.</footer>
 
-  <script>
-    // Hide welcome after 2.5 seconds or if user clicks enter
-    window.addEventListener('DOMContentLoaded', function() {
-      var overlay = document.getElementById('welcome-overlay');
-      var btn = document.getElementById('enter-site-btn');
-      setTimeout(function() {
-        overlay.classList.add('hide-welcome');
-      }, 2500);
-      btn.addEventListener('click', function() {
-        overlay.classList.add('hide-welcome');
-      });
-    });
-  </script>
 </body>
 </html>
+
