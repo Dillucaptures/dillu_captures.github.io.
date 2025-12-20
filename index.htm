@@ -6,12 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>Dillu Captures | Visual Storyteller</title>
 
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <style>
-    /* ---------- Base Reset ---------- */
     *, *::before, *::after {
       box-sizing: border-box;
       scroll-behavior: smooth;
@@ -39,7 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* ---------- Animated Background ---------- */
     body::before {
       content: "";
       position: fixed;
@@ -72,7 +69,6 @@
       pointer-events: none;
     }
 
-    /* ---------- Global Layout ---------- */
     main {
       width: 100%;
       max-width: 1200px;
@@ -121,7 +117,6 @@
       font-size: 0.98rem;
     }
 
-    /* ---------- Navbar ---------- */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -217,7 +212,6 @@
       color: #fff;
     }
 
-    /* ---------- Hero Section ---------- */
     #home {
       display: grid;
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
@@ -432,7 +426,6 @@
       backdrop-filter: blur(16px);
     }
 
-    /* ---------- Scroll Animation Base Class ---------- */
     .reveal {
       opacity: 0;
       transform: translateY(32px) scale(0.99);
@@ -448,7 +441,6 @@
       filter: blur(0);
     }
 
-    /* ---------- About Section ---------- */
     #about {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -525,7 +517,6 @@
       opacity: 1;
     }
 
-    /* ---------- Gallery Section ---------- */
     #gallery {
       padding-top: 40px;
     }
@@ -610,7 +601,6 @@
       opacity: 0.55;
     }
 
-    /* ---------- Contact Section ---------- */
     #contact {
       text-align: left;
     }
@@ -721,7 +711,6 @@
       font-size: 0.75rem;
     }
 
-    /* ---------- Footer ---------- */
     footer {
       padding: 18px 16px 26px;
       text-align: center;
@@ -729,7 +718,6 @@
       color: rgba(229,231,235,0.7);
     }
 
-    /* ---------- Animations ---------- */
     @keyframes fadeUp {
       to {
         opacity: 1;
@@ -737,7 +725,6 @@
       }
     }
 
-    /* ---------- Responsive ---------- */
     @media (max-width: 900px) {
       main {
         padding-top: 96px;
@@ -799,7 +786,6 @@
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-inner">
       <a href="#home" class="logo"><span>Dillu</span> Captures</a>
@@ -814,7 +800,6 @@
   </nav>
 
   <main>
-    <!-- Hero -->
     <section id="home">
       <div class="hero-copy">
         <div class="hero-pill">
@@ -845,7 +830,6 @@
 
       <div class="hero-orbit">
         <div class="hero-image-frame">
-          <!-- Use your favorite hero portrait here -->
           <img src="images/Manasvi.jpeg" alt="Featured portrait by Dillu Captures">
           <div class="hero-tag-badge">
             <i class="fas fa-circle-dot"></i>
@@ -855,7 +839,6 @@
       </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="reveal">
       <div class="about-text">
         <h2>About Dillu Captures</h2>
@@ -892,7 +875,6 @@
       </div>
     </section>
 
-    <!-- Gallery -->
     <section id="gallery" class="reveal">
       <h2>Featured stories</h2>
       <p>
@@ -900,7 +882,6 @@
       </p>
 
       <div class="gallery-grid">
-        <!-- A few hero thumbnails; keep / change paths as needed -->
         <a class="gallery-card" href="images/Baby on hand.jpeg" target="_blank">
           <img src="images/Baby on hand.jpeg" alt="Newborn held in hands">
           <div class="gallery-meta">
@@ -951,7 +932,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="reveal">
       <h2>Let’s plan your shoot</h2>
       <p>
@@ -1001,7 +981,6 @@
   <footer>© 2025 Dillu Captures. All rights reserved.</footer>
 
   <script>
-    // -------- Smooth active nav indicator --------
     const navLinks = document.querySelectorAll('.nav-link');
     const indicator = document.querySelector('.nav-indicator');
 
@@ -1028,7 +1007,6 @@
       if (active) moveIndicator(active);
     });
 
-    // -------- Scroll spy + section reveal --------
     const sections = document.querySelectorAll('section[id]');
     const revealEls = document.querySelectorAll('.reveal');
 
@@ -1036,9 +1014,7 @@
       entries.forEach(entry => {
         const id = entry.target.getAttribute('id');
         if (entry.isIntersecting) {
-          // reveal animation
           entry.target.classList.add('visible');
-          // nav sync
           navLinks.forEach(link => {
             const hrefId = link.getAttribute('href').slice(1);
             if (hrefId === id) {
@@ -1056,7 +1032,6 @@
     sections.forEach(section => observer.observe(section));
     revealEls.forEach(el => observer.observe(el));
 
-    // -------- Parallax hover for gallery cards --------
     const cards = document.querySelectorAll('.gallery-card');
 
     cards.forEach(card => {
