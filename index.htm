@@ -832,15 +832,15 @@
         </div>
       </div>
 
-     <div class="hero-orbit">
-  <div class="hero-image-frame">
-    <img src="Images/IMG_1902.webp" alt="Newborn resting in loving hands">
-    <div class="hero-tag-badge">
-      <i class="fas fa-circle-dot"></i>
-      In frame • Little moments
-    </div>
-  </div>
-</div>
+      <div class="hero-orbit">
+        <div class="hero-image-frame">
+          <img src="Images/IMG_1902.webp" alt="Newborn resting in loving hands">
+          <div class="hero-tag-badge">
+            <i class="fas fa-circle-dot"></i>
+            In frame • Little moments
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About -->
@@ -880,7 +880,7 @@
       </div>
     </section>
 
-    <!-- Gallery -->
+    <!-- Gallery (reordered + lazy loading) -->
     <section id="gallery" class="reveal">
       <h2>Featured stories</h2>
       <p>
@@ -888,48 +888,78 @@
       </p>
 
       <div class="gallery-grid">
+        <!-- 1. Hero newborn close portrait -->
         <a class="gallery-card" href="Images/20240813114300_IMG_0855.webp" target="_blank">
-          <img src="Images/20240813114300_IMG_0855.webp" alt="Newborn held in hands">
+          <img
+            src="Images/20240813114300_IMG_0855.webp"
+            alt="Newborn wrapped and sleeping peacefully"
+            loading="lazy"
+          >
           <div class="gallery-meta">
             <span><i class="fas fa-baby"></i> Newborn</span>
-            <span>Hands full of love</span>
+            <span>Soft morning light</span>
           </div>
         </a>
 
+        <!-- 2. Tiny details / hands -->
         <a class="gallery-card" href="Images/20240813112158_IMG_0822.webp" target="_blank">
-          <img src="Images/20240813112158_IMG_0822.webp" alt="Baby touch detail">
+          <img
+            src="Images/20240813112158_IMG_0822.webp"
+            alt="Close-up of baby hand holding a finger"
+            loading="lazy"
+          >
           <div class="gallery-meta">
             <span><i class="fas fa-hand-holding-heart"></i> Details</span>
             <span>Little fingers</span>
           </div>
         </a>
 
+        <!-- 3. Smiling baby / kid (same as hero) -->
         <a class="gallery-card" href="Images/IMG_1902.webp" target="_blank">
-          <img src="Images/IMG_1902.webp" alt="Child portrait outdoor">
+          <img
+            src="Images/IMG_1902.webp"
+            alt="Baby smiling while lying on soft blanket"
+            loading="lazy"
+          >
           <div class="gallery-meta">
             <span><i class="fas fa-child"></i> Kids</span>
             <span>Golden hour smiles</span>
           </div>
         </a>
 
+        <!-- 4. Haldi / couple moment -->
         <a class="gallery-card" href="Images/Haldi.webp" target="_blank">
-          <img src="Images/Haldi.webp" alt="Haldi ceremony">
+          <img
+            src="Images/Haldi.webp"
+            alt="Haldi ceremony with couple smiling"
+            loading="lazy"
+          >
           <div class="gallery-meta">
             <span><i class="fas fa-heart"></i> Haldi</span>
             <span>Pre‑wedding colour</span>
           </div>
         </a>
 
+        <!-- 5. Temple / traditional scene -->
         <a class="gallery-card" href="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" target="_blank">
-          <img src="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" alt="Temple photography">
+          <img
+            src="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp"
+            alt="Family walking at temple with golden light"
+            loading="lazy"
+          >
           <div class="gallery-meta">
             <span><i class="fas fa-landmark"></i> Temple</span>
             <span>Quiet prayers</span>
           </div>
         </a>
 
+        <!-- 6. Bike portrait -->
         <a class="gallery-card" href="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp" target="_blank">
-          <img src="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp" alt="Portrait with bike at Necklace Road">
+          <img
+            src="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp"
+            alt="Portrait with bike at Necklace Road in Hyderabad"
+            loading="lazy"
+          >
           <div class="gallery-meta">
             <span><i class="fas fa-motorcycle"></i> Portrait</span>
             <span>Necklace Road vibes</span>
