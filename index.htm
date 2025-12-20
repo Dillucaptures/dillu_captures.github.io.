@@ -9,8 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
+  <!-- Preload hero image (desktop) -->
+  <link
+    rel="preload"
+    as="image"
+    href="images/hero-desktop.webp"
+    imagesrcset="
+      images/hero-mobile.webp 640w,
+      images/hero-desktop.webp 1280w
+    "
+    imagesizes="(max-width: 768px) 100vw, 50vw"
+  />
+
   <style>
-    /* ---------- Base Reset ---------- */
     *, *::before, *::after {
       box-sizing: border-box;
       scroll-behavior: smooth;
@@ -21,9 +32,8 @@
       --accent-soft: rgba(249, 230, 122, 0.18);
       --text-main: #f5f5f5;
       --muted: #c7c7d5;
-      --glass: rgba(10, 10, 20, 0.75);
-      --border-glass: rgba(255,255,255,0.12);
-      --shadow-soft: 0 24px 60px rgba(0,0,0,0.6);
+      --border-glass: rgba(255, 255, 255, 0.12);
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.6);
       --radius-lg: 24px;
       --transition-fast: 0.35s cubic-bezier(0.19, 1, 0.22, 1);
       --transition-slow: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
@@ -34,11 +44,10 @@
       height: 100%;
       font-family: 'Montserrat', sans-serif;
       color: var(--text-main);
-      background: radial-gradient(circle at top, #202430 0, #050509 55%);
       overflow-x: hidden;
+      background: radial-gradient(circle at top, #202430 0, #050509 55%);
     }
 
-    /* ---------- Animated Background ---------- */
     body::before {
       content: "";
       position: fixed;
@@ -71,7 +80,6 @@
       pointer-events: none;
     }
 
-    /* ---------- Global Layout ---------- */
     main {
       width: 100%;
       max-width: 1200px;
@@ -91,7 +99,6 @@
       overflow: hidden;
       transform-origin: center;
     }
-
     section::before {
       content: "";
       position: absolute;
@@ -120,7 +127,7 @@
       font-size: 0.98rem;
     }
 
-    /* ---------- Navbar ---------- */
+    /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -177,7 +184,6 @@
       align-items: center;
       position: relative;
     }
-
     .nav-link {
       position: relative;
       color: var(--muted);
@@ -198,7 +204,6 @@
       color: #fff;
       transform: translateY(-1px);
     }
-
     .nav-indicator {
       position: absolute;
       bottom: -4px;
@@ -211,12 +216,11 @@
       transform: scaleX(0.3);
       transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), left 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
-
     .nav-link.active {
       color: #fff;
     }
 
-    /* ---------- Hero Section ---------- */
+    /* Hero */
     #home {
       display: grid;
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
@@ -229,7 +233,6 @@
       position: relative;
       z-index: 2;
     }
-
     .hero-pill {
       display: inline-flex;
       align-items: center;
@@ -247,11 +250,9 @@
       opacity: 0;
       animation: fadeUp var(--transition-slow) 0.25s forwards;
     }
-
     .hero-pill i {
       font-size: 0.9rem;
     }
-
     #home h1 {
       font-family: 'Dancing Script', cursive;
       font-size: clamp(3rem, 5vw, 4.2rem);
@@ -266,7 +267,6 @@
       -webkit-background-clip: text;
       color: transparent;
     }
-
     .hero-sub {
       margin-bottom: 26px;
       font-size: 1rem;
@@ -276,7 +276,6 @@
       opacity: 0;
       animation: fadeUp var(--transition-slow) 0.45s forwards;
     }
-
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
@@ -300,7 +299,6 @@
     .hero-meta i {
       color: var(--accent);
     }
-
     .hero-cta {
       display: flex;
       flex-wrap: wrap;
@@ -310,7 +308,6 @@
       opacity: 0;
       animation: fadeUp var(--transition-slow) 0.65s forwards;
     }
-
     .cta-btn {
       background: linear-gradient(135deg, #f9e67a, #fca5f1);
       color: #1a1a1a;
@@ -333,7 +330,6 @@
       box-shadow: 0 18px 45px rgba(0,0,0,0.8);
       filter: brightness(1.05);
     }
-
     .cta-secondary {
       border-radius: 999px;
       padding: 10px 18px;
@@ -356,70 +352,46 @@
       transform: translateY(-2px);
     }
 
-    .hero-orbit {
+    .hero-media {
       position: relative;
-      width: min(360px, 90vw);
-      height: min(360px, 90vw);
+      width: min(460px, 90vw);
       margin: 0 auto;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: radial-gradient(circle at 20% 10%, rgba(249,230,122,0.15), transparent 60%);
+      border-radius: 30px;
       overflow: hidden;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 22px 55px rgba(0,0,0,0.75);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.8);
       transform: translateY(16px) scale(0.98);
       opacity: 0;
-      animation: orbitReveal 1s 0.5s forwards ease-out;
+      animation: heroMediaReveal 1s 0.5s forwards ease-out;
+      background: radial-gradient(circle at 20% 10%, rgba(249,230,122,0.15), transparent 60%);
     }
-    @keyframes orbitReveal {
+    @keyframes heroMediaReveal {
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
       }
     }
-
-    .hero-orbit::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: conic-gradient(from 180deg, rgba(249,230,122,0.2), transparent, rgba(249,230,122,0.05), transparent);
-      animation: spin 40s linear infinite;
-      opacity: 0.7;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .hero-image-frame {
-      position: relative;
-      width: 74%;
-      height: 74%;
-      border-radius: 30px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.8);
-      transform: translateZ(0);
-    }
-
-    .hero-image-frame img {
+    .hero-media picture,
+    .hero-media img {
+      display: block;
       width: 100%;
       height: 100%;
+    }
+    .hero-media img {
       object-fit: cover;
       transform: scale(1.05);
       transition: transform 8s ease-out;
     }
-    .hero-orbit:hover .hero-image-frame img {
-      transform: scale(1.14);
+    .hero-media:hover img {
+      transform: scale(1.12);
     }
-
     .hero-tag-badge {
       position: absolute;
-      inset: auto auto 18px 50%;
-      transform: translateX(-50%);
+      inset: auto 50% 12px auto;
+      transform: translateX(50%);
       padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.65);
       border: 1px solid rgba(255,255,255,0.3);
       font-size: 0.7rem;
       letter-spacing: 0.18em;
@@ -431,14 +403,11 @@
       backdrop-filter: blur(16px);
     }
 
-    /* ---------- Scroll Animation Base Class ---------- */
+    /* Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(32px) scale(0.99);
-      transition:
-        opacity var(--transition-slow),
-        transform var(--transition-slow),
-        filter var(--transition-slow);
+      transition: opacity var(--transition-slow), transform var(--transition-slow), filter var(--transition-slow);
       filter: blur(6px);
     }
     .reveal.visible {
@@ -447,13 +416,12 @@
       filter: blur(0);
     }
 
-    /* ---------- About Section ---------- */
+    /* About */
     #about {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 28px;
     }
-
     .about-text {
       text-align: left;
     }
@@ -480,7 +448,6 @@
     .about-item i {
       color: var(--accent);
     }
-
     .about-card {
       border-radius: 20px;
       padding: 16px 14px;
@@ -524,7 +491,7 @@
       opacity: 1;
     }
 
-    /* ---------- Gallery Section ---------- */
+    /* Gallery */
     #gallery {
       padding-top: 40px;
     }
@@ -536,13 +503,11 @@
       margin-bottom: 24px;
       max-width: 600px;
     }
-
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 18px;
     }
-
     .gallery-card {
       position: relative;
       border-radius: 20px;
@@ -552,13 +517,9 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.85);
       transform: translateY(10px) scale(0.98);
       transform-style: preserve-3d;
-      transition:
-        transform 0.5s cubic-bezier(0.2, 0.6, 0.2, 1),
-        box-shadow 0.5s cubic-bezier(0.2, 0.6, 0.2, 1),
-        border-color 0.4s;
+      transition: transform 0.5s cubic-bezier(0.2, 0.6, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0.6, 0.2, 1), border-color 0.4s;
       cursor: pointer;
     }
-
     .gallery-card img {
       width: 100%;
       height: 100%;
@@ -566,8 +527,8 @@
       transform: scale(1.05);
       transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
       display: block;
+      loading: lazy;
     }
-
     .gallery-card::before {
       content: "";
       position: absolute;
@@ -577,7 +538,6 @@
       mix-blend-mode: soft-light;
       transition: opacity 0.6s ease-out;
     }
-
     .gallery-meta {
       position: absolute;
       inset: auto 12px 12px 12px;
@@ -595,7 +555,6 @@
       justify-content: space-between;
       backdrop-filter: blur(14px);
     }
-
     .gallery-card:hover {
       transform: translateY(-8px) scale(1.02) rotate3d(1, 0.3, 0, -4deg);
       box-shadow: 0 26px 60px rgba(0,0,0,0.95);
@@ -609,7 +568,7 @@
       opacity: 0.55;
     }
 
-    /* ---------- Contact Section ---------- */
+    /* Contact */
     #contact {
       text-align: left;
     }
@@ -617,7 +576,6 @@
       margin-top: 8px;
       max-width: 520px;
     }
-
     .contact-main {
       margin-top: 24px;
       display: grid;
@@ -625,7 +583,6 @@
       gap: 24px;
       align-items: center;
     }
-
     .contact-details {
       font-size: 0.95rem;
       display: grid;
@@ -640,7 +597,6 @@
       align-items: center;
       gap: 8px;
     }
-
     .contact-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -663,12 +619,7 @@
       border: 1px solid rgba(255,255,255,0.15);
       background: rgba(4,4,12,0.8);
       color: var(--muted);
-      transition:
-        background var(--transition-fast),
-        color var(--transition-fast),
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast);
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
     }
     .contact-buttons a:hover {
       background: rgba(249,230,122,0.15);
@@ -685,7 +636,6 @@
     .contact-buttons a.whatsapp:hover {
       filter: brightness(1.05);
     }
-
     .contact-panel {
       border-radius: 20px;
       padding: 18px 16px;
@@ -720,7 +670,6 @@
       font-size: 0.75rem;
     }
 
-    /* ---------- Footer ---------- */
     footer {
       padding: 18px 16px 26px;
       text-align: center;
@@ -728,7 +677,6 @@
       color: rgba(229,231,235,0.7);
     }
 
-    /* ---------- Animations ---------- */
     @keyframes fadeUp {
       to {
         opacity: 1;
@@ -736,24 +684,23 @@
       }
     }
 
-    /* ---------- Responsive ---------- */
     @media (max-width: 900px) {
       main {
         padding-top: 96px;
       }
       #home {
-        grid-template-columns: minmax(0,1fr);
+        grid-template-columns: minmax(0, 1fr);
         padding: 36px 22px 40px;
       }
-      .hero-orbit {
+      .hero-media {
         order: -1;
       }
       #about {
-        grid-template-columns: minmax(0,1fr);
+        grid-template-columns: minmax(0, 1fr);
         padding: 36px 22px 40px;
       }
       .contact-main {
-        grid-template-columns: minmax(0,1fr);
+        grid-template-columns: minmax(0, 1fr);
       }
       section {
         padding: 32px 20px;
@@ -770,7 +717,6 @@
         letter-spacing: 0.12em;
       }
     }
-
     @media (max-width: 520px) {
       .nav-links {
         display: none;
@@ -790,15 +736,13 @@
         justify-content: center;
       }
       .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0,1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-inner">
       <a href="#home" class="logo"><span>Dillu</span> Captures</a>
@@ -822,8 +766,7 @@
         </div>
         <h1><span>Dillu Captures</span></h1>
         <p class="hero-sub">
-          Bright, emotive, and timeless frames that turn fleeting instants into stories
-          your family will re‑live for years.
+          Bright, emotive, and timeless frames that turn fleeting instants into stories your family will re‑live for years.
         </p>
 
         <div class="hero-meta">
@@ -842,14 +785,30 @@
         </div>
       </div>
 
-      <div class="hero-orbit">
-        <div class="hero-image-frame">
-          <!-- Use your favorite hero portrait here -->
-          <img src="images/Manasvi.jpeg" alt="Featured portrait by Dillu Captures">
-          <div class="hero-tag-badge">
-            <i class="fas fa-circle-dot"></i>
-            In frame • Little moments
-          </div>
+      <div class="hero-media">
+        <picture>
+          <source
+            srcset="images/hero-mobile.webp"
+            media="(max-width: 768px)"
+            type="image/webp"
+          />
+          <source
+            srcset="images/hero-desktop.webp"
+            media="(min-width: 769px)"
+            type="image/webp"
+          />
+          <img
+            src="images/hero-desktop.jpg"
+            alt="Signature portrait by Dillu Captures"
+            loading="eager"
+            fetchpriority="high"
+            width="1200"
+            height="800"
+          />
+        </picture>
+        <div class="hero-tag-badge">
+          <i class="fas fa-circle-dot"></i>
+          In frame • Little moments
         </div>
       </div>
     </section>
@@ -899,7 +858,6 @@
       </p>
 
       <div class="gallery-grid">
-        <!-- A few hero thumbnails; keep / change paths as needed -->
         <a class="gallery-card" href="images/Baby on hand.jpeg" target="_blank">
           <img src="images/Baby on hand.jpeg" alt="Newborn held in hands">
           <div class="gallery-meta">
@@ -1000,7 +958,7 @@
   <footer>© 2025 Dillu Captures. All rights reserved.</footer>
 
   <script>
-    // -------- Smooth active nav indicator --------
+    // Nav indicator
     const navLinks = document.querySelectorAll('.nav-link');
     const indicator = document.querySelector('.nav-indicator');
 
@@ -1027,7 +985,7 @@
       if (active) moveIndicator(active);
     });
 
-    // -------- Scroll spy + section reveal --------
+    // Scroll spy + reveal
     const sections = document.querySelectorAll('section[id]');
     const revealEls = document.querySelectorAll('.reveal');
 
@@ -1035,9 +993,7 @@
       entries.forEach(entry => {
         const id = entry.target.getAttribute('id');
         if (entry.isIntersecting) {
-          // reveal animation
           entry.target.classList.add('visible');
-          // nav sync
           navLinks.forEach(link => {
             const hrefId = link.getAttribute('href').slice(1);
             if (hrefId === id) {
@@ -1055,7 +1011,7 @@
     sections.forEach(section => observer.observe(section));
     revealEls.forEach(el => observer.observe(el));
 
-    // -------- Parallax hover for gallery cards --------
+    // Gallery tilt
     const cards = document.querySelectorAll('.gallery-card');
 
     cards.forEach(card => {
