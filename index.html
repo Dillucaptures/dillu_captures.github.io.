@@ -18,18 +18,19 @@
     :root {
       --bg-primary: #0a0a0f;
       --bg-secondary: #0f0f17;
-      --glass: rgba(255, 255, 255, 0.12);
-      --glass-hover: rgba(255, 255, 255, 0.20);
-      --glass-border: rgba(255, 255, 255, 0.15);
+      --glass: rgba(255, 255, 255, 0.15);
+      --glass-hover: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.2);
       --text-primary: #f8f9fa;
       --text-secondary: #b8bcc5;
       --accent-gold: #f59e0b;
-      --accent-silver: #d1d5db;
-      --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.4);
-      --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.6);
-      --border-radius: 32px;
-      --card-radius: 28px;
-      --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --accent-silver: #e5e7eb;
+      --shadow-light: 0 12px 40px rgba(0, 0, 0, 0.4);
+      --shadow-heavy: 0 32px 80px rgba(0, 0, 0, 0.6);
+      --border-radius: 36px;
+      --card-radius: 32px;
+      --folder-radius: 24px;
+      --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     * {
@@ -46,14 +47,16 @@
       overflow-x: hidden;
     }
 
-    /* CLEAN NAVBAR */
+    /* ULTRA CLEAN NAVBAR */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
       padding: 1.5rem 0;
-      backdrop-filter: blur(25px);
+      backdrop-filter: blur(30px);
+      background: rgba(15, 15, 23, 0.3);
+      border-bottom: 1px solid var(--glass-border);
     }
 
     .navbar-container {
@@ -67,7 +70,7 @@
 
     .logo {
       font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 700;
       background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
       -webkit-background-clip: text;
@@ -78,7 +81,7 @@
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       list-style: none;
     }
 
@@ -89,31 +92,52 @@
       font-weight: 400;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      padding: 0.75rem 1.5rem;
+      padding: 1rem 2rem;
       border-radius: 50px;
+      backdrop-filter: blur(20px);
+      border: 1px solid transparent;
       transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--glass-hover), transparent);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::before {
+      left: 100%;
     }
 
     .nav-link:hover,
     .nav-link.active {
       color: var(--text-primary);
       background: var(--glass-hover);
-      transform: translateY(-2px);
+      border-color: var(--glass-border);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-light);
     }
 
-    /* MAIN CONTAINER */
+    /* ENHANCED CONTAINER */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    /* ENHANCED GLASS SECTIONS */
-    .glass-section {
+    /* ULTRA GLASSY CARDS */
+    .glass-card {
       background: var(--glass);
-      backdrop-filter: blur(35px);
+      backdrop-filter: blur(40px);
       border: 1px solid var(--glass-border);
-      border-radius: var(--border-radius);
+      border-radius: var(--card-radius);
       padding: 4rem 3rem;
       margin: 4rem 0;
       box-shadow: var(--shadow-light);
@@ -122,13 +146,7 @@
       overflow: hidden;
     }
 
-    .glass-section:hover {
-      background: var(--glass-hover);
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: var(--shadow-heavy);
-    }
-
-    .glass-section::before {
+    .glass-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -140,206 +158,486 @@
       transition: var(--transition);
     }
 
-    .glass-section:hover::before {
+    .glass-card:hover::before {
       opacity: 1;
+    }
+
+    .glass-card:hover {
+      background: var(--glass-hover);
+      transform: translateY(-16px) scale(1.02);
+      box-shadow: var(--shadow-heavy);
     }
 
     /* HERO SECTION */
     .hero {
-      margin-top: 6rem;
-      padding: 8rem 3rem 6rem;
+      margin-top: 8rem;
+      padding: 10rem 3rem 8rem;
       background: var(--glass-hover);
-      border-radius: 0 0 var(--border-radius) var(--border-radius);
-      border-bottom: 1px solid var(--glass-border);
+      border-radius: 0 0 var(--card-radius) var(--card-radius);
+      border-bottom: 2px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.1), transparent 50%);
+      pointer-events: none;
     }
 
     .hero-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 5rem;
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1.5rem;
+      gap: 1rem;
+      padding: 1rem 2rem;
       background: var(--glass);
       border: 1px solid var(--glass-border);
       border-radius: 50px;
       color: var(--text-secondary);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       animation: slideInLeft 1s ease-out;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
-    /* NEW HEADINGS WITH SILVER ACCENT */
     .hero-title {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(3.5rem, 8vw, 5rem);
+      font-size: clamp(4rem, 9vw, 6rem);
       line-height: 1.1;
-      background: linear-gradient(135deg, var(--accent-silver), var(--accent-gold));
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 2rem;
-      filter: drop-shadow(0 4px 16px rgba(209, 213, 219, 0.3));
+      filter: drop-shadow(0 8px 24px rgba(245, 158, 11, 0.4));
       animation: fadeInUp 1.2s ease-out;
-    }
-
-    .section-title {
-      font-family: 'Merriweather', serif;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--accent-silver), var(--accent-gold));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1.5rem;
-      text-align: center;
     }
 
     .hero-subtitle {
       color: var(--text-secondary);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 3rem;
       max-width: 28rem;
       animation: fadeInUp 1.4s ease-out;
     }
 
-    /* SMALLER SERVICE CARDS */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
       gap: 1.5rem;
-      margin-top: 2.5rem;
+      margin-bottom: 3rem;
+      animation: fadeInUp 1.6s ease-out;
     }
 
-    .service-item {
+    .hero-meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 2rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-meta-tag:hover {
+      background: var(--glass-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-light);
+    }
+
+    .hero-meta-tag i {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.8s ease-out;
+    }
+
+    /* ULTRA SMOOTH SERVICE CARDS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
       text-align: center;
-      padding: 1.75rem 1.25rem;
+      padding: 2.5rem 1.5rem;
       background: var(--glass);
       border: 1px solid var(--glass-border);
       border-radius: var(--card-radius);
       transition: var(--transition);
       cursor: pointer;
-      height: 140px;
+      height: 160px;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      backdrop-filter: blur(30px);
+      position: relative;
+      overflow: hidden;
     }
 
-    .service-item:hover {
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card:hover {
       background: var(--glass-hover);
-      transform: translateY(-10px) rotateX(5deg);
+      transform: translateY(-20px) rotateX(10deg);
       box-shadow: var(--shadow-heavy);
     }
 
-    .service-item i {
-      font-size: 2rem;
+    .service-card i {
+      font-size: 2.5rem;
       background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       display: block;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
 
-    /* GALLERY - SMALLER CARDS WITH ROUNDED EDGES */
-    .gallery-grid {
+    /* FOLDER GALLERY SYSTEM */
+    .folder-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2.5rem;
       margin-top: 3rem;
     }
 
-    .gallery-item {
+    .folder-card {
       position: relative;
-      height: 260px;
-      border-radius: var(--card-radius);
+      height: 320px;
+      border-radius: var(--folder-radius);
       overflow: hidden;
       background: var(--glass);
       border: 1px solid var(--glass-border);
       transition: var(--transition);
       cursor: pointer;
+      backdrop-filter: blur(30px);
     }
 
-    .gallery-item:hover {
-      transform: translateY(-16px) rotateX(8deg);
+    .folder-card:hover {
+      transform: translateY(-24px) scale(1.03);
       box-shadow: var(--shadow-heavy);
     }
 
-    .gallery-item img {
+    .folder-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: var(--transition);
     }
 
-    .gallery-item:hover img {
-      transform: scale(1.12);
-      filter: brightness(1.2) contrast(1.1);
+    .folder-card:hover img {
+      transform: scale(1.15);
+      filter: brightness(1.25) contrast(1.15);
     }
 
-    .gallery-overlay {
+    .folder-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       background: linear-gradient(transparent, rgba(0,0,0,0.95));
       color: white;
-      padding: 1.75rem 1.25rem 1.25rem;
-      transform: translateY(1rem);
+      padding: 2.5rem 2rem 2rem;
+      transform: translateY(1.5rem);
       transition: var(--transition);
     }
 
-    .gallery-item:hover .gallery-overlay {
+    .folder-card:hover .folder-overlay {
       transform: translateY(0);
     }
 
-    /* ENHANCED BUTTONS */
+    .folder-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .folder-subtitle {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* BUTTONS */
     .btn {
-      padding: 1.25rem 2.5rem;
+      padding: 1.25rem 3rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 1rem;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 1rem;
       transition: var(--transition);
       border: none;
       cursor: pointer;
       font-family: inherit;
+      backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-silver), var(--accent-gold));
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
       color: #000;
-      box-shadow: 0 12px 32px rgba(209, 213, 219, 0.4);
+      box-shadow: 0 16px 40px rgba(245, 158, 11, 0.4);
     }
 
     .btn-primary:hover {
-      transform: translateY(-6px) scale(1.05);
-      box-shadow: 0 24px 48px rgba(209, 213, 219, 0.6);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 32px 64px rgba(245, 158, 11, 0.6);
+    }
+
+    .btn-secondary {
+      background: var(--glass);
+      color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--glass-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-light);
+    }
+
+    /* HERO IMAGE */
+    .hero-image {
+      width: 100%;
+      max-width: 450px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 6px rgba(255, 255, 255, 0.2);
+      animation: float 8s ease-in-out infinite;
+      transition: var(--transition);
+    }
+
+    .hero-image:hover {
+      transform: scale(1.08) rotate(2deg);
+      box-shadow: 
+        0 64px 120px rgba(0, 0, 0, 0.7),
+        inset 0 0 0 8px rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    /* SECTION TITLES */
+    .section-title {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(3rem, 6vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      filter: drop-shadow(0 8px 24px rgba(245, 158, 11, 0.3));
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.3rem;
+      text-align: center;
+      max-width: 40rem;
+      margin: 0 auto 4rem;
+    }
+
+    /* STATS CARD */
+    .stats-card {
+      padding: 4rem 3rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      text-align: center;
+      backdrop-filter: blur(40px);
+    }
+
+    .stats-number {
+      font-size: 5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    /* CONTACT SECTION */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .contact-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 3rem;
+      backdrop-filter: blur(40px);
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .contact-detail:hover {
+      background: var(--glass-hover);
+      transform: translateX(12px);
+    }
+
+    .contact-detail i {
+      color: var(--accent-gold);
+      font-size: 1.25rem;
+      width: 2rem;
+    }
+
+    .contact-detail a {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .contact-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .process-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .process-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--glass);
+      border-radius: 24px;
+      transition: var(--transition);
+    }
+
+    .process-item:hover {
+      transform: translateX(12px);
+      background: var(--glass-hover);
+    }
+
+    .process-item i {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-silver));
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      margin: 0 2rem 2rem;
+      backdrop-filter: blur(20px);
     }
 
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .hero-content,
       .about-grid,
-      .contact-grid {
+      .contact-grid,
+      .folder-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
         text-align: center;
+      }
+
+      .hero-image {
+        max-width: 350px;
+        margin: 0 auto;
       }
     }
 
@@ -352,31 +650,31 @@
         padding: 0 1.5rem;
       }
 
-      .glass-section {
-        padding: 2.5rem 1.75rem;
-        margin: 2.5rem 0;
+      .glass-card {
+        padding: 2.5rem 2rem;
+        margin: 2rem 0;
       }
 
       .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1.5rem;
       }
 
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
+      .folder-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
       }
 
-      .gallery-item {
-        height: 220px;
+      .contact-buttons {
+        grid-template-columns: 1fr;
       }
     }
 
-    /* SMOOTH ANIMATIONS */
+    /* ULTRA SMOOTH ANIMATIONS */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(3rem);
+        transform: translateY(4rem);
       }
       to {
         opacity: 1;
@@ -387,7 +685,7 @@
     @keyframes slideInLeft {
       from {
         opacity: 0;
-        transform: translateX(-3rem);
+        transform: translateX(-4rem);
       }
       to {
         opacity: 1;
@@ -400,46 +698,23 @@
         transform: translateY(0) rotate(0deg);
       }
       50% {
-        transform: translateY(-1.5rem) rotate(2deg);
+        transform: translateY(-2rem) rotate(3deg);
       }
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(4rem);
-      transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translateY(5rem);
+      transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* HERO IMAGE */
-    .hero-image {
-      width: 100%;
-      max-width: 420px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 
-        0 32px 64px rgba(0, 0, 0, 0.5),
-        inset 0 0 0 4px rgba(255, 255, 255, 0.15);
-      animation: float 8s ease-in-out infinite;
-    }
-
-    /* STATS & CONTACT STYLES REMAIN SAME BUT WITH ENHANCED GLASS */
-    .stats-card, .process-panel, .contact-detail {
-      background: var(--glass);
-      backdrop-filter: blur(35px);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--card-radius);
-    }
   </style>
 </head>
 <body>
-  <!-- SAME HTML STRUCTURE WITH ENHANCED CLASSES -->
   <nav class="navbar">
     <div class="navbar-container">
       <a href="#home" class="logo">Dillu Captures</a>
@@ -453,7 +728,7 @@
   </nav>
 
   <main>
-    <!-- HERO - SAME HTML -->
+    <!-- HERO -->
     <section id="home" class="hero">
       <div class="hero-content">
         <div>
@@ -494,27 +769,27 @@
       </div>
     </section>
 
-    <!-- ABOUT - SAME HTML WITH SMALLER CARDS -->
-    <section id="about" class="glass-section reveal">
+    <!-- ABOUT -->
+    <section id="about" class="glass-card reveal">
       <div class="container">
         <h2 class="section-title">About Dillu Captures</h2>
         <p class="section-subtitle">Every frame captures real emotion with patience, play, and perfect timing. Natural light, authentic moments, heirloom quality.</p>
-        <div class="about-grid">
+        <div class="about-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: center;">
           <div>
             <div class="services-grid">
-              <div class="service-item">
+              <div class="service-card">
                 <i class="fas fa-baby-carriage"></i>
                 <div>Newborn</div>
               </div>
-              <div class="service-item">
+              <div class="service-card">
                 <i class="fas fa-users"></i>
                 <div>Family</div>
               </div>
-              <div class="service-item">
+              <div class="service-card">
                 <i class="fas fa-heart"></i>
                 <div>Couples</div>
               </div>
-              <div class="service-item">
+              <div class="service-card">
                 <i class="fas fa-ring"></i>
                 <div>Pre-wedding</div>
               </div>
@@ -528,193 +803,5 @@
       </div>
     </section>
 
-    <!-- GALLERY - SAME HTML -->
-    <section id="gallery" class="glass-section reveal">
-      <div class="container">
-        <h2 class="section-title">Featured Stories</h2>
-        <p class="section-subtitle">A glimpse into the moments families cherish most — from tiny toes to golden hour laughter.</p>
-        <div class="gallery-grid">
-          <a href="Images/20240813114300_IMG_0855.webp" target="_blank" class="gallery-item">
-            <img src="Images/20240813114300_IMG_0855.webp" alt="Newborn">
-            <div class="gallery-overlay">
-              <div class="gallery-title">Newborn Dreams</div>
-              <div class="gallery-subtitle">Soft morning light</div>
-            </div>
-          </a>
-          <a href="Images/20240813112158_IMG_0822.webp" target="_blank" class="gallery-item">
-            <img src="Images/20240813112158_IMG_0822.webp" alt="Details">
-            <div class="gallery-overlay">
-              <div class="gallery-title">Tiny Details</div>
-              <div class="gallery-subtitle">Little fingers</div>
-            </div>
-          </a>
-          <a href="Images/IMG_1902.webp" target="_blank" class="gallery-item">
-            <img src="Images/IMG_1902.webp" alt="Kids">
-            <div class="gallery-overlay">
-              <div class="gallery-title">Golden Smiles</div>
-              <div class="gallery-subtitle">Kids portrait</div>
-            </div>
-          </a>
-          <a href="Images/Haldi.webp" target="_blank" class="gallery-item">
-            <img src="Images/Haldi.webp" alt="Haldi">
-            <div class="gallery-overlay">
-              <div class="gallery-title">Haldi Magic</div>
-              <div class="gallery-subtitle">Pre-wedding joy</div>
-            </div>
-          </a>
-          <a href="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" target="_blank" class="gallery-item">
-            <img src="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" alt="Temple">
-            <div class="gallery-overlay">
-              <div class="gallery-title">Temple Light</div>
-              <div class="gallery-subtitle">Family prayers</div>
-            </div>
-          </a>
-          <a href="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp" target="_blank" class="gallery-item">
-            <img src="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp" alt="Portrait">
-            <div class="gallery-overlay">
-              <div class="gallery-title">Urban Portrait</div>
-              <div class="gallery-subtitle">Necklace Road</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT - SAME HTML -->
-    <section id="contact" class="glass-section reveal">
-      <div class="container">
-        <h2 class="section-title">Let's Create Together</h2>
-        <p class="section-subtitle">Share your story, dates, and vision. Get a custom session plan with transparent pricing.</p>
-        <div class="contact-grid">
-          <div class="contact-info">
-            <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Get In Touch</h3>
-            <div class="contact-details">
-              <div class="contact-detail">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:dillucapture@gmail.com">dillucapture@gmail.com</a>
-              </div>
-              <div class="contact-detail">
-                <i class="fas fa-phone"></i>
-                <a href="tel:+919700034138">+91 97000 34138</a>
-              </div>
-            </div>
-            <div class="contact-buttons">
-              <a href="mailto:dillucapture@gmail.com" class="btn btn-secondary">
-                <i class="fas fa-paper-plane"></i> Email
-              </a>
-              <a href="https://wa.me/919700034138?text=Hi%20Dillu%20Captures!" class="btn btn-primary" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-              </a>
-              <a href="https://www.instagram.com/dillu_captures/" class="btn btn-primary" target="_blank">
-                <i class="fab fa-instagram"></i> Instagram
-              </a>
-            </div>
-          </div>
-          <div class="process-panel">
-            <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Your Session Flow</h3>
-            <ul class="process-list">
-              <li class="process-item">
-                <i class="fas fa-sparkles"></i>
-                <span>Creative consultation call</span>
-              </li>
-              <li class="process-item">
-                <i class="fas fa-location-dot"></i>
-                <span>Location & styling guidance</span>
-              </li>
-              <li class="process-item">
-                <i class="fas fa-clock"></i>
-                <span>60-120 min relaxed shoot</span>
-              </li>
-              <li class="process-item">
-                <i class="fas fa-images"></i>
-                <span>Curated edited gallery</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © 2025 Dillu Captures. Capturing moments that last forever.
-  </footer>
-
-  <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // Navbar active state
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section[id]');
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 200;
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    // Enhanced scroll reveal with stagger
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('active');
-          }, index * 150);
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Enhanced gallery 3D hover effects
-    document.querySelectorAll('.gallery-item, .service-item').forEach(item => {
-      item.addEventListener('mousemove', (e) => {
-        const rect = item.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (centerY - y) / 25;
-        const rotateY = (x - centerX) / 25;
-        
-        item.style.transform = `translateY(-16px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-      });
-      
-      item.addEventListener('mouseleave', () => {
-        item.style.transform = 'translateY(0) rotateX(0deg) rotateY(0deg) scale(1)';
-      });
-    });
-
-    // Floating animation for hero image
-    const heroImage = document.querySelector('.hero-image');
-    heroImage.addEventListener('mousemove', () => {
-      heroImage.style.animationPlayState = 'paused';
-    });
-    heroImage.addEventListener('mouseleave', () => {
-      heroImage.style.animationPlayState = 'running';
-    });
-  </script>
-</body>
-</html>
+    <!-- PORTFOLIO FOLDERS -->
+    <section id="gallery" class
