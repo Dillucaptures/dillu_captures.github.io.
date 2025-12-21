@@ -195,7 +195,10 @@ text-decoration:none;
 
 /* ================= HERO ORBIT ================= */
 .hero-orbit{
-width:360px;height:360px;
+.hero-orbit{
+  width:min(360px,90vw);
+  height:min(360px,90vw);
+}
 border-radius:50%;
 border:1px solid var(--border-glass);
 background:radial-gradient(circle at 20% 10%,rgba(56,189,248,.25),rgba(15,23,42,.95));
@@ -213,18 +216,24 @@ background:conic-gradient(from 180deg,rgba(56,189,248,.35),transparent);
 animation:spin 40s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-.hero-image-frame img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.hero-image-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  transform:scale(1.05);
+}
+.gallery-card:hover img{
+  transform:scale(1.1);
+}
 
 /* ================= GALLERY ================= */
-.tab-btn.active{
-background:var(--accent-soft);
-border-color:var(--accent);
-color:#f9fafb;
+.gallery-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.05);
 }
-.gallery-card:hover{
-border-color:var(--accent);
-}
-
 /* ================= CONTACT ================= */
 .contact-buttons a.whatsapp{
 background:#22d3ee;
