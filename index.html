@@ -19,7 +19,6 @@
       --accent-soft: rgba(234, 179, 8, 0.18);
       --text-main: #f9fafb;
       --muted: #9ca3af;
-      /* lighter, more transparent glass */
       --glass: rgba(15, 23, 42, 0.36);
       --glass-strong: rgba(15, 23, 42, 0.55);
       --border-glass: rgba(148, 163, 184, 0.45);
@@ -38,7 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* pure black with soft neutral glow */
     body::before {
       content: "";
       position: fixed;
@@ -127,7 +125,6 @@
       font-size: 0.98rem;
     }
 
-    /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -222,7 +219,6 @@
       transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), left 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
-    /* Hero */
     #home {
       display: grid;
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
@@ -365,7 +361,6 @@
       transform: translateY(-2px);
     }
 
-    /* circular hero orbit + image */
     .hero-orbit {
       position: relative;
       width: min(360px, 90vw);
@@ -444,7 +439,6 @@
       backdrop-filter: blur(18px);
     }
 
-    /* Reveal */
     .reveal {
       opacity: 0;
       transform: translateY(32px) scale(0.99);
@@ -460,7 +454,6 @@
       filter: blur(0);
     }
 
-    /* About */
     #about {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -538,7 +531,6 @@
       opacity: 1;
     }
 
-    /* Gallery - ENHANCED WITH FOLDERS */
     #gallery {
       padding-top: 40px;
     }
@@ -551,7 +543,6 @@
       max-width: 600px;
     }
 
-    /* Gallery Folder Tabs */
     .gallery-tabs {
       display: flex;
       gap: 8px;
@@ -720,7 +711,6 @@
       opacity: 0.7;
     }
 
-    /* Contact */
     #contact {
       text-align: left;
     }
@@ -850,7 +840,6 @@
       }
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       main {
         padding-top: 96px;
@@ -883,7 +872,6 @@
         font-size: 0.78rem;
         letter-spacing: 0.12em;
       }
-      /* Responsive tabs */
       .gallery-tabs {
         gap: 6px;
       }
@@ -933,7 +921,6 @@
   </nav>
 
   <main>
-    <!-- Hero -->
     <section id="home">
       <div class="hero-copy">
         <div class="hero-pill">
@@ -973,7 +960,6 @@
       </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="reveal">
       <div class="about-text">
         <h2>About Dillu Captures</h2>
@@ -1010,14 +996,12 @@
       </div>
     </section>
 
-    <!-- Gallery with Folders -->
     <section id="gallery" class="reveal">
       <h2>Featured stories</h2>
       <p>
         A small peek into the sessions that clients love most — from tiny toes and temple bells to evening rides and birthday giggles.
       </p>
 
-      <!-- Folder Tabs -->
       <div class="gallery-tabs">
         <button class="tab-btn active" data-folder="all">
           <i class="fas fa-images"></i> All
@@ -1039,9 +1023,7 @@
         </button>
       </div>
 
-      <!-- Folders Grid -->
       <div class="folders-grid">
-        <!-- All Folder -->
         <div class="folder active" data-folder="all">
           <div class="folder-header">
             <h3><i class="fas fa-images"></i> All Stories</h3>
@@ -1098,7 +1080,6 @@
           </div>
         </div>
 
-        <!-- Newborn Folder -->
         <div class="folder" data-folder="newborn">
           <div class="folder-header">
             <h3><i class="fas fa-baby"></i> Newborn Moments</h3>
@@ -1122,7 +1103,6 @@
           </div>
         </div>
 
-        <!-- Kids Folder -->
         <div class="folder" data-folder="kids">
           <div class="folder-header">
             <h3><i class="fas fa-child"></i> Kids & Family</h3>
@@ -1139,7 +1119,6 @@
           </div>
         </div>
 
-        <!-- Haldi Folder -->
         <div class="folder" data-folder="haldi">
           <div class="folder-header">
             <h3><i class="fas fa-heart"></i> Haldi Stories</h3>
@@ -1156,7 +1135,6 @@
           </div>
         </div>
 
-        <!-- Temple Folder -->
         <div class="folder" data-folder="temple">
           <div class="folder-header">
             <h3><i class="fas fa-landmark"></i> Temple Sessions</h3>
@@ -1173,7 +1151,6 @@
           </div>
         </div>
 
-        <!-- Portrait Folder -->
         <div class="folder" data-folder="portrait">
           <div class="folder-header">
             <h3><i class="fas fa-user"></i> Portrait Collection</h3>
@@ -1192,7 +1169,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="reveal">
       <h2>Let's plan your shoot</h2>
       <p>
@@ -1238,10 +1214,9 @@
     </section>
   </main>
 
-  <footer>© 2025 Dillu Captures. All rights reserved.</footer>
+  <footer>© 2018 Dillu Captures. All rights reserved.</footer>
 
   <script>
-    // Navbar Navigation
     const navLinks = document.querySelectorAll('.nav-link');
     const indicator = document.querySelector('.nav-indicator');
 
@@ -1268,7 +1243,6 @@
       if (active) moveIndicator(active);
     });
 
-    // Intersection Observer for sections and reveals
     const sections = document.querySelectorAll('section[id]');
     const revealEls = document.querySelectorAll('.reveal');
 
@@ -1294,7 +1268,6 @@
     sections.forEach(section => observer.observe(section));
     revealEls.forEach(el => observer.observe(el));
 
-    // Gallery Card Hover Effects
     const cards = document.querySelectorAll('.gallery-card');
     cards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -1311,7 +1284,6 @@
       });
     });
 
-    // Gallery Folder System
     const tabBtns = document.querySelectorAll('.tab-btn');
     const folders = document.querySelectorAll('.folder');
 
@@ -1319,19 +1291,16 @@
       btn.addEventListener('click', () => {
         const folderName = btn.dataset.folder;
         
-        // Update active tab
         tabBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         
-        // Show selected folder
         folders.forEach(folder => {
           folder.classList.remove('active');
           if (folder.dataset.folder === folderName) {
             folder.classList.add('active');
           }
         });
-        
-        // Update photo counts
+
         updateFolderCounts();
       });
     });
@@ -1344,7 +1313,6 @@
       });
     }
 
-    // Initialize counts on load
     window.addEventListener('load', updateFolderCounts);
   </script>
 </body>
