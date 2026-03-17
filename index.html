@@ -387,12 +387,16 @@
       display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s;
     }
     .whatsapp { background: #22c55e; color: #fff !important; }
+    .whatsapp:hover { background: #16a34a; transform: translateY(-3px); }
     .contact-panel {
       padding: 24px; border-radius: 20px; background: var(--glass-strong);
       border: 1px solid var(--border-glass);
     }
     .contact-panel ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
-    .contact-panel li i { color: #eab308; margin-right: 8px; }
+    .contact-panel li { display: flex; align-items: center; gap: 12px; color: #e5e7eb; }
+    .contact-panel li a { color: inherit; text-decoration: none; transition: color 0.3s; }
+    .contact-panel li a:hover { color: var(--accent); }
+    .contact-panel li i { color: #eab308; min-width: 20px; }
 
     footer { padding: 40px 16px; text-align: center; color: var(--muted); font-size: 0.85rem; }
 
@@ -526,13 +530,14 @@
         <div>
           <p>Ready to freeze a moment in time? Reach out for session availability and pricing.</p>
           <div class="contact-buttons">
-            <a href="https://wa.me/91XXXXXXXXXX" class="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
-            <a href="mailto:hello@dillucaptures.com" class="cta-secondary"><i class="fas fa-envelope"></i> Email Us</a>
+            <a href="https://wa.me/919700034138" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
+            <a href="mailto:hello@dillucaptures@gmail.com" class="cta-secondary"><i class="fas fa-envelope"></i> Email Us</a>
           </div>
         </div>
         <div class="contact-panel">
           <h3>Information</h3>
           <ul>
+            <li><i class="fas fa-phone"></i> <a href="tel:+919700034138">+91 9700034138</a></li>
             <li><i class="fas fa-location-dot"></i> Based in Hyderabad, TS</li>
             <li><i class="fas fa-clock"></i> Best shoots: 6 AM - 9 AM</li>
             <li><i class="fas fa-camera"></i> Outdoor & Home sessions</li>
