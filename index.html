@@ -19,6 +19,7 @@
       --accent-soft: rgba(234, 179, 8, 0.18);
       --text-main: #f9fafb;
       --muted: #9ca3af;
+      /* lighter, more transparent glass */
       --glass: rgba(15, 23, 42, 0.36);
       --glass-strong: rgba(15, 23, 42, 0.55);
       --border-glass: rgba(148, 163, 184, 0.45);
@@ -37,6 +38,7 @@
       overflow-x: hidden;
     }
 
+    /* pure black with soft neutral glow */
     body::before {
       content: "";
       position: fixed;
@@ -101,7 +103,9 @@
       pointer-events: none;
       transition: opacity var(--transition-slow);
     }
-    section:hover::before { opacity: 0.55; }
+    section:hover::before {
+      opacity: 0.55;
+    }
     section:hover {
       background: rgba(15,23,42,0.42);
       box-shadow: 0 28px 70px rgba(0,0,0,0.9);
@@ -153,7 +157,12 @@
       pointer-events: auto;
       animation: navDrop var(--transition-slow) 0.2s forwards;
     }
-    @keyframes navDrop { to { transform: translateY(0); opacity: 1; } }
+    @keyframes navDrop {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
     .logo {
       font-family: 'Dancing Script', cursive;
@@ -162,10 +171,21 @@
       text-decoration: none;
       letter-spacing: 0.12em;
       white-space: nowrap;
+      position: relative;
     }
-    .logo span { background: linear-gradient(135deg, #eab308, #f97316); -webkit-background-clip: text; color: transparent; }
+    .logo span {
+      background: linear-gradient(135deg, #eab308, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-    .nav-links { display: flex; gap: 16px; align-items: center; position: relative; }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      position: relative;
+    }
+
     .nav-link {
       position: relative;
       color: #9ca3af;
@@ -177,20 +197,29 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: color var(--transition-fast);
+      transition: color var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast);
       opacity: 0.9;
     }
-    .nav-link:hover, .nav-link.active { color: #f9fafb; opacity: 1; }
+    .nav-link i {
+      font-size: 0.9rem;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: #f9fafb;
+      opacity: 1;
+    }
 
     .nav-indicator {
       position: absolute;
       bottom: -4px;
       left: 0;
-      width: 0;
+      width: 56px;
       height: 2px;
       background: linear-gradient(90deg, #eab308, #f97316);
       border-radius: 999px;
-      transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), left 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), width 0.4s;
+      transform-origin: left;
+      transform: scaleX(0.3);
+      transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), left 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
     /* Hero */
@@ -202,6 +231,11 @@
       margin-top: 96px;
       padding: 52px 40px;
     }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
     .hero-pill {
       display: inline-flex;
       align-items: center;
@@ -215,8 +249,13 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       margin-bottom: 18px;
+      transform: translateY(8px);
       opacity: 0;
       animation: fadeUp var(--transition-slow) 0.25s forwards;
+    }
+
+    .hero-pill i {
+      font-size: 0.9rem;
     }
 
     #home h1 {
@@ -224,18 +263,34 @@
       font-size: clamp(3rem, 5vw, 4.2rem);
       margin: 0 0 12px;
       letter-spacing: 0.08em;
+      transform: translateY(20px);
       opacity: 0;
       animation: fadeUp var(--transition-slow) 0.35s forwards;
     }
-    #home h1 span { background: linear-gradient(120deg, #eab308, #f97316); -webkit-background-clip: text; color: transparent; }
+    #home h1 span {
+      background: linear-gradient(120deg, #eab308, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-    .hero-sub { margin-bottom: 26px; max-width: 520px; opacity: 0; animation: fadeUp var(--transition-slow) 0.45s forwards; }
+    .hero-sub {
+      margin-bottom: 26px;
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 520px;
+      transform: translateY(24px);
+      opacity: 0;
+      animation: fadeUp var(--transition-slow) 0.45s forwards;
+    }
+
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 18px;
       margin-bottom: 26px;
       font-size: 0.85rem;
+      color: var(--muted);
+      transform: translateY(28px);
       opacity: 0;
       animation: fadeUp var(--transition-slow) 0.55s forwards;
     }
@@ -248,9 +303,22 @@
       background: rgba(15,23,42,0.48);
       border: 1px solid rgba(148,163,184,0.4);
       color: #e5e7eb;
+      backdrop-filter: blur(20px);
+    }
+    .hero-meta i {
+      color: #eab308;
     }
 
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; opacity: 0; animation: fadeUp var(--transition-slow) 0.65s forwards; }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      transform: translateY(32px);
+      opacity: 0;
+      animation: fadeUp var(--transition-slow) 0.65s forwards;
+    }
+
     .cta-btn {
       background: linear-gradient(135deg, #eab308, #f97316);
       color: #111827;
@@ -259,18 +327,27 @@
       border-radius: 999px;
       text-decoration: none;
       font-size: 0.95rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       gap: 8px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.9);
-      transition: transform 0.4s, filter 0.4s;
+      transform-origin: center;
+      transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 0.61, 0.36, 1), filter 0.4s;
     }
-    .cta-btn:hover { transform: translateY(-3px) scale(1.03); filter: brightness(1.05); }
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 26px 48px rgba(0,0,0,1);
+      filter: brightness(1.05);
+    }
 
     .cta-secondary {
       border-radius: 999px;
       padding: 10px 18px;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       border: 1px solid rgba(148,163,184,0.55);
       text-decoration: none;
       color: #e5e7eb;
@@ -278,10 +355,17 @@
       align-items: center;
       gap: 8px;
       background: rgba(15,23,42,0.7);
-      transition: background 0.3s, transform 0.3s;
+      backdrop-filter: blur(18px);
+      transition: background var(--transition-fast), transform var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
     }
-    .cta-secondary:hover { background: #f9fafb; color: #111827; transform: translateY(-2px); }
+    .cta-secondary:hover {
+      background: #f9fafb;
+      color: #111827;
+      border-color: #f9fafb;
+      transform: translateY(-2px);
+    }
 
+    /* circular hero orbit + image */
     .hero-orbit {
       position: relative;
       width: min(360px, 90vw);
@@ -293,10 +377,19 @@
       overflow: hidden;
       display: grid;
       place-items: center;
+      box-shadow: 0 26px 60px rgba(0,0,0,0.95);
+      transform: translateY(16px) scale(0.98);
       opacity: 0;
       animation: orbitReveal 1s 0.5s forwards ease-out;
+      backdrop-filter: blur(28px) saturate(185%);
+      -webkit-backdrop-filter: blur(28px) saturate(185%);
     }
-    @keyframes orbitReveal { to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes orbitReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
 
     .hero-orbit::before {
       content: "";
@@ -304,108 +397,523 @@
       inset: -40%;
       background: conic-gradient(from 180deg, rgba(252,211,77,0.3), transparent, rgba(252,211,77,0.14), transparent);
       animation: spin 40s linear infinite;
+      opacity: 0.7;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
 
-    .hero-image-frame { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; position: relative; }
-    .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 8s; }
-    .hero-orbit:hover .hero-image-frame img { transform: scale(1.12); }
+    .hero-image-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      border: none;
+      box-shadow: none;
+      transform: translateZ(0);
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+      display: block;
+    }
+    .hero-orbit:hover .hero-image-frame img {
+      transform: scale(1.12);
+    }
 
     .hero-tag-badge {
       position: absolute;
-      bottom: 18px; left: 50%; transform: translateX(-50%);
-      padding: 6px 12px; border-radius: 999px;
-      background: rgba(15,23,42,0.92); color: #fef9c3; font-size: 0.7rem;
-      text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;
+      inset: auto auto 18px 50%;
+      transform: translateX(-50%);
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.92);
+      border: 1px solid rgba(148,163,184,0.55);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fef9c3;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(18px);
     }
 
-    /* Animations */
-    .reveal { opacity: 0; transform: translateY(32px); transition: all var(--transition-slow); filter: blur(6px); }
-    .reveal.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px) scale(0.99);
+      transition:
+        opacity var(--transition-slow),
+        transform var(--transition-slow),
+        filter var(--transition-slow);
+      filter: blur(6px);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
 
     /* About */
-    #about { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; }
-    .about-list { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 14px; }
-    .about-item {
-      padding: 10px 12px; border-radius: 14px;
-      background: rgba(15,23,42,0.55); border: 1px solid rgba(148,163,184,0.45);
-      display: flex; align-items: center; gap: 8px; color: #e5e7eb; font-size: 0.85rem;
+    #about {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 28px;
     }
-    .about-item i { color: #eab308; }
+
+    .about-text p {
+      margin-top: 10px;
+      max-width: 540px;
+    }
+    .about-list {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 14px;
+      font-size: 0.85rem;
+    }
+    .about-item {
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(15,23,42,0.55);
+      border: 1px solid rgba(148,163,184,0.45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(20px);
+      color: #e5e7eb;
+    }
+    .about-item i {
+      color: #eab308;
+    }
 
     .about-card {
-      border-radius: 20px; padding: 24px;
+      border-radius: 20px;
+      padding: 16px 14px;
       background: linear-gradient(145deg, rgba(24,24,27,0.98), rgba(55,65,81,0.92));
-      border: 1px solid rgba(148,163,184,0.7); display: flex; flex-direction: column; gap: 12px;
+      border: 1px solid rgba(148,163,184,0.7);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: center;
+      color: #f9fafb;
+      position: relative;
+      overflow: hidden;
     }
-    .about-card span.big { font-size: 2.5rem; font-weight: 700; color: #fde68a; }
+    .about-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .about-card small {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+    .about-card span.big {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fde68a;
+    }
+    .about-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(250,250,250,0.18), transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: opacity var(--transition-slow);
+    }
+    .about-card:hover::after {
+      opacity: 1;
+    }
 
-    /* Gallery */
+    /* Gallery - ENHANCED WITH FOLDERS */
+    #gallery {
+      padding-top: 40px;
+    }
+    #gallery h2 {
+      text-align: left;
+    }
+    #gallery > p {
+      text-align: left;
+      margin-bottom: 24px;
+      max-width: 600px;
+    }
+
+    /* Gallery Folder Tabs */
     .gallery-tabs {
-      display: flex; gap: 8px; margin: 32px 0 24px; padding: 12px;
-      border-radius: 999px; background: rgba(15,23,42,0.6);
-      border: 1px solid rgba(148,163,184,0.45); overflow-x: auto;
+      display: flex;
+      gap: 8px;
+      margin: 32px 0 24px;
+      padding: 12px 0;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.6);
+      border: 1px solid rgba(148,163,184,0.45);
+      backdrop-filter: blur(26px);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .gallery-tabs::-webkit-scrollbar {
+      display: none;
     }
     .tab-btn {
-      all: unset; padding: 10px 20px; border-radius: 999px; color: #9ca3af;
-      font-size: 0.82rem; font-weight: 600; text-transform: uppercase; cursor: pointer;
-      display: flex; align-items: center; gap: 8px; transition: all 0.3s; white-space: nowrap;
+      all: unset;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: transparent;
+      color: #9ca3af;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+      border: 1px solid transparent;
     }
-    .tab-btn.active { color: #f9fafb; background: rgba(234,179,8,0.2); border: 1px solid rgba(234,179,8,0.6); }
+    .tab-btn i {
+      font-size: 0.85rem;
+    }
+    .tab-btn:hover,
+    .tab-btn.active {
+      color: #f9fafb;
+      background: rgba(234,179,8,0.2);
+      border-color: rgba(234,179,8,0.6);
+      box-shadow: 0 8px 25px rgba(234,179,8,0.3);
+    }
 
-    .folder { display: none; }
-    .folder.active { display: block; animation: fadeInUp 0.6s forwards; }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .folders-grid {
+      position: relative;
+    }
+    .folder {
+      display: none;
+    }
+    .folder.active {
+      display: block;
+      animation: fadeInUp 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     .folder-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 24px; padding: 16px 20px; background: rgba(15,23,42,0.7);
-      border-radius: 16px; border: 1px solid rgba(148,163,184,0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      background: rgba(15,23,42,0.7);
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,0.4);
+      backdrop-filter: blur(20px);
     }
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .folder-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-family: 'Merriweather', serif;
+      color: #f9fafb;
+    }
+    .folder-count {
+      font-size: 0.8rem;
+      color: #eab308;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+    }
 
     .gallery-card {
-      position: relative; border-radius: 20px; overflow: hidden;
-      background: rgba(15,23,42,0.5); border: 1px solid rgba(148,163,184,0.45);
-      transition: all 0.5s; cursor: pointer; text-decoration: none;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(15,23,42,0.5);
+      border: 1px solid rgba(148,163,184,0.45);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.85);
+      transform: translateY(10px) scale(0.98);
+      transform-style: preserve-3d;
+      transition:
+        transform 0.5s cubic-bezier(0.2, 0.6, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.2, 0.6, 0.2, 1),
+        border-color 0.4s,
+        background 0.4s;
+      cursor: pointer;
+      backdrop-filter: blur(26px) saturate(180%);
+      -webkit-backdrop-filter: blur(26px) saturate(180%);
+      text-decoration: none;
     }
-    .gallery-card img { width: 100%; height: 280px; object-fit: cover; transition: transform 1.2s; }
-    .gallery-card:hover img { transform: scale(1.1); }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
+      display: block;
+    }
+
+    .gallery-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(252,211,77,0.45), transparent 55%);
+      opacity: 0;
+      mix-blend-mode: soft-light;
+      transition: opacity 0.6s ease-out;
+    }
+
     .gallery-meta {
-      position: absolute; bottom: 12px; left: 12px; right: 12px;
-      padding: 8px 12px; border-radius: 999px; background: rgba(15,23,42,0.85);
-      border: 1px solid rgba(148,163,184,0.4); color: #fff; font-size: 0.72rem;
-      display: flex; justify-content: space-between; backdrop-filter: blur(10px);
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(148,163,184,0.55);
+      color: #f9fafb;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between;
+      backdrop-filter: blur(18px);
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-8px) scale(1.02) rotate3d(1, 0.3, 0, -3deg);
+      box-shadow: 0 28px 70px rgba(0,0,0,1);
+      border-color: rgba(234,179,8,0.9);
+      background: rgba(15,23,42,0.6);
+    }
+    .gallery-card:hover img {
+      transform: scale(1.16);
+      filter: brightness(1.08) saturate(1.1);
+    }
+    .gallery-card:hover::before {
+      opacity: 0.7;
     }
 
     /* Contact */
-    .contact-main { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
-    .contact-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-    .contact-buttons a {
-      padding: 12px 20px; border-radius: 999px; text-decoration: none; font-size: 0.85rem;
-      display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s;
+    #contact {
+      text-align: left;
     }
-    .whatsapp { background: #22c55e; color: #fff !important; }
-    .whatsapp:hover { background: #16a34a; transform: translateY(-3px); }
-    .contact-panel {
-      padding: 24px; border-radius: 20px; background: var(--glass-strong);
-      border: 1px solid var(--border-glass);
+    #contact p {
+      margin-top: 8px;
+      max-width: 520px;
     }
-    .contact-panel ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
-    .contact-panel li { display: flex; align-items: center; gap: 12px; color: #e5e7eb; }
-    .contact-panel li a { color: inherit; text-decoration: none; transition: color 0.3s; }
-    .contact-panel li a:hover { color: var(--accent); }
-    .contact-panel li i { color: #eab308; min-width: 20px; }
 
-    footer { padding: 40px 16px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    .contact-main {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-details {
+      font-size: 0.95rem;
+      display: grid;
+      gap: 10px;
+    }
+    .contact-details a {
+      color: #fde68a;
+      text-decoration: none;
+    }
+    .contact-details span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #e5e7eb;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .contact-buttons a {
+      flex: 1 1 150px;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.6);
+      color: #e5e7eb;
+      backdrop-filter: blur(20px);
+      transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+    .contact-buttons a:hover {
+      background: #f9fafb;
+      color: #111827;
+      border-color: #f9fafb;
+      transform: translateY(-2px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.95);
+    }
+    .contact-buttons a.whatsapp {
+      background: rgba(34,197,94,0.96);
+      border-color: #22c55e;
+      color: #022c17;
+    }
+    .contact-buttons a.whatsapp:hover {
+      filter: brightness(1.05);
+    }
+
+    .contact-panel {
+      border-radius: 20px;
+      padding: 18px 16px;
+      background: var(--glass-strong);
+      border: 1px solid rgba(148,163,184,0.55);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.9);
+      font-size: 0.86rem;
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      color: #e5e7eb;
+    }
+    .contact-panel h3 {
+      margin: 0 0 8px;
+      font-size: 0.96rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .contact-panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+      display: grid;
+      gap: 6px;
+    }
+    .contact-panel li {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .contact-panel i {
+      color: #111827;
+      background: rgba(250,204,21,0.95);
+      border-radius: 999px;
+      padding: 4px;
+      font-size: 0.75rem;
+    }
+
+    footer {
+      padding: 18px 16px 26px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     /* Responsive */
     @media (max-width: 900px) {
-      #home, #about, .contact-main { grid-template-columns: 1fr; }
-      .hero-orbit { order: -1; }
-      .navbar-inner { justify-content: center; }
-      .nav-links { display: none; }
+      main {
+        padding-top: 96px;
+      }
+      #home {
+        grid-template-columns: minmax(0,1fr);
+        padding: 36px 22px 40px;
+      }
+      .hero-orbit {
+        order: -1;
+      }
+      #about {
+        grid-template-columns: minmax(0,1fr);
+        padding: 36px 22px 40px;
+      }
+      .contact-main {
+        grid-template-columns: minmax(0,1fr);
+      }
+      section {
+        padding: 32px 20px;
+        margin: 52px auto;
+      }
+      .navbar-inner {
+        padding-inline: 16px;
+      }
+      .nav-links {
+        gap: 10px;
+      }
+      .nav-link {
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+      }
+      /* Responsive tabs */
+      .gallery-tabs {
+        gap: 6px;
+      }
+      .tab-btn {
+        padding: 8px 16px;
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav-links {
+        display: none;
+      }
+      .navbar-inner {
+        justify-content: center;
+      }
+      #home {
+        margin-top: 72px;
+      }
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cta-btn, .cta-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
     }
   </style>
 </head>
@@ -425,176 +933,421 @@
   </nav>
 
   <main>
+    <!-- Hero -->
     <section id="home">
       <div class="hero-copy">
         <div class="hero-pill">
-          <i class="fas fa-bolt"></i> Hyderabad Lifestyle Photographer
+          <i class="fas fa-bolt"></i>
+          Hyderabad based lifestyle & portrait photographer
         </div>
         <h1><span>Dillu Captures</span></h1>
         <p class="hero-sub">
-          Bright, emotive, and timeless frames that turn fleeting instants into stories your family will re‑live for years.
+          Bright, emotive, and timeless frames that turn fleeting instants into stories
+          your family will re‑live for years.
         </p>
 
         <div class="hero-meta">
-          <span><i class="fas fa-baby"></i> Newborn & Kids</span>
-          <span><i class="fas fa-heart"></i> Couples</span>
-          <span><i class="fas fa-calendar"></i> Events</span>
+          <span><i class="fas fa-baby"></i> Newborn & kids</span>
+          <span><i class="fas fa-heart"></i> Couples & portraits</span>
+          <span><i class="fas fa-calendar"></i> Events & milestones</span>
         </div>
 
         <div class="hero-cta">
-          <a href="#gallery" class="cta-btn"><i class="fas fa-camera-retro"></i> Portfolio</a>
-          <a href="#contact" class="cta-secondary"><i class="fas fa-message"></i> Book Now</a>
+          <a href="#gallery" class="cta-btn">
+            <i class="fas fa-camera-retro"></i> View portfolio
+          </a>
+          <a href="#contact" class="cta-secondary">
+            <i class="fas fa-message"></i> Book a session
+          </a>
         </div>
       </div>
 
       <div class="hero-orbit">
         <div class="hero-image-frame">
-          <img src="Images/IMG_1902.webp" alt="Featured Capture">
-          <div class="hero-tag-badge"><i class="fas fa-circle-dot"></i> Little moments</div>
+          <img src="Images/IMG_1902.webp" alt="Newborn resting in loving hands">
+          <div class="hero-tag-badge">
+            <i class="fas fa-circle-dot"></i>
+            In frame • Little moments
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- About -->
     <section id="about" class="reveal">
       <div class="about-text">
         <h2>About Dillu Captures</h2>
-        <p>Every frame is crafted with patience and play so your photographs feel as real as the moment itself.</p>
+        <p>
+          Every frame is crafted with a blend of patience, play, and precise timing so your photographs feel as real as the moment itself.
+        </p>
         <div class="about-list">
-          <div class="about-item"><i class="fas fa-baby-carriage"></i> Newborns</div>
-          <div class="about-item"><i class="fas fa-users"></i> Families</div>
-          <div class="about-item"><i class="fas fa-ring"></i> Weddings</div>
-          <div class="about-item"><i class="fas fa-landmark"></i> Temple Shoots</div>
+          <div class="about-item">
+            <i class="fas fa-baby-carriage"></i>
+            Newborn & kids sessions
+          </div>
+          <div class="about-item">
+            <i class="fas fa-users"></i>
+            Family & candid portraits
+          </div>
+          <div class="about-item">
+            <i class="fas fa-ring"></i>
+            Pre‑wedding & Haldi stories
+          </div>
+          <div class="about-item">
+            <i class="fas fa-landmark"></i>
+            Temple & outdoor shoots
+          </div>
         </div>
       </div>
+
       <div class="about-card">
-        <h3>Signature Style</h3>
+        <small>Signature style</small>
+        <h3>Bright • Emotive • Clean</h3>
         <span class="big">1000+</span>
-        <p>Photographs captured across heartfelt sessions, from sleepy newborns to laughter‑filled walks.</p>
+        <p>
+          Photographs captured across heartfelt sessions, from sleepy newborns to laughter‑filled evening walks.
+        </p>
       </div>
     </section>
 
+    <!-- Gallery with Folders -->
     <section id="gallery" class="reveal">
-      <h2>Featured Stories</h2>
+      <h2>Featured stories</h2>
+      <p>
+        A small peek into the sessions that clients love most — from tiny toes and temple bells to evening rides and birthday giggles.
+      </p>
+
+      <!-- Folder Tabs -->
       <div class="gallery-tabs">
-        <button class="tab-btn active" data-folder="all">All</button>
-        <button class="tab-btn" data-folder="newborn">Newborn</button>
-        <button class="tab-btn" data-folder="kids">Kids</button>
-        <button class="tab-btn" data-folder="haldi">Haldi</button>
-        <button class="tab-btn" data-folder="temple">Temple</button>
+        <button class="tab-btn active" data-folder="all">
+          <i class="fas fa-images"></i> All
+        </button>
+        <button class="tab-btn" data-folder="newborn">
+          <i class="fas fa-baby"></i> Newborn
+        </button>
+        <button class="tab-btn" data-folder="kids">
+          <i class="fas fa-child"></i> Kids
+        </button>
+        <button class="tab-btn" data-folder="haldi">
+          <i class="fas fa-heart"></i> Haldi
+        </button>
+        <button class="tab-btn" data-folder="temple">
+          <i class="fas fa-landmark"></i> Temple
+        </button>
+        <button class="tab-btn" data-folder="portrait">
+          <i class="fas fa-user"></i> Portrait
+        </button>
       </div>
 
+      <!-- Folders Grid -->
       <div class="folders-grid">
+        <!-- All Folder -->
         <div class="folder active" data-folder="all">
-          <div class="folder-header"><h3>All Stories</h3></div>
+          <div class="folder-header">
+            <h3><i class="fas fa-images"></i> All Stories</h3>
+            <span class="folder-count">6 photos</span>
+          </div>
           <div class="gallery-grid">
-            <a class="gallery-card" href="#"><img src="Images/20240813114300_IMG_0855.webp" alt="Newborn"><div class="gallery-meta"><span>Newborn</span></div></a>
-            <a class="gallery-card" href="#"><img src="Images/Haldi.webp" alt="Haldi"><div class="gallery-meta"><span>Haldi</span></div></a>
-            <a class="gallery-card" href="#"><img src="Images/IMG_1902.webp" alt="Kids"><div class="gallery-meta"><span>Kids</span></div></a>
+            <a class="gallery-card" href="Images/20240813114300_IMG_0855.webp" target="_blank" data-category="newborn">
+              <img src="Images/20240813114300_IMG_0855.webp" alt="Newborn wrapped and sleeping peacefully" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-baby"></i> Newborn</span>
+                <span>Soft morning light</span>
+              </div>
+            </a>
+
+            <a class="gallery-card" href="Images/20240813112158_IMG_0822.webp" target="_blank" data-category="newborn">
+              <img src="Images/20240813112158_IMG_0822.webp" alt="Close-up of baby hand holding a finger" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-hand-holding-heart"></i> Details</span>
+                <span>Little fingers</span>
+              </div>
+            </a>
+
+            <a class="gallery-card" href="Images/IMG_1902.webp" target="_blank" data-category="kids">
+              <img src="Images/IMG_1902.webp" alt="Baby smiling while lying on soft blanket" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-child"></i> Kids</span>
+                <span>Golden hour smiles</span>
+              </div>
+            </a>
+
+            <a class="gallery-card" href="Images/Haldi.webp" target="_blank" data-category="haldi">
+              <img src="Images/Haldi.webp" alt="Haldi ceremony with couple smiling" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-heart"></i> Haldi</span>
+                <span>Pre‑wedding colour</span>
+              </div>
+            </a>
+
+            <a class="gallery-card" href="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" target="_blank" data-category="temple">
+              <img src="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" alt="Family walking at temple with golden light" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-landmark"></i> Temple</span>
+                <span>Quiet prayers</span>
+              </div>
+            </a>
+
+            <a class="gallery-card" href="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp" target="_blank" data-category="portrait">
+              <img src="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp" alt="Portrait with bike at Necklace Road in Hyderabad" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-motorcycle"></i> Portrait</span>
+                <span>Necklace Road vibes</span>
+              </div>
+            </a>
           </div>
         </div>
 
+        <!-- Newborn Folder -->
         <div class="folder" data-folder="newborn">
-          <div class="folder-header"><h3>Newborn Sessions</h3></div>
+          <div class="folder-header">
+            <h3><i class="fas fa-baby"></i> Newborn Moments</h3>
+            <span class="folder-count">2 photos</span>
+          </div>
           <div class="gallery-grid">
-            <a class="gallery-card" href="#"><img src="Images/20240813114300_IMG_0855.webp" alt="Newborn"><div class="gallery-meta"><span>Morning Light</span></div></a>
-            <a class="gallery-card" href="#"><img src="Images/20240813112158_IMG_0822.webp" alt="Details"><div class="gallery-meta"><span>Details</span></div></a>
+            <a class="gallery-card" href="Images/20240813114300_IMG_0855.webp" target="_blank" data-category="newborn">
+              <img src="Images/20240813114300_IMG_0855.webp" alt="Newborn wrapped and sleeping peacefully" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-baby"></i> Newborn</span>
+                <span>Soft morning light</span>
+              </div>
+            </a>
+            <a class="gallery-card" href="Images/20240813112158_IMG_0822.webp" target="_blank" data-category="newborn">
+              <img src="Images/20240813112158_IMG_0822.webp" alt="Close-up of baby hand holding a finger" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-hand-holding-heart"></i> Details</span>
+                <span>Little fingers</span>
+              </div>
+            </a>
           </div>
         </div>
 
+        <!-- Kids Folder -->
         <div class="folder" data-folder="kids">
-          <div class="folder-header"><h3>Kids & Family</h3></div>
+          <div class="folder-header">
+            <h3><i class="fas fa-child"></i> Kids & Family</h3>
+            <span class="folder-count">1 photo</span>
+          </div>
           <div class="gallery-grid">
-            <a class="gallery-card" href="#"><img src="Images/IMG_1902.webp" alt="Kids"><div class="gallery-meta"><span>Portraits</span></div></a>
+            <a class="gallery-card" href="Images/IMG_1902.webp" target="_blank" data-category="kids">
+              <img src="Images/IMG_1902.webp" alt="Baby smiling while lying on soft blanket" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-child"></i> Kids</span>
+                <span>Golden hour smiles</span>
+              </div>
+            </a>
           </div>
         </div>
 
+        <!-- Haldi Folder -->
         <div class="folder" data-folder="haldi">
-          <div class="folder-header"><h3>Haldi Moments</h3></div>
+          <div class="folder-header">
+            <h3><i class="fas fa-heart"></i> Haldi Stories</h3>
+            <span class="folder-count">1 photo</span>
+          </div>
           <div class="gallery-grid">
-            <a class="gallery-card" href="#"><img src="Images/Haldi.webp" alt="Haldi"><div class="gallery-meta"><span>Celebrations</span></div></a>
+            <a class="gallery-card" href="Images/Haldi.webp" target="_blank" data-category="haldi">
+              <img src="Images/Haldi.webp" alt="Haldi ceremony with couple smiling" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-heart"></i> Haldi</span>
+                <span>Pre‑wedding colour</span>
+              </div>
+            </a>
           </div>
         </div>
 
+        <!-- Temple Folder -->
         <div class="folder" data-folder="temple">
-          <div class="folder-header"><h3>Temple Shoots</h3></div>
+          <div class="folder-header">
+            <h3><i class="fas fa-landmark"></i> Temple Sessions</h3>
+            <span class="folder-count">1 photo</span>
+          </div>
           <div class="gallery-grid">
-            <a class="gallery-card" href="#"><img src="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" alt="Temple"><div class="gallery-meta"><span>Serenity</span></div></a>
+            <a class="gallery-card" href="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" target="_blank" data-category="temple">
+              <img src="Images/WhatsApp Image 2025-06-23 at 4.48.52 PM.webp" alt="Family walking at temple with golden light" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-landmark"></i> Temple</span>
+                <span>Quiet prayers</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Portrait Folder -->
+        <div class="folder" data-folder="portrait">
+          <div class="folder-header">
+            <h3><i class="fas fa-user"></i> Portrait Collection</h3>
+            <span class="folder-count">1 photo</span>
+          </div>
+          <div class="gallery-grid">
+            <a class="gallery-card" href="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp" target="_blank" data-category="portrait">
+              <img src="Images/WhatsApp Image 2025-07-06 at 10.40.58 AM.webp" alt="Portrait with bike at Necklace Road in Hyderabad" loading="lazy">
+              <div class="gallery-meta">
+                <span><i class="fas fa-motorcycle"></i> Portrait</span>
+                <span>Necklace Road vibes</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="reveal">
-      <h2>Let's Talk</h2>
+      <h2>Let's plan your shoot</h2>
+      <p>
+        Share your dates, occasion, and a little about the people in front of the camera, and get a tailored session plan with simple, transparent pricing.
+      </p>
+
       <div class="contact-main">
         <div>
-          <p>Ready to freeze a moment in time? Reach out for session availability and pricing.</p>
+          <div class="contact-details">
+            <span><i class="fas fa-envelope"></i> Email:
+              <a href="mailto:dillucapture@gmail.com">dillucapture@gmail.com</a>
+            </span>
+            <span><i class="fas fa-phone"></i> Phone:
+              <a href="tel:+919700034138">+91 9700034138</a>
+            </span>
+            <span><i class="fab fa-instagram"></i> Instagram:
+              <a href="https://www.instagram.com/dillu_captures/" target="_blank">@dillu_captures</a>
+            </span>
+          </div>
+
           <div class="contact-buttons">
-            <a href="https://wa.me/919700034138" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
-            <a href="mailto:hello@dillucaptures@gmail.com" class="cta-secondary"><i class="fas fa-envelope"></i> Email Us</a>
+            <a href="mailto:dillucapture@gmail.com"><i class="fas fa-paper-plane"></i> Email me</a>
+            <a href="tel:+919700034138"><i class="fas fa-phone"></i> Call now</a>
+            <a href="https://www.instagram.com/dillu_captures/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a class="whatsapp" href="https://wa.me/919700034138?text=Hi%20Dillu!" target="_blank">
+              <i class="fab fa-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
+
         <div class="contact-panel">
-          <h3>Information</h3>
+          <h3>Session flow</h3>
+          <p>
+            A relaxed, guided experience from first message to final gallery, so you never have to worry about what to do with your hands.
+          </p>
           <ul>
-            <li><i class="fas fa-phone"></i> <a href="tel:+919700034138">+91 9700034138</a></li>
-            <li><i class="fas fa-location-dot"></i> Based in Hyderabad, TS</li>
-            <li><i class="fas fa-clock"></i> Best shoots: 6 AM - 9 AM</li>
-            <li><i class="fas fa-camera"></i> Outdoor & Home sessions</li>
+            <li><i class="fas fa-sparkles"></i> Pre‑shoot call to understand your story</li>
+            <li><i class="fas fa-location-dot"></i> Location & outfit guidance</li>
+            <li><i class="fas fa-clock"></i> 60–120 minutes of easygoing shooting</li>
+            <li><i class="fas fa-images"></i> Curated, edited digital gallery</li>
           </ul>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Dillu Captures • All Rights Reserved</p>
-  </footer>
+  <footer>© 2025 Dillu Captures. All rights reserved.</footer>
 
   <script>
-    // Tab Logic
-    const tabs = document.querySelectorAll('.tab-btn');
-    const folders = document.querySelectorAll('.folder');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        folders.forEach(f => f.classList.remove('active'));
-        tab.classList.add('active');
-        document.querySelector(`.folder[data-folder="${tab.dataset.folder}"]`).classList.add('active');
-      });
-    });
-
-    // Scroll Reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Nav Indicator
+    // Navbar Navigation
     const navLinks = document.querySelectorAll('.nav-link');
     const indicator = document.querySelector('.nav-indicator');
 
-    function updateIndicator(el) {
-      indicator.style.width = `${el.offsetWidth}px`;
-      indicator.style.left = `${el.offsetLeft}px`;
+    function moveIndicator(link) {
+      const rect = link.getBoundingClientRect();
+      const containerRect = link.parentElement.getBoundingClientRect();
+      const left = rect.left - containerRect.left;
+      indicator.style.left = left + 'px';
+      indicator.style.width = rect.width + 'px';
+      indicator.style.transform = 'scaleX(1)';
     }
 
     navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => moveIndicator(link));
+      link.addEventListener('focus', () => moveIndicator(link));
       link.addEventListener('click', () => {
         navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
-        updateIndicator(link);
       });
     });
 
     window.addEventListener('load', () => {
       const active = document.querySelector('.nav-link.active');
-      if(active) updateIndicator(active);
+      if (active) moveIndicator(active);
     });
+
+    // Intersection Observer for sections and reveals
+    const sections = document.querySelectorAll('section[id]');
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          navLinks.forEach(link => {
+            const hrefId = link.getAttribute('href').slice(1);
+            if (hrefId === id) {
+              navLinks.forEach(l => l.classList.remove('active'));
+              link.classList.add('active');
+              moveIndicator(link);
+            }
+          });
+        }
+      });
+    }, {
+      threshold: 0.25
+    });
+
+    sections.forEach(section => observer.observe(section));
+    revealEls.forEach(el => observer.observe(el));
+
+    // Gallery Card Hover Effects
+    const cards = document.querySelectorAll('.gallery-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateX = ((y / rect.height) - 0.5) * -8;
+        const rotateY = ((x / rect.width) - 0.5) * 8;
+        card.style.transform =
+          `translateY(-8px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    // Gallery Folder System
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const folders = document.querySelectorAll('.folder');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const folderName = btn.dataset.folder;
+        
+        // Update active tab
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Show selected folder
+        folders.forEach(folder => {
+          folder.classList.remove('active');
+          if (folder.dataset.folder === folderName) {
+            folder.classList.add('active');
+          }
+        });
+        
+        // Update photo counts
+        updateFolderCounts();
+      });
+    });
+
+    function updateFolderCounts() {
+      document.querySelectorAll('.folder-count').forEach(countEl => {
+        const folder = countEl.closest('.folder');
+        const photoCount = folder.querySelectorAll('.gallery-card').length;
+        countEl.textContent = `${photoCount} photo${photoCount !== 1 ? 's' : ''}`;
+      });
+    }
+
+    // Initialize counts on load
+    window.addEventListener('load', updateFolderCounts);
   </script>
 </body>
 </html>
+
+
