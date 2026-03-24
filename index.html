@@ -402,12 +402,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
+      align-items: start;
     }
 
     .contact-info p {
       margin-bottom: 0.8rem;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+      line-height: 1.4;
     }
 
     .contact-info p i {
@@ -485,7 +487,7 @@
       transform: translateY(-2px);
     }
 
-    /* Animations on scroll */
+    /* Animations helper */
     .section-title,
     .about-text p,
     .about-image,
@@ -521,37 +523,34 @@
         gap: 2rem;
       }
     }
-
-    /* JS‑helper class for scroll animation */
-    .fade-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 
   <!-- Scroll animation JS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const sections = document.querySelectorAll("section");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const title = entry.target.querySelector(".section-title");
-            const text = entry.target.querySelector(".about-text");
-            const image = entry.target.querySelector(".about-image");
-            const grid = entry.target.querySelector(".services-grid");
-            const gallery = entry.target.querySelector(".gallery-grid");
-            const testimonials = entry.target.querySelector(".testimonial-grid");
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const title = entry.target.querySelector(".section-title");
+              const text = entry.target.querySelector(".about-text");
+              const image = entry.target.querySelector(".about-image");
+              const grid = entry.target.querySelector(".services-grid");
+              const gallery = entry.target.querySelector(".gallery-grid");
+              const testimonials = entry.target.querySelector(".testimonial-grid");
 
-            if (title) title.classList.add("show");
-            if (text) text.classList.add("show");
-            if (image) image.classList.add("show");
-            if (grid) grid.classList.add("show");
-            if (gallery) gallery.classList.add("show");
-            if (testimonials) testimonials.classList.add("show");
-          }
-        });
-      });
+              if (title) title.classList.add("show");
+              if (text) text.classList.add("show");
+              if (image) image.classList.add("show");
+              if (grid) grid.classList.add("show");
+              if (gallery) gallery.classList.add("show");
+              if (testimonials) testimonials.classList.add("show");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
 
       sections.forEach((sec) => observer.observe(sec));
     });
@@ -574,6 +573,4 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-   
+  <!-- HERO
