@@ -1,175 +1,132 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dillu Captures | Photographer</title>  <meta name="description" content="Hyderabad photographer for newborn, kids, couple and events. Book your shoot today.">  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Poppins;background:#000;color:#fff}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dillu Captures</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Poppins;background:#000;color:#fff}
 
-    section{max-width:1100px;margin:auto;padding:70px 20px}
-    h1,h2{text-align:center;margin-bottom:10px}
-    p{text-align:center;color:#aaa}
+nav{
+  position:fixed;top:0;width:100%;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  padding:15px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+  z-index:1000;
+}
+nav a{color:#aaa;text-decoration:none;margin:0 10px;font-size:14px}
+nav a:hover{color:#fff}
 
-    .btn{
-      display:inline-block;
-      background:#eab308;
-      color:#000;
-      padding:12px 25px;
-      border-radius:30px;
-      text-decoration:none;
-      margin-top:20px;
-      font-weight:600;
-    }
+section{max-width:1100px;margin:auto;padding:100px 20px 60px}
 
-    /* HERO */
-    .hero{text-align:center}
+h1{font-size:40px;text-align:center;margin-bottom:10px}
+h2{text-align:center;margin-bottom:10px}
+p{text-align:center;color:#aaa}
 
-    /* GALLERY */
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:15px;
-      margin-top:30px;
-    }
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:#eab308;
+  color:#000;
+  border-radius:30px;
+  text-decoration:none;
+}
 
-    .gallery img{
-      width:100%;
-      border-radius:12px;
-      cursor:pointer;
-      transition:0.3s;
-    }
+.hero{text-align:center}
+.hero img{
+  width:250px;height:250px;border-radius:50%;
+  object-fit:cover;margin-top:20px;
+}
 
-    .gallery img:hover{transform:scale(1.05)}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;margin-top:30px;
+}
+.gallery img{
+  width:100%;border-radius:12px;cursor:pointer;
+  transition:0.4s ease;
+}
+.gallery img:hover{transform:scale(1.05)}
 
-    /* LIGHTBOX */
-    #lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.9);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:999;
-    }
-    #lightbox img{
-      max-width:90%;
-      max-height:90%;
-    }
+.pricing{
+  display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:30px;
+}
+.card{
+  background:#111;padding:25px;border-radius:15px;
+  flex:1 1 250px;text-align:center;border:1px solid #333;
+  transition:0.3s;
+}
+.card:hover{transform:translateY(-5px)}
+.card span{color:#eab308;font-size:22px}
 
-    /* PRICING */
-    .pricing{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:30px;
-    }
+.contact{text-align:center}
+.contact a{color:#eab308;text-decoration:none}
 
-    .card{
-      background:#111;
-      padding:25px;
-      border-radius:15px;
-      flex:1 1 250px;
-      text-align:center;
-      border:1px solid #333;
-    }
+.whatsapp{
+  position:fixed;bottom:20px;right:20px;
+  width:55px;height:55px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;z-index:1000;
+}
 
-    .card h3{margin-bottom:10px}
-    .card span{font-size:22px;color:#eab308}
+footer{text-align:center;padding:20px;color:#777}
 
-    /* TESTIMONIAL */
-    .testimonial{
-      max-width:600px;
-      margin:30px auto;
-      text-align:center;
-      font-style:italic;
-    }
+/* Smooth reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:0.8s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
 
-    /* CONTACT */
-    .contact{text-align:center}
-    .contact a{color:#eab308;text-decoration:none}
-
-    /* WHATSAPP FLOAT */
-    .whatsapp{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      background:#25D366;
-      width:55px;
-      height:55px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:24px;
-      color:#fff;
-      z-index:1000;
-    }
-
-    footer{text-align:center;padding:20px;color:#777}
-
-  </style></head><body><!-- HERO --><section class="hero">
+</style></head><body><nav>
+  <div>Dillu Captures</div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#gallery">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav><section id="home" class="hero reveal">
   <h1>Dillu Captures</h1>
-  <p>Hyderabad Lifestyle & Portrait Photographer</p>
-  <a href="#contact" class="btn">Book a Shoot</a>
-</section><!-- GALLERY --><section>
+  <p>Hyderabad lifestyle & portrait photographer</p>
+  <a href="#gallery" class="btn">View Portfolio</a>
+  <img src="Images/IMG_1902.webp">
+</section><section id="about" class="reveal">
+  <h2>About</h2>
+  <p>Capturing real emotions and timeless moments with a clean and bright style.</p>
+</section><section id="gallery" class="reveal">
   <h2>Gallery</h2>
-  <p>Capturing real moments</p>  <div class="gallery">
+  <div class="gallery">
     <img src="Images/IMG_1902.webp">
     <img src="Images/Haldi.webp">
     <img src="Images/20240813114300_IMG_0855.webp">
     <img src="Images/20240813112158_IMG_0822.webp">
   </div>
-</section><!-- PRICING (NO ONLINE PAYMENTS) --><section>
+</section><section class="reveal">
   <h2>Pricing</h2>
-  <p>Simple and transparent packages</p>  <div class="pricing">
-    <div class="card">
-      <h3>Mini</h3>
-      <span>₹2,999</span>
-      <p>30 mins • 10 photos</p>
-    </div><div class="card">
-  <h3>Standard</h3>
-  <span>₹5,999</span>
-  <p>1–2 hrs • 25 photos</p>
-</div>
-
-<div class="card">
-  <h3>Premium</h3>
-  <span>₹9,999</span>
-  <p>Full session • 50+ photos</p>
-</div>
-
+  <div class="pricing">
+    <div class="card"><h3>Mini</h3><span>₹2,999</span></div>
+    <div class="card"><h3>Standard</h3><span>₹5,999</span></div>
+    <div class="card"><h3>Premium</h3><span>₹9,999</span></div>
   </div>
-</section><!-- TESTIMONIAL --><section>
-  <h2>Client Love</h2>
-  <div class="testimonial">
-    "Amazing photography! Captured our baby beautifully. Highly recommended!"
-  </div>
-</section><!-- CONTACT --><section id="contact" class="contact">
+</section><section id="contact" class="contact reveal">
   <h2>Contact</h2>
-  <p>Call or WhatsApp to book your shoot</p>
   <p><a href="tel:+919700034138">+91 9700034138</a></p>
   <p><a href="mailto:dillucapture@gmail.com">dillucapture@gmail.com</a></p>
-</section><!-- LIGHTBOX --><div id="lightbox">
-  <img id="lightbox-img">
-</div><!-- WHATSAPP BUTTON --><a href="https://wa.me/919700034138?text=Hi%20Dillu!" class="whatsapp">
-  <i class="fab fa-whatsapp"></i>
+</section><a href="https://wa.me/919700034138" class="whatsapp">
+<i class="fab fa-whatsapp"></i>
 </a><footer>© 2026 Dillu Captures</footer><script>
-  // LIGHTBOX
-  const images = document.querySelectorAll('.gallery img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
+const reveals = document.querySelectorAll('.reveal');
 
-  images.forEach(img => {
-    img.addEventListener('click', () => {
-      lightbox.style.display = 'flex';
-      lightboxImg.src = img.src;
-    });
+window.addEventListener('scroll', () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('active');
+    }
   });
-
-  lightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-  });
+});
 </script></body>
 </html>
